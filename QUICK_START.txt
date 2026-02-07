@@ -1,0 +1,71 @@
+LILLIA LANDING PAGE - QUICK START
+==================================
+
+✓ Your static HTML landing page is ready!
+
+OPTION 1: Open Immediately
+---------------------------
+Double-click "index.html" to open in your browser
+
+
+OPTION 2: Test with Local Server
+---------------------------------
+1. Open Terminal
+2. Navigate to this folder:
+   cd static
+3. Run:
+   python3 -m http.server 8000
+4. Open: http://localhost:8000
+
+
+OPTION 3: Deploy to Web (30 seconds)
+-------------------------------------
+1. Go to: https://app.netlify.com/drop
+2. Drag this entire folder
+3. Your site is live!
+
+
+FILES IN THIS FOLDER:
+---------------------
+- index.html      Main page
+- styles.css      All styling
+- script.js       Smooth scrolling
+- lillia-logo.png Your logo
+- README.md       Full documentation
+- DEPLOY.md       Deployment guide
+
+
+WHAT'S INCLUDED:
+----------------
+✓ Navigation
+✓ Hero section with proof metrics
+✓ Who We Serve (3 audience cards)
+✓ Problem Section
+✓ Purpose & Mission
+✓ Solutions overview
+✓ Care Management Platform
+✓ Final CTA
+✓ Footer
+
+✓ Fully responsive (mobile, tablet, desktop)
+✓ Brand colors from your manual
+✓ Professional enterprise design
+✓ 24KB total size (super fast!)
+
+
+NEXT STEPS:
+-----------
+1. Open index.html to preview
+2. Update CTAs to link to your demo booking
+3. Replace placeholder visuals with screenshots
+4. Deploy using DEPLOY.md guide
+
+
+NEED HELP?
+----------
+- See README.md for customization
+- See DEPLOY.md for hosting options
+- All code is commented and easy to edit
+
+
+Ready to go live in 30 seconds!
