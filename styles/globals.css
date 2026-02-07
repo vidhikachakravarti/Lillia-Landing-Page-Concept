@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-lato text-gray-900 antialiased;
+    @apply bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  /* Container patterns */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+
+  .section-padding-lg {
+    @apply py-20 lg:py-32;
+  }
+
+  /* Typography patterns */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Button patterns */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg;
+    @apply bg-lillia-primary text-white;
+    @apply transition-all duration-200 ease-out;
+    @apply hover:bg-lillia-deep hover:shadow-soft;
+    @apply focus:outline-none focus:ring-2 focus:ring-lillia-primary focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg;
+    @apply bg-white text-lillia-primary border-2 border-lillia-primary;
+    @apply transition-all duration-200 ease-out;
+    @apply hover:bg-lillia-lighter;
+    @apply focus:outline-none focus:ring-2 focus:ring-lillia-primary focus:ring-offset-2;
+  }
+
+  /* Card patterns */
+  .card-enterprise {
+    @apply bg-white rounded-xl border border-gray-200;
+    @apply transition-all duration-200;
+    @apply hover:border-lillia-light hover:shadow-enterprise;
+  }
+
+  .card-feature {
+    @apply p-8 lg:p-10 bg-white rounded-2xl border border-gray-100;
+    @apply transition-all duration-300;
+    @apply hover:border-lillia-light hover:shadow-soft;
+  }
+
+  /* Grid patterns */
+  .grid-auto-fit {
+    @apply grid gap-8;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .grid-auto-fill {
+    @apply grid gap-8;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+@layer utilities {
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-lillia-primary to-lillia-medium bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-subtle {
+    @apply bg-gradient-to-br from-white via-lillia-lighter/20 to-white;
+  }
+}
