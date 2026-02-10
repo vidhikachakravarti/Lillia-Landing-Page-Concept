@@ -3,7 +3,7 @@ import { Container } from '../ui/Container';
 
 const recognitions = [
   'Published clinical studies presented at the American Diabetes Association demonstrating meaningful HbA1c reduction',
-  'Recognized by TIME and Statista as one of the World's Top HealthTech Companies in AI and Data Analytics',
+  'Recognized by TIME and Statista as one of the World\'s Top HealthTech Companies in AI and Data Analytics',
   'Deployed across 500+ clinics supporting tens of thousands of chronic patients',
   'Trusted by providers, health systems, and care teams operating long-term chronic programs'
 ];
