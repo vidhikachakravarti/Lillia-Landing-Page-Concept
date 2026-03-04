@@ -43,22 +43,57 @@ export const SolutionsHub: React.FC = () => {
           </h2>
         </div>
 
-        {/* Product 1 - Image Left, Text Right */}
+        {/* Product 1 - Images Left, Text Right */}
         <div ref={product1Ref} className="product-section mb-32 opacity-0">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image - slides from left */}
-            <div className="product-image-left">
-              <div className="rounded-2xl overflow-hidden border-4 border-lillia-primary/20 shadow-2xl bg-gradient-to-br from-lillia-primary to-lillia-deep p-6">
-                <video
-                  className="w-full h-auto rounded-lg"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                >
-                  <source src="/videos/ccm-platform-demo.mp4" type="video/mp4" />
-                </video>
+            {/* Images - slides from left */}
+            <div className="product-image-left space-y-4">
+              {/* Dashboard */}
+              <div className="rounded-xl overflow-hidden border-2 border-lillia-primary/20 shadow-xl hover:shadow-2xl transition-shadow group">
+                <div className="relative">
+                  <div className="aspect-video bg-gradient-to-br from-lillia-lighter/30 to-lillia-light/20 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="text-6xl mb-4">📊</div>
+                      <p className="text-lg text-gray-600 font-semibold">Dashboard Overview</p>
+                      <p className="text-sm text-gray-500 mt-2">Organization metrics & billing status</p>
+                    </div>
+                  </div>
+                  <div className="absolute top-3 right-3 px-3 py-1 bg-lillia-primary/90 backdrop-blur-sm rounded-full text-xs font-bold text-white">
+                    Admin View
+                  </div>
+                </div>
+              </div>
+
+              {/* Billing & Reimbursement */}
+              <div className="rounded-xl overflow-hidden border-2 border-lillia-medium/20 shadow-xl hover:shadow-2xl transition-shadow group">
+                <div className="relative">
+                  <div className="aspect-video bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="text-6xl mb-4">💰</div>
+                      <p className="text-lg text-gray-600 font-semibold">Billing & Reimbursement</p>
+                      <p className="text-sm text-gray-500 mt-2">Track claims & revenue cycles</p>
+                    </div>
+                  </div>
+                  <div className="absolute top-3 right-3 px-3 py-1 bg-green-600/90 backdrop-blur-sm rounded-full text-xs font-bold text-white">
+                    CMS Compliant
+                  </div>
+                </div>
+              </div>
+
+              {/* Remote Care Tracking */}
+              <div className="rounded-xl overflow-hidden border-2 border-lillia-deep/20 shadow-xl hover:shadow-2xl transition-shadow group">
+                <div className="relative">
+                  <div className="aspect-video bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="text-6xl mb-4">📱</div>
+                      <p className="text-lg text-gray-600 font-semibold">Remote Care Monitoring</p>
+                      <p className="text-sm text-gray-500 mt-2">Device readings & patient vitals</p>
+                    </div>
+                  </div>
+                  <div className="absolute top-3 right-3 px-3 py-1 bg-lillia-deep/90 backdrop-blur-sm rounded-full text-xs font-bold text-white">
+                    Real-time
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -70,21 +105,46 @@ export const SolutionsHub: React.FC = () => {
               <h3 className="text-4xl font-bold text-gray-900 mb-4">
                 Chronic Care Management Platform
               </h3>
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-xl text-gray-600 mb-8">
                 Complete care team orchestration and workflow management
               </p>
 
-              <div className="flex flex-wrap gap-3 mb-6">
-                {['Eligible patient list', 'Monthly tracking', 'Billable time', 'CMS documentation'].map((feature, i) => (
-                  <div key={i} className="px-4 py-2 bg-gradient-to-r from-lillia-primary/10 to-lillia-medium/10 border border-lillia-primary/20 rounded-full text-sm font-medium text-lillia-deep">
-                    {feature}
+              {/* Three Key Capabilities */}
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-lillia-primary to-lillia-medium rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span className="text-xl">📊</span>
                   </div>
-                ))}
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Organization Dashboard</h4>
+                    <p className="text-sm text-gray-600">Real-time overview of patients, health system members, and billing metrics</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span className="text-xl">💰</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Billing & Reimbursement</h4>
+                    <p className="text-sm text-gray-600">Track CCM/RPM claims from submission to approval with full revenue visibility</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-lillia-deep to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span className="text-xl">📱</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Remote Care Monitoring</h4>
+                    <p className="text-sm text-gray-600">Device readings, patient vitals, and adherence tracking for comprehensive care</p>
+                  </div>
+                </div>
               </div>
 
               <div className="bg-gradient-to-r from-lillia-lighter/50 to-lillia-light/30 rounded-xl p-6 border-l-4 border-lillia-primary">
                 <p className="text-gray-800 font-medium">
-                  Everything required for reimbursement in one unified platform.
+                  Everything required for compliant, reimbursable care in one unified platform.
                 </p>
               </div>
             </div>
