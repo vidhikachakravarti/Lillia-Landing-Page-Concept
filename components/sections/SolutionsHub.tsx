@@ -11,7 +11,8 @@ export const SolutionsHub: React.FC = () => {
             <span className="text-sm font-semibold text-lillia-deep">Our Solutions</span>
           </div>
           <h2 className="text-5xl font-bold text-gray-900 mb-4 max-w-3xl">
-            Three Integrated Products. <span className="text-gradient-purple">One Complete Platform.</span>
+            Three Integrated Products.<br />
+            <span className="text-gradient-purple">One Complete Platform.</span>
           </h2>
         </div>
 
