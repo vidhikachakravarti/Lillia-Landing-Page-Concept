@@ -49,7 +49,7 @@ export const Navigation: React.FC = () => {
           <div className="flex items-center space-x-4">
             <Button
               variant="primary"
-              href="#demo"
+              href="https://www.lilliacare.ai/contact"
               className="hidden sm:inline-flex bg-gradient-to-r from-lillia-primary to-lillia-medium text-white hover:shadow-lg"
             >
               Book a Demo

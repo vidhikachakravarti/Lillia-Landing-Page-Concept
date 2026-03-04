@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button variant="primary" href="#demo" className="bg-white text-lillia-primary hover:bg-lillia-lighter text-lg px-10 py-4">
+              <Button variant="primary" href="https://www.lilliacare.ai/contact" className="bg-white text-lillia-primary hover:bg-lillia-lighter text-lg px-10 py-4">
                 Book a Demo
               </Button>
               <Button variant="secondary" href="#solutions" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/20 text-lg px-10 py-4">

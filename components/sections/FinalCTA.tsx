@@ -33,7 +33,7 @@ export const FinalCTA: React.FC = () => {
             <Button
               variant="primary"
               className="bg-white text-lillia-primary hover:bg-lillia-lighter hover:shadow-2xl text-lg px-10 py-5 flex items-center justify-center gap-2"
-              href="#book-demo"
+              href="https://www.lilliacare.ai/contact"
             >
               <Calendar className="w-5 h-5" />
               Book a Demo
