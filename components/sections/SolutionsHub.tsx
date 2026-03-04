@@ -278,7 +278,7 @@ export const SolutionsHub: React.FC = () => {
           transition-delay: 0.2s;
         }
 
-        /* Overlapping images animation */
+        /* Overlapping images - Initial state */
         .ccm-image-1,
         .ccm-image-2,
         .ccm-image-3 {
@@ -287,22 +287,96 @@ export const SolutionsHub: React.FC = () => {
           transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Animate in */
         .product-section.animate-in .ccm-image-1 {
           opacity: 1;
           transform: scale(1) translateY(0);
           transition-delay: 0.1s;
+          animation: floatSlow 8s ease-in-out infinite;
         }
 
         .product-section.animate-in .ccm-image-2 {
           opacity: 1;
           transform: scale(1) translateY(0);
           transition-delay: 0.3s;
+          animation: floatMedium 7s ease-in-out infinite;
+          animation-delay: 1s;
         }
 
         .product-section.animate-in .ccm-image-3 {
           opacity: 1;
           transform: scale(1) translateY(0);
           transition-delay: 0.5s;
+          animation: floatFast 6s ease-in-out infinite;
+          animation-delay: 2s;
+        }
+
+        /* Floating animations */
+        @keyframes floatSlow {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+          }
+          50% {
+            transform: translateY(-15px) scale(1.02);
+          }
+        }
+
+        @keyframes floatMedium {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+          }
+          50% {
+            transform: translateY(-20px) scale(1.03);
+          }
+        }
+
+        @keyframes floatFast {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+          }
+          50% {
+            transform: translateY(-25px) scale(1.04);
+          }
+        }
+
+        /* Hover effects */
+        .ccm-image-1:hover {
+          z-index: 40 !important;
+          animation: none;
+          transform: scale(1.05) translateY(-10px);
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ccm-image-2:hover {
+          z-index: 40 !important;
+          animation: none;
+          transform: scale(1.05) translateY(-10px);
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ccm-image-3:hover {
+          z-index: 40 !important;
+          animation: none;
+          transform: scale(1.05) translateY(-10px);
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ccm-image-1 > div,
+        .ccm-image-2 > div,
+        .ccm-image-3 > div {
+          transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ccm-image-1:hover > div {
+          box-shadow: 0 30px 60px -12px rgba(120, 72, 254, 0.4), 0 18px 36px -18px rgba(120, 72, 254, 0.3);
+        }
+
+        .ccm-image-2:hover > div {
+          box-shadow: 0 30px 60px -12px rgba(34, 197, 94, 0.4), 0 18px 36px -18px rgba(34, 197, 94, 0.3);
+        }
+
+        .ccm-image-3:hover > div {
+          box-shadow: 0 30px 60px -12px rgba(168, 85, 247, 0.4), 0 18px 36px -18px rgba(168, 85, 247, 0.3);
         }
       `}</style>
     </section>
