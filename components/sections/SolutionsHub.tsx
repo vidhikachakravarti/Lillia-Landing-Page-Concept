@@ -43,117 +43,107 @@ export const SolutionsHub: React.FC = () => {
           </h2>
         </div>
 
-        {/* Product 1 - Cascading Screenshot Showcase */}
+        {/* Product 1 - Image Collage Left, Text Right */}
         <div ref={product1Ref} className="product-section mb-32 opacity-0">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <div className="px-4 py-2 bg-lillia-lighter rounded-full mb-4 inline-block">
-              <span className="text-xs font-bold text-lillia-deep">🏥 CORE PLATFORM</span>
-            </div>
-            <h3 className="text-4xl font-bold text-gray-900 mb-4">
-              Chronic Care Management Platform
-            </h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Complete care team orchestration and workflow management
-            </p>
-          </div>
-
-          {/* Staggered Screenshot Grid - Browser Window Style */}
-          <div className="relative max-w-7xl mx-auto">
-            {/* Main large screenshot - Dashboard */}
-            <div className="ccm-main-screenshot relative z-30 mb-8">
-              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200/50">
-                {/* Browser chrome */}
-                <div className="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-200">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Image Collage - slides from left */}
+            <div className="product-image-left">
+              <div className="grid grid-cols-2 gap-4">
+                {/* Large dashboard - spans 2 columns */}
+                <div className="col-span-2">
+                  <div className="rounded-xl overflow-hidden border border-gray-200/50 shadow-xl hover:shadow-2xl transition-shadow">
+                    <img
+                      src="/images/ccm-dashboard.png"
+                      alt="Organization Dashboard - Admin overview"
+                      className="w-full h-auto"
+                    />
                   </div>
-                  <div className="flex-1 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-1 bg-white rounded-lg text-xs text-gray-600">
-                      <span>📊</span>
-                      <span className="font-medium">Organization Dashboard</span>
-                    </div>
-                  </div>
+                  <p className="text-xs text-gray-500 mt-2 text-center">Organization Dashboard</p>
                 </div>
-                {/* Screenshot */}
-                <img
-                  src="/images/ccm-dashboard.png"
-                  alt="Organization Dashboard"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
 
-            {/* Two smaller screenshots side by side with offset */}
-            <div className="grid md:grid-cols-2 gap-8 relative">
-              {/* Billing screenshot */}
-              <div className="ccm-side-screenshot relative z-20 transform md:-translate-y-12">
-                <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200/50 hover:shadow-2xl transition-shadow">
-                  {/* Browser chrome */}
-                  <div className="bg-gray-100 px-3 py-2 flex items-center gap-2 border-b border-gray-200">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
-                    </div>
-                    <div className="flex-1 text-center">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-white rounded text-xs text-gray-600">
-                        <span>💰</span>
-                        <span className="font-medium">Billing & Reimbursement</span>
-                      </div>
-                    </div>
+                {/* Billing - bottom left */}
+                <div>
+                  <div className="rounded-lg overflow-hidden border border-gray-200/50 shadow-lg hover:shadow-xl transition-shadow">
+                    <img
+                      src="/images/ccm-billing.png"
+                      alt="Billing & Reimbursement tracking"
+                      className="w-full h-auto"
+                    />
                   </div>
-                  {/* Screenshot */}
-                  <img
-                    src="/images/ccm-billing.png"
-                    alt="Billing & Reimbursement"
-                    className="w-full h-auto"
-                  />
+                  <p className="text-xs text-gray-500 mt-2 text-center">Billing & Reimbursement</p>
                 </div>
-              </div>
 
-              {/* Monitoring screenshot */}
-              <div className="ccm-side-screenshot relative z-10 transform md:-translate-y-12">
-                <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200/50 hover:shadow-2xl transition-shadow">
-                  {/* Browser chrome */}
-                  <div className="bg-gray-100 px-3 py-2 flex items-center gap-2 border-b border-gray-200">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
-                    </div>
-                    <div className="flex-1 text-center">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-white rounded text-xs text-gray-600">
-                        <span>📱</span>
-                        <span className="font-medium">Remote Care Monitoring</span>
-                      </div>
-                    </div>
+                {/* Monitoring - bottom right */}
+                <div>
+                  <div className="rounded-lg overflow-hidden border border-gray-200/50 shadow-lg hover:shadow-xl transition-shadow">
+                    <img
+                      src="/images/ccm-monitoring.png"
+                      alt="Remote Care Monitoring - Patient vitals"
+                      className="w-full h-auto"
+                    />
                   </div>
-                  {/* Screenshot */}
-                  <img
-                    src="/images/ccm-monitoring.png"
-                    alt="Remote Care Monitoring"
-                    className="w-full h-auto"
-                  />
+                  <p className="text-xs text-gray-500 mt-2 text-center">Remote Monitoring</p>
                 </div>
               </div>
             </div>
 
-            {/* Key features below */}
-            <div className="grid md:grid-cols-3 gap-6 mt-16">
-              {[
-                { icon: '✅', title: 'CMS Compliant', desc: 'Automated compliant documentation' },
-                { icon: '⏱️', title: 'Time Tracking', desc: 'Structured billable hours' },
-                { icon: '📊', title: 'Real-time Analytics', desc: 'Patient & revenue insights' }
-              ].map((feature, i) => (
-                <div key={i} className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                  <div className="text-3xl mb-3">{feature.icon}</div>
-                  <h5 className="font-bold text-gray-900 mb-1">{feature.title}</h5>
-                  <p className="text-sm text-gray-600">{feature.desc}</p>
+            {/* Text - slides from right */}
+            <div className="product-text-right">
+              <div className="px-4 py-2 bg-lillia-lighter rounded-full mb-4 inline-block">
+                <span className="text-xs font-bold text-lillia-deep">🏥 CORE PLATFORM</span>
+              </div>
+              <h3 className="text-4xl font-bold text-gray-900 mb-4">
+                Chronic Care Management Platform
+              </h3>
+              <p className="text-xl text-gray-600 mb-8">
+                Complete care team orchestration and workflow management
+              </p>
+
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-lillia-primary to-lillia-medium rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span className="text-xl">📊</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Organization Dashboard</h4>
+                    <p className="text-sm text-gray-600">Track patients, health system members, and real-time billing metrics</p>
+                  </div>
                 </div>
-              ))}
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span className="text-xl">💰</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Billing & Reimbursement</h4>
+                    <p className="text-sm text-gray-600">Complete claims management from submission to approval</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span className="text-xl">📱</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Remote Care Monitoring</h4>
+                    <p className="text-sm text-gray-600">Device readings and patient vitals in one comprehensive view</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mb-6">
+                {['CMS Compliant', 'Time Tracking', 'Real-time Analytics'].map((feature, i) => (
+                  <div key={i} className="px-4 py-2 bg-gradient-to-r from-lillia-primary/10 to-lillia-medium/10 border border-lillia-primary/20 rounded-full text-sm font-medium text-lillia-deep">
+                    {feature}
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-gradient-to-r from-lillia-lighter/50 to-lillia-light/30 rounded-xl p-6 border-l-4 border-lillia-primary">
+                <p className="text-gray-800 font-medium">
+                  Everything required for compliant, reimbursable care in one unified platform.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -297,40 +287,6 @@ export const SolutionsHub: React.FC = () => {
         .product-section.animate-in .product-text-right,
         .product-section.animate-in .product-image-right {
           transition-delay: 0.2s;
-        }
-
-        /* CCM Screenshots - Cascading animation */
-        .ccm-main-screenshot,
-        .ccm-side-screenshot {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-
-        .product-section.animate-in .ccm-main-screenshot {
-          animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .product-section.animate-in .ccm-side-screenshot {
-          animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .product-section.animate-in .ccm-side-screenshot:first-child {
-          animation-delay: 0.2s;
-        }
-
-        .product-section.animate-in .ccm-side-screenshot:last-child {
-          animation-delay: 0.4s;
-        }
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
         }
       `}</style>
     </section>
