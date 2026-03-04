@@ -4,32 +4,32 @@ import { Button } from '../ui/Button';
 
 export const FinalCTA: React.FC = () => {
   return (
-    <section id="demo" className="section-padding-lg bg-gradient-to-br from-lillia-primary via-lillia-medium to-lillia-deep">
+    <section id="demo" className="section-padding bg-neutral-900">
       <Container>
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           {/* Headline */}
-          <h2 className="text-display-md lg:text-display-lg font-bold text-white mb-8">
+          <h2 className="text-display-sm lg:text-display-md font-bold text-white mb-6">
             Build Chronic Care That Works Between Visits
           </h2>
 
           {/* Description */}
-          <p className="text-body-xl lg:text-heading-lg text-white/90 leading-relaxed mb-12">
+          <p className="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto">
             See how Lillia helps healthcare systems deliver continuous chronic care with clarity,
             control, and measurable outcomes.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
             <Button
               variant="primary"
-              className="bg-white text-lillia-primary hover:bg-gray-50 hover:shadow-soft-lg"
+              className="bg-white text-neutral-900 hover:bg-neutral-100"
               href="#book-demo"
             >
               Book a Demo
             </Button>
             <Button
               variant="secondary"
-              className="bg-transparent text-white border-white hover:bg-white/10"
+              className="bg-transparent text-white border-neutral-600 hover:bg-neutral-800"
               href="#strategic-overview"
             >
               Request a Strategic Overview
@@ -37,7 +37,7 @@ export const FinalCTA: React.FC = () => {
           </div>
 
           {/* No urgency messaging */}
-          <p className="text-body-md text-white/70 mt-8">
+          <p className="text-sm text-neutral-400">
             Talk to our team to see if Lillia is the right fit for your organization.
           </p>
         </div>

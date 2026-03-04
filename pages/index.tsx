@@ -2,14 +2,10 @@ import React from 'react';
 import { Navigation } from '../components/layout/Navigation';
 import { Footer } from '../components/layout/Footer';
 import { Hero } from '../components/sections/Hero';
-import { WhoWeServe } from '../components/sections/WhoWeServe';
 import { ProblemSection } from '../components/sections/ProblemSection';
 import { PurposeSection } from '../components/sections/PurposeSection';
 import { SolutionsHub } from '../components/sections/SolutionsHub';
-import { ProofRecognition } from '../components/sections/ProofRecognition';
-import { ImpactCards } from '../components/sections/ImpactCards';
 import { WhyLillia } from '../components/sections/WhyLillia';
-import { AudienceSegmentation } from '../components/sections/AudienceSegmentation';
 import { FinalCTA } from '../components/sections/FinalCTA';
 
 export default function Home() {
@@ -23,29 +19,17 @@ export default function Home() {
         {/* Hero Section */}
         <Hero />
 
-        {/* Who We Serve */}
-        <WhoWeServe />
-
-        {/* The Problem We Solve */}
+        {/* The Reality */}
         <ProblemSection />
 
-        {/* Purpose and Mission */}
+        {/* What Lillia Does */}
         <PurposeSection />
 
-        {/* Solutions Hub - Contains all 4 solution sub-sections */}
+        {/* How Lillia Works Inside Your Practice */}
         <SolutionsHub />
 
-        {/* Proof and Recognition */}
-        <ProofRecognition />
-
-        {/* Impact Cards */}
-        <ImpactCards />
-
-        {/* Why Healthcare Systems Choose Lillia */}
+        {/* Revenue Today. Ready for Evolving Models */}
         <WhyLillia />
-
-        {/* Audience Segmentation */}
-        <AudienceSegmentation />
 
         {/* Final CTA */}
         <FinalCTA />
