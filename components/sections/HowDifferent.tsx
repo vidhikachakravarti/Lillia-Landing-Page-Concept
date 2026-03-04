@@ -48,7 +48,7 @@ export const HowDifferent: React.FC = () => {
 
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-lillia-primary/20 to-transparent rounded-2xl" />
-                <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-8 border-l-4 border-lillia-peach shadow-2xl">
+                <div className="relative bg-white rounded-2xl p-8 border-l-4 border-lillia-peach shadow-2xl">
                   <p className="text-2xl text-gray-900 font-bold leading-relaxed">
                     A structured remote chronic care operating model — not just engagement software.
                   </p>

@@ -31,9 +31,9 @@ const problems = [
 
 export const ProblemSection: React.FC = () => {
   return (
-    <section className="py-32 relative backdrop-blur-sm">
+    <section className="py-32 relative">
       {/* Subtle overlay for depth */}
-      <div className="absolute inset-0 bg-white/40" />
+      <div className="absolute inset-0 bg-white/90" />
 
       <Container>
         <div className="relative grid lg:grid-cols-12 gap-12 items-start">

@@ -33,7 +33,7 @@ export const SolutionsHub: React.FC = () => {
   return (
     <section id="solutions" className="relative py-32 overflow-hidden">
       {/* Darker section background for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-neutral-100/80 via-neutral-50/60 to-white/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-b from-neutral-100 via-neutral-50 to-white" />
 
       <Container>
         {/* Header */}

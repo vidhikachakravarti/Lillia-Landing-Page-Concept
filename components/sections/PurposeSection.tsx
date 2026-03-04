@@ -64,7 +64,7 @@ export const PurposeSection: React.FC = () => {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Light overlay for section distinction */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/60 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/95" />
 
       <Container>
         <div className="relative max-w-7xl mx-auto">

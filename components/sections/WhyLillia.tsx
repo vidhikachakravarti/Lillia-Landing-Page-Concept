@@ -6,7 +6,7 @@ export const WhyLillia: React.FC = () => {
   return (
     <section id="why-lillia" className="relative py-32">
       {/* Light overlay */}
-      <div className="absolute inset-0 bg-white/50 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-white/95" />
 
       <Container>
         {/* Header */}
