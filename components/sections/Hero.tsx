@@ -43,19 +43,19 @@ export const Hero: React.FC = () => {
                 <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                   <DollarSign className="w-7 h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <div className="text-lg md:text-xl font-bold text-left">Increase reimbursement.</div>
+                <div className="text-lg md:text-xl font-bold text-left whitespace-nowrap">Increase reimbursement.</div>
               </div>
               <div className="flex items-center justify-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                   <HeartPulse className="w-7 h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <div className="text-lg md:text-xl font-bold text-left">Improve adherence.</div>
+                <div className="text-lg md:text-xl font-bold text-left whitespace-nowrap">Improve adherence.</div>
               </div>
               <div className="flex items-center justify-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                   <ClipboardCheck className="w-7 h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <div className="text-lg md:text-xl font-bold text-left">Reduce administrative burden.</div>
+                <div className="text-lg md:text-xl font-bold text-left whitespace-nowrap">Reduce administrative burden.</div>
               </div>
             </div>
 
