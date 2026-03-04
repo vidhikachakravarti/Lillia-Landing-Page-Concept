@@ -83,7 +83,7 @@ export const PurposeSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Workflow Diagram - Premium Design */}
+          {/* Animated Flow Diagram */}
           <div ref={workflowRef} className="workflow-container mb-24">
             {/* Section intro */}
             <div className="text-center mb-16">
@@ -91,126 +91,184 @@ export const PurposeSection: React.FC = () => {
                 How It Works
               </p>
               <h3 className="text-3xl font-bold text-gray-900">
-                A Continuous Cycle of Care
+                Data Flow Through Lillia
               </h3>
             </div>
 
-            <div className="relative max-w-6xl mx-auto">
-              {/* Main flow visualization */}
-              <div className="relative">
-                {/* Background glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-lillia-primary/5 via-lillia-peach/5 to-lillia-primary/5 rounded-3xl blur-3xl" />
-
-                {/* Flow steps in horizontal layout */}
-                <div className="relative grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200/40 rounded-2xl overflow-hidden">
-                  {[
-                    {
-                      step: '01',
-                      title: 'Collect & Engage',
-                      desc: 'Automated data collection from patients with intelligent engagement workflows',
-                      gradient: 'from-lillia-primary to-lillia-medium'
-                    },
-                    {
-                      step: '02',
-                      title: 'Track & Document',
-                      desc: 'Real-time monitoring with structured time documentation for compliance',
-                      gradient: 'from-lillia-medium to-lillia-primary'
-                    },
-                    {
-                      step: '03',
-                      title: 'Verify & Report',
-                      desc: 'CMS-aligned verification with automated compliant reporting',
-                      gradient: 'from-lillia-primary to-lillia-deep'
-                    }
-                  ].map((phase, index) => (
-                    <div
-                      key={index}
-                      className="workflow-phase bg-white p-8 lg:p-10 relative group"
-                      style={{ animationDelay: `${index * 0.15}s` }}
-                    >
-                      {/* Step number */}
-                      <div className="inline-flex items-center justify-center mb-6">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${phase.gradient} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow`}>
-                          <span className="text-2xl font-bold text-white">{phase.step}</span>
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <h4 className="text-xl font-bold text-gray-900 mb-3">
-                        {phase.title}
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
-                        {phase.desc}
-                      </p>
-
-                      {/* Arrow connector (hidden on last item) */}
-                      {index < 2 && (
-                        <div className="hidden md:block absolute top-1/2 -right-px translate-x-1/2 -translate-y-1/2 z-10">
-                          <div className="w-8 h-8 bg-white rounded-full border-2 border-gray-200/40 flex items-center justify-center shadow-sm">
-                            <svg className="w-4 h-4 text-lillia-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                            </svg>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Hover gradient border */}
-                      <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br ${phase.gradient} -z-10`} style={{ margin: '-1px', borderRadius: 'inherit' }} />
-                    </div>
-                  ))}
+            <div className="relative max-w-7xl mx-auto">
+              {/* Main Flow Diagram */}
+              <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-16 border border-gray-200/50 shadow-xl overflow-hidden">
+                {/* Background decoration */}
+                <div className="absolute inset-0 opacity-30">
+                  <div className="absolute top-0 right-1/4 w-96 h-96 bg-lillia-primary/10 rounded-full blur-3xl" />
+                  <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-lillia-peach/10 rounded-full blur-3xl" />
                 </div>
 
-                {/* Loop indicator */}
-                <div className="mt-8 flex items-center justify-center">
-                  <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-md border border-gray-200/50">
-                    <div className="w-2 h-2 bg-gradient-to-r from-lillia-primary to-lillia-medium rounded-full animate-pulse" />
-                    <span className="text-sm font-medium text-gray-700">Continuous monthly cycle</span>
-                    <svg className="w-5 h-5 text-lillia-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              {/* Outcome metrics */}
-              <div className="mt-20 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium rounded-3xl opacity-[0.03]" />
-
-                <div className="relative bg-white/60 backdrop-blur-sm rounded-3xl p-12 border border-gray-200/50">
-                  <div className="text-center mb-10">
-                    <p className="text-sm font-semibold text-lillia-primary uppercase tracking-wider mb-2">
-                      Proven Results
-                    </p>
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      Measurable Impact on Your Practice
-                    </h3>
-                  </div>
-
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="relative grid lg:grid-cols-[1fr_auto_2fr_auto_1fr] gap-8 items-start">
+                  {/* Left: Data Sources */}
+                  <div className="space-y-3">
+                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Input Sources</h4>
                     {[
-                      { metric: '85%', label: 'Patient Adherence', subtext: 'vs 60% industry avg' },
-                      { metric: '20min', label: 'Time Saved', subtext: 'per patient/month' },
-                      { metric: '$40k+', label: 'Annual Revenue', subtext: 'per enrolled patient' },
-                      { metric: '100%', label: 'CMS Compliant', subtext: 'documentation' }
-                    ].map((item, index) => (
+                      { icon: '📊', label: 'Patient Vitals', color: 'from-blue-500 to-blue-600' },
+                      { icon: '💊', label: 'Medications', color: 'from-green-500 to-green-600' },
+                      { icon: '📝', label: 'Symptoms', color: 'from-orange-500 to-orange-600' },
+                      { icon: '📱', label: 'App Activity', color: 'from-purple-500 to-purple-600' },
+                      { icon: '🔔', label: 'Alerts', color: 'from-red-500 to-red-600' }
+                    ].map((source, index) => (
                       <div
                         key={index}
-                        className="workflow-metric text-center"
-                        style={{ animationDelay: `${0.6 + index * 0.1}s` }}
+                        className="flow-source-item bg-white rounded-xl p-3 shadow-sm border border-gray-200/50 flex items-center gap-3"
+                        style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        <div className="mb-3">
-                          <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium bg-clip-text text-transparent">
-                            {item.metric}
+                        <div className={`w-10 h-10 bg-gradient-to-br ${source.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-md`}>
+                          <span className="text-lg">{source.icon}</span>
+                        </div>
+                        <span className="text-sm font-medium text-gray-700">{source.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Animated flowing arrows - Left to Center */}
+                  <div className="hidden lg:flex items-center justify-center h-full">
+                    <div className="relative w-20">
+                      <svg className="w-full h-auto" viewBox="0 0 80 300" fill="none">
+                        {[0, 1, 2, 3, 4].map((i) => (
+                          <g key={i}>
+                            <path
+                              d={`M 10 ${60 * i + 30} L 60 150`}
+                              stroke="url(#gradient1)"
+                              strokeWidth="2"
+                              strokeDasharray="4,4"
+                              className="flow-line"
+                              style={{ animationDelay: `${i * 0.2}s` }}
+                            />
+                            <circle r="3" fill="#7848FE" className="flow-particle" style={{ animationDelay: `${i * 0.2}s` }}>
+                              <animateMotion
+                                dur="2s"
+                                repeatCount="indefinite"
+                                begin={`${i * 0.2}s`}
+                                path={`M 10 ${60 * i + 30} L 60 150`}
+                              />
+                            </circle>
+                          </g>
+                        ))}
+                        <defs>
+                          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#7848FE" stopOpacity="0.2" />
+                            <stop offset="100%" stopColor="#7848FE" stopOpacity="0.6" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Center: Lillia Platform - Processing Steps */}
+                  <div className="space-y-4">
+                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 text-center">Lillia Platform</h4>
+
+                    {[
+                      { icon: '🔄', title: 'Integrate', desc: 'Collect & normalize data' },
+                      { icon: '💬', title: 'Engage', desc: 'Automated patient interactions' },
+                      { icon: '📈', title: 'Analyze', desc: 'Real-time monitoring' },
+                      { icon: '📄', title: 'Document', desc: 'Structured time tracking' },
+                      { icon: '✅', title: 'Verify', desc: 'CMS compliance check' }
+                    ].map((step, index) => (
+                      <div
+                        key={index}
+                        className="flow-process-step bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium rounded-2xl p-5 shadow-xl relative overflow-hidden group"
+                        style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                      >
+                        {/* Shimmer effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer" />
+
+                        <div className="relative flex items-center gap-4">
+                          <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span className="text-2xl">{step.icon}</span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="text-white font-bold text-sm mb-1">{step.title}</div>
+                            <div className="text-white/80 text-xs">{step.desc}</div>
                           </div>
                         </div>
-                        <div className="text-sm font-semibold text-gray-900 mb-1">
-                          {item.label}
-                        </div>
-                        <div className="text-xs text-gray-500">
-                          {item.subtext}
+
+                        {/* Progress bar animation */}
+                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
+                          <div className="progress-bar h-full bg-white/60" style={{ animationDelay: `${0.5 + index * 0.1}s` }} />
                         </div>
                       </div>
                     ))}
+                  </div>
+
+                  {/* Animated flowing arrows - Center to Right */}
+                  <div className="hidden lg:flex items-center justify-center h-full">
+                    <div className="relative w-20">
+                      <svg className="w-full h-auto" viewBox="0 0 80 300" fill="none">
+                        {[0, 1, 2, 3].map((i) => (
+                          <g key={i}>
+                            <path
+                              d={`M 20 150 L 70 ${75 * i + 37.5}`}
+                              stroke="url(#gradient2)"
+                              strokeWidth="2"
+                              strokeDasharray="4,4"
+                              className="flow-line"
+                              style={{ animationDelay: `${1 + i * 0.15}s` }}
+                            />
+                            <circle r="3" fill="#9F7BFF" className="flow-particle" style={{ animationDelay: `${1 + i * 0.15}s` }}>
+                              <animateMotion
+                                dur="2s"
+                                repeatCount="indefinite"
+                                begin={`${1 + i * 0.15}s`}
+                                path={`M 20 150 L 70 ${75 * i + 37.5}`}
+                              />
+                            </circle>
+                          </g>
+                        ))}
+                        <defs>
+                          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#9F7BFF" stopOpacity="0.6" />
+                            <stop offset="100%" stopColor="#9F7BFF" stopOpacity="0.2" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Right: Outcomes */}
+                  <div className="space-y-3">
+                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Outcomes</h4>
+                    {[
+                      { icon: '💚', label: 'Better Adherence', metric: '85%', color: 'from-green-400 to-green-600' },
+                      { icon: '⚡', label: 'Reduced Workload', metric: '20min', color: 'from-yellow-400 to-orange-500' },
+                      { icon: '💰', label: 'Revenue Growth', metric: '$40k+', color: 'from-lillia-primary to-lillia-deep' },
+                      { icon: '📊', label: 'CMS Reports', metric: '100%', color: 'from-blue-500 to-purple-600' }
+                    ].map((outcome, index) => (
+                      <div
+                        key={index}
+                        className="flow-outcome-item bg-white rounded-xl p-4 shadow-md border-2 border-gray-200/50 hover:border-lillia-primary/30 transition-all hover:shadow-xl"
+                        style={{ animationDelay: `${1.5 + index * 0.1}s` }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-12 h-12 bg-gradient-to-br ${outcome.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-md`}>
+                            <span className="text-xl">{outcome.icon}</span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="text-sm font-medium text-gray-600 mb-0.5">{outcome.label}</div>
+                            <div className="text-lg font-bold text-gray-900">{outcome.metric}</div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Bottom cycle indicator */}
+                <div className="mt-12 pt-8 border-t border-gray-200/50">
+                  <div className="flex items-center justify-center gap-3 text-sm text-gray-600">
+                    <div className="w-2 h-2 bg-lillia-primary rounded-full animate-pulse" />
+                    <span className="font-medium">Continuous monthly workflow cycle</span>
+                    <svg className="w-5 h-5 text-lillia-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -285,56 +343,137 @@ export const PurposeSection: React.FC = () => {
           opacity: 1;
         }
 
-        /* Phase cards */
-        .workflow-phase {
+        /* Source items - slide in from left */
+        .flow-source-item {
           opacity: 1;
-          transform: translateY(0);
-          animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .workflow-animate .workflow-phase {
-          animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        .workflow-animate .flow-source-item {
+          animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .workflow-phase:hover {
-          transform: translateY(-4px);
-        }
-
-        @keyframes fadeInUp {
+        @keyframes slideInLeft {
           from {
             opacity: 0;
-            transform: translateY(24px);
+            transform: translateX(-30px);
           }
           to {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
           }
         }
 
-        /* Metrics */
-        .workflow-metric {
+        /* Process steps - fade in with scale */}
+        .flow-process-step {
           opacity: 1;
-          animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .workflow-animate .workflow-metric {
-          animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        /* Subtle hover state for metrics */
-        .workflow-metric:hover {
-          transform: scale(1.05);
+          animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
           transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .workflow-animate .flow-process-step {
+          animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .flow-process-step:hover {
+          transform: scale(1.02);
+        }
+
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        /* Shimmer effect on process steps */
+        .shimmer {
+          animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+
+        /* Progress bar animation */
+        .progress-bar {
+          width: 0;
+          animation: progressFill 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes progressFill {
+          0% {
+            width: 0%;
+          }
+          50% {
+            width: 100%;
+          }
+          100% {
+            width: 0%;
+          }
+        }
+
+        /* Outcome items - slide in from right */
+        .flow-outcome-item {
+          opacity: 1;
+          animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .workflow-animate .flow-outcome-item {
+          animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        /* Flow lines - draw animation */
+        .flow-line {
+          stroke-dasharray: 1000;
+          stroke-dashoffset: 1000;
+          animation: drawLine 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes drawLine {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        /* Flowing particles */
+        .flow-particle {
+          opacity: 0;
+          animation: fadeInParticle 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeInParticle {
+          to {
+            opacity: 1;
+          }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+          .flow-source-item,
+          .flow-outcome-item {
+            max-width: 100%;
+          }
         }
       `}</style>
     </section>
