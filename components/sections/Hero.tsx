@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
       </div>
 
       <Container>
-        <div className="max-w-5xl mx-auto py-20">
+        <div className="max-w-5xl mx-auto py-20 pt-32">
           {/* Content */}
           <div className="text-white text-center">
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
