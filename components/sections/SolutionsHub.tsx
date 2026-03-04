@@ -183,84 +183,85 @@ export const SolutionsHub: React.FC = () => {
           </div>
         </div>
 
-        {/* Product 3 - Image Left, Text Right */}
+        {/* Product 3 - Overlapping Images with Content Below */}
         <div ref={product3Ref} className="product-section opacity-0">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image - slides from left */}
-            <div className="product-image-left">
-              <div className="relative h-[600px]">
-                {/* Journey Tracker - Back */}
-                <div className="absolute top-0 left-0 w-[90%] z-10">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
-                    <img
-                      src="/Lillia-Landing-Page-Concept/images/execution-os-1.png"
-                      alt="Journey Tracker - Patient Management"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-lillia-lighter rounded-full mb-4">
+              <svg className="w-4 h-4 text-lillia-deep" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+              </svg>
+              <span className="text-xs font-bold text-lillia-deep uppercase tracking-wider">AUTOMATION</span>
+            </div>
+            <h3 className="text-4xl font-bold text-gray-900 mb-4">
+              Execution OS
+            </h3>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Intelligent automation layer ensuring operational excellence
+            </p>
+          </div>
 
-                {/* My Tasks - Middle */}
-                <div className="absolute top-[120px] right-0 w-[85%] z-20">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
-                    <img
-                      src="/Lillia-Landing-Page-Concept/images/execution-os-2.png"
-                      alt="My Tasks - Task Management"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
-
-                {/* Journey Tracker Detail - Front */}
-                <div className="absolute bottom-0 left-[10%] w-[80%] z-30">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
-                    <img
-                      src="/Lillia-Landing-Page-Concept/images/execution-os-3.png"
-                      alt="Journey Tracker Details"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
+          {/* Overlapping Images */}
+          <div className="relative h-[600px] lg:h-[700px] mb-16">
+            {/* Journey Tracker - Back */}
+            <div className="absolute top-0 left-[5%] w-[70%] z-10 ccm-image-1">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                <img
+                  src="/Lillia-Landing-Page-Concept/images/execution-os-1.png"
+                  alt="Journey Tracker - Patient Management"
+                  className="w-full h-auto"
+                />
               </div>
             </div>
 
-            {/* Text - slides from right */}
-            <div className="product-text-right">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-lillia-lighter rounded-full mb-4">
-                <svg className="w-4 h-4 text-lillia-deep" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-                </svg>
-                <span className="text-xs font-bold text-lillia-deep uppercase tracking-wider">AUTOMATION</span>
+            {/* My Tasks - Middle */}
+            <div className="absolute top-[120px] right-[10%] w-[65%] z-20 ccm-image-2">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                <img
+                  src="/Lillia-Landing-Page-Concept/images/execution-os-2.png"
+                  alt="My Tasks - Task Management"
+                  className="w-full h-auto"
+                />
               </div>
-              <h3 className="text-4xl font-bold text-gray-900 mb-4">
-                Execution OS
-              </h3>
-              <p className="text-xl text-gray-600 mb-6">
-                Intelligent automation layer ensuring operational excellence
-              </p>
+            </div>
 
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                {[
-                  { icon: Calendar, title: 'Monthly Execution', color: 'from-blue-500 to-blue-600' },
-                  { icon: FileText, title: 'Documentation', color: 'from-purple-500 to-purple-600' },
-                  { icon: CheckCircle2, title: 'CMS-Aligned', color: 'from-green-500 to-green-600' }
-                ].map((item, i) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <div key={i} className="text-center p-4 bg-white rounded-xl border border-gray-200 hover:border-lillia-deep/30 transition-colors">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md`}>
-                        <IconComponent className="w-6 h-6 text-white" />
-                      </div>
-                      <p className="text-xs font-medium text-gray-700">{item.title}</p>
-                    </div>
-                  );
-                })}
+            {/* Journey Tracker Detail - Front */}
+            <div className="absolute bottom-0 left-[15%] w-[60%] z-30 ccm-image-3">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                <img
+                  src="/Lillia-Landing-Page-Concept/images/execution-os-3.png"
+                  alt="Journey Tracker Details"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Content Below */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <Calendar className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Monthly Execution</h4>
+                <p className="text-sm text-gray-600">Automated care workflows that ensure consistent patient engagement</p>
               </div>
 
-              <div className="bg-gradient-to-r from-lillia-lighter/50 to-lillia-light/30 rounded-xl p-6 border-l-4 border-lillia-deep">
-                <p className="text-gray-800 font-medium">
-                  No clinical decision-making. No disruption to your visit flow. Keeps patients engaged – without increasing staff workload.
-                </p>
+              <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <FileText className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Documentation</h4>
+                <p className="text-sm text-gray-600">Structured time tracking and compliant documentation automatically</p>
+              </div>
+
+              <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <CheckCircle2 className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">CMS-Aligned</h4>
+                <p className="text-sm text-gray-600">Built-in compliance with CMS requirements and billing codes</p>
               </div>
             </div>
           </div>
