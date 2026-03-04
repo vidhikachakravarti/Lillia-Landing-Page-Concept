@@ -4,7 +4,7 @@ import { Button } from '../ui/Button';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium overflow-hidden pt-32">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-10 w-72 h-72 bg-lillia-light/20 rounded-full blur-3xl animate-pulse" />
