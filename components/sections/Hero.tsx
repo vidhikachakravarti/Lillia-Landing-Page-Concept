@@ -39,23 +39,23 @@ export const Hero: React.FC = () => {
 
             {/* Value Propositions */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/20 mb-8">
-              <div className="flex flex-col items-center md:items-start gap-3">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                  <DollarSign className="w-6 h-6 text-white" strokeWidth={2.5} />
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <DollarSign className="w-7 h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <div className="text-xl md:text-2xl font-bold whitespace-nowrap">Increase reimbursement.</div>
+                <div className="text-lg md:text-xl font-bold text-left">Increase reimbursement.</div>
               </div>
-              <div className="flex flex-col items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                  <HeartPulse className="w-6 h-6 text-white" strokeWidth={2.5} />
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <HeartPulse className="w-7 h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <div className="text-xl md:text-2xl font-bold whitespace-nowrap">Improve adherence.</div>
+                <div className="text-lg md:text-xl font-bold text-left">Improve adherence.</div>
               </div>
-              <div className="flex flex-col items-center md:items-end gap-3">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                  <ClipboardCheck className="w-6 h-6 text-white" strokeWidth={2.5} />
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <ClipboardCheck className="w-7 h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <div className="text-xl md:text-2xl font-bold whitespace-nowrap">Reduce administrative burden.</div>
+                <div className="text-lg md:text-xl font-bold text-left">Reduce administrative burden.</div>
               </div>
             </div>
 
