@@ -153,7 +153,7 @@ export const SolutionsHub: React.FC = () => {
               </p>
 
               <div className="space-y-3 mb-6">
-                {['Monthly check-ins', 'Adherence tracking', 'Secure engagement'].map((feature, i) => (
+                {['Conversational AI and vital tracking', 'Lifestyle & medication adherence tracking', 'Secure engagement between visits'].map((feature, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-6 h-6 bg-gradient-to-br from-lillia-medium to-lillia-primary rounded-full flex items-center justify-center flex-shrink-0">
                       <Check className="w-3 h-3 text-white" strokeWidth={3} />
