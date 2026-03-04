@@ -188,13 +188,38 @@ export const SolutionsHub: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image - slides from left */}
             <div className="product-image-left">
-              <div className="aspect-video bg-gradient-to-br from-lillia-deep/10 to-lillia-primary/10 rounded-2xl border-2 border-dashed border-lillia-deep flex items-center justify-center shadow-xl">
-                <div className="text-center p-8">
-                  <svg className="w-20 h-20 text-lillia-deep mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  <p className="text-lg text-gray-600 font-semibold">Execution OS Preview</p>
-                  <p className="text-sm text-gray-500 mt-2">Visual will be provided</p>
+              <div className="relative h-[600px]">
+                {/* Journey Tracker - Back */}
+                <div className="absolute top-0 left-0 w-[90%] z-10">
+                  <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                    <img
+                      src="/Lillia-Landing-Page-Concept/images/execution-os-1.png"
+                      alt="Journey Tracker - Patient Management"
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+
+                {/* My Tasks - Middle */}
+                <div className="absolute top-[120px] right-0 w-[85%] z-20">
+                  <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                    <img
+                      src="/Lillia-Landing-Page-Concept/images/execution-os-2.png"
+                      alt="My Tasks - Task Management"
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+
+                {/* Journey Tracker Detail - Front */}
+                <div className="absolute bottom-0 left-[10%] w-[80%] z-30">
+                  <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                    <img
+                      src="/Lillia-Landing-Page-Concept/images/execution-os-3.png"
+                      alt="Journey Tracker Details"
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
