@@ -1,6 +1,4 @@
 import React from 'react';
-import { Navigation } from '../components/layout/Navigation';
-import { Footer } from '../components/layout/Footer';
 import { Hero } from '../components/sections/Hero';
 import { ProblemSection } from '../components/sections/ProblemSection';
 import { PurposeSection } from '../components/sections/PurposeSection';
@@ -11,9 +9,6 @@ import { FinalCTA } from '../components/sections/FinalCTA';
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <Navigation />
-
       {/* Main Content */}
       <main>
         {/* Hero Section */}
@@ -34,9 +29,6 @@ export default function Home() {
         {/* Final CTA */}
         <FinalCTA />
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
