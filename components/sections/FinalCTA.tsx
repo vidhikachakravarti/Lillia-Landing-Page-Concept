@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { Calendar, Presentation } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 export const FinalCTA: React.FC = () => {
   return (
@@ -29,7 +29,7 @@ export const FinalCTA: React.FC = () => {
             See how Lillia helps healthcare systems deliver continuous chronic care with clarity, control, and measurable outcomes.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex justify-center mb-12">
             <Button
               variant="primary"
               className="bg-white text-lillia-primary hover:bg-lillia-lighter hover:shadow-2xl text-lg px-10 py-5 flex items-center justify-center gap-2"
@@ -37,14 +37,6 @@ export const FinalCTA: React.FC = () => {
             >
               <Calendar className="w-5 h-5" />
               Book a Demo
-            </Button>
-            <Button
-              variant="secondary"
-              className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/20 text-lg px-10 py-5 flex items-center justify-center gap-2"
-              href="#strategic-overview"
-            >
-              <Presentation className="w-5 h-5" />
-              Request Strategic Overview
             </Button>
           </div>
 
