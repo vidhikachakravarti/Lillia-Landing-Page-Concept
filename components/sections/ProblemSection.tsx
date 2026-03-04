@@ -33,10 +33,10 @@ export const ProblemSection: React.FC = () => {
   return (
     <section className="py-32 relative">
       {/* Subtle overlay for depth */}
-      <div className="absolute inset-0 bg-white/90" />
+      <div className="absolute inset-0 bg-white/90 -z-10" />
 
       <Container>
-        <div className="relative grid lg:grid-cols-12 gap-12 items-start">
+        <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-start">
           {/* Left: Sticky Header */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
             <h2 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">

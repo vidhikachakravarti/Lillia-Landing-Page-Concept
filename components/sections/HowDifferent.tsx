@@ -14,9 +14,9 @@ export const HowDifferent: React.FC = () => {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Distinctive darker background with pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-lillia-deep to-neutral-900" />
+      <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-lillia-deep to-neutral-900 -z-10" />
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-10 -z-10"
         style={{
           backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
           backgroundSize: '30px 30px',
@@ -24,7 +24,7 @@ export const HowDifferent: React.FC = () => {
       />
 
       <Container>
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative z-10 max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Header & Description */}
             <div>

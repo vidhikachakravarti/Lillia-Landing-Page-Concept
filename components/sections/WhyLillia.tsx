@@ -6,11 +6,11 @@ export const WhyLillia: React.FC = () => {
   return (
     <section id="why-lillia" className="relative py-32">
       {/* Light overlay */}
-      <div className="absolute inset-0 bg-white/95" />
+      <div className="absolute inset-0 bg-white/95 -z-10" />
 
       <Container>
         {/* Header */}
-        <div className="relative text-center mb-16">
+        <div className="relative z-10 text-center mb-16">
           <h2 className="text-5xl font-bold text-gray-900 mb-4 max-w-3xl mx-auto">
             Revenue Today.<br />
             <span className="text-gradient-purple">Ready for Evolving Models.</span>

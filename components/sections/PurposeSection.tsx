@@ -64,10 +64,10 @@ export const PurposeSection: React.FC = () => {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Light overlay for section distinction */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/95 -z-10" />
 
       <Container>
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">

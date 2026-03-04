@@ -6,17 +6,17 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Hero gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-lillia-deep/95 via-lillia-primary/90 to-lillia-medium/95" />
+      <div className="absolute inset-0 bg-gradient-to-br from-lillia-deep/95 via-lillia-primary/90 to-lillia-medium/95 -z-10" />
 
       {/* Additional floating elements for hero section */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-20 right-10 w-72 h-72 bg-lillia-light/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-lillia-peach/20 rounded-full blur-3xl animate-pulse"
              style={{ animationDelay: '1s', animationDuration: '3s' }} />
       </div>
 
       <Container>
-        <div className="relative max-w-5xl mx-auto py-20 pt-32">
+        <div className="relative z-10 max-w-5xl mx-auto py-20 pt-32">
           {/* Content */}
           <div className="text-white text-center">
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">

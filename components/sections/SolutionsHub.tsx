@@ -33,11 +33,11 @@ export const SolutionsHub: React.FC = () => {
   return (
     <section id="solutions" className="relative py-32 overflow-hidden">
       {/* Darker section background for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-neutral-100 via-neutral-50 to-white" />
+      <div className="absolute inset-0 bg-gradient-to-b from-neutral-100 via-neutral-50 to-white -z-10" />
 
       <Container>
         {/* Header */}
-        <div className="relative mb-20 text-center">
+        <div className="relative z-10 mb-20 text-center">
           <h2 className="text-5xl font-bold text-gray-900 mb-4 max-w-3xl mx-auto">
             Three Integrated Products.<br />
             <span className="text-gradient-purple">One Complete Platform.</span>
@@ -45,7 +45,7 @@ export const SolutionsHub: React.FC = () => {
         </div>
 
         {/* Product 1 - Overlapping Images with Content Below */}
-        <div ref={product1Ref} className="product-section mb-32 opacity-0">
+        <div ref={product1Ref} className="product-section mb-32 opacity-0 relative z-10">
           {/* Header */}
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-900 mb-4">
@@ -129,7 +129,7 @@ export const SolutionsHub: React.FC = () => {
         </div>
 
         {/* Product 2 - Text Left, Image Right */}
-        <div ref={product2Ref} className="product-section mb-32 opacity-0">
+        <div ref={product2Ref} className="product-section mb-32 opacity-0 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text - slides from left */}
             <div className="product-text-left lg:order-1">
@@ -172,7 +172,7 @@ export const SolutionsHub: React.FC = () => {
         </div>
 
         {/* Product 3 - Overlapping Images with Content Below */}
-        <div ref={product3Ref} className="product-section opacity-0">
+        <div ref={product3Ref} className="product-section opacity-0 relative z-10">
           {/* Header */}
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-900 mb-4">
