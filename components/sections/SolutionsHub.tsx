@@ -96,7 +96,7 @@ export const SolutionsHub: React.FC = () => {
 
           {/* Content Below */}
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
                 <div className="w-16 h-16 bg-gradient-to-br from-lillia-primary to-lillia-medium rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
                   <span className="text-3xl">📊</span>
@@ -120,19 +120,6 @@ export const SolutionsHub: React.FC = () => {
                 <h4 className="font-bold text-gray-900 mb-2">Remote Care Monitoring</h4>
                 <p className="text-sm text-gray-600">Device readings and patient vitals in one comprehensive view</p>
               </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-lillia-lighter/50 to-lillia-light/30 rounded-2xl p-8 border border-lillia-primary/20">
-              <div className="flex flex-wrap gap-3 mb-4">
-                {['CMS Compliant', 'Time Tracking', 'Real-time Analytics', 'Automated Documentation'].map((feature, i) => (
-                  <div key={i} className="px-4 py-2 bg-white rounded-full text-sm font-medium text-lillia-deep shadow-sm">
-                    ✓ {feature}
-                  </div>
-                ))}
-              </div>
-              <p className="text-gray-800 font-medium text-center text-lg">
-                Everything required for compliant, reimbursable care in one unified platform.
-              </p>
             </div>
           </div>
         </div>
