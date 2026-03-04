@@ -35,9 +35,6 @@ export const SolutionsHub: React.FC = () => {
       <Container>
         {/* Header */}
         <div className="mb-20 text-center">
-          <div className="inline-block px-4 py-2 bg-lillia-lighter rounded-full mb-4">
-            <span className="text-sm font-semibold text-lillia-deep">Our Solutions</span>
-          </div>
           <h2 className="text-5xl font-bold text-gray-900 mb-4 max-w-3xl mx-auto">
             Three Integrated Products.<br />
             <span className="text-gradient-purple">One Complete Platform.</span>
@@ -48,12 +45,6 @@ export const SolutionsHub: React.FC = () => {
         <div ref={product1Ref} className="product-section mb-32 opacity-0">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-lillia-lighter rounded-full mb-4">
-              <svg className="w-4 h-4 text-lillia-deep" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-xs font-bold text-lillia-deep uppercase tracking-wider">CORE PLATFORM</span>
-            </div>
             <h3 className="text-4xl font-bold text-gray-900 mb-4">
               Chronic Care Management Platform
             </h3>
@@ -139,12 +130,6 @@ export const SolutionsHub: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text - slides from left */}
             <div className="product-text-left lg:order-1">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-lillia-lighter rounded-full mb-4">
-                <svg className="w-4 h-4 text-lillia-deep" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                <span className="text-xs font-bold text-lillia-deep uppercase tracking-wider">PATIENT APP</span>
-              </div>
               <h3 className="text-4xl font-bold text-gray-900 mb-4">
                 Lillia App
               </h3>
@@ -187,12 +172,6 @@ export const SolutionsHub: React.FC = () => {
         <div ref={product3Ref} className="product-section opacity-0">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-lillia-lighter rounded-full mb-4">
-              <svg className="w-4 h-4 text-lillia-deep" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-              </svg>
-              <span className="text-xs font-bold text-lillia-deep uppercase tracking-wider">AUTOMATION</span>
-            </div>
             <h3 className="text-4xl font-bold text-gray-900 mb-4">
               Execution OS
             </h3>

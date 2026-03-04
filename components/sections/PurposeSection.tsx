@@ -73,9 +73,6 @@ export const PurposeSection: React.FC = () => {
         <div className="relative max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-lillia-primary/10 to-lillia-medium/10 rounded-full mb-6 border border-lillia-primary/20">
-              <span className="text-sm font-semibold text-lillia-deep">The Solution</span>
-            </div>
             <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               What <span className="text-gradient-purple">Lillia</span> Does
             </h2>

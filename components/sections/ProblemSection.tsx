@@ -36,9 +36,6 @@ export const ProblemSection: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Left: Sticky Header */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <div className="inline-block px-4 py-2 bg-red-50 rounded-full mb-4">
-              <span className="text-sm font-semibold text-red-600">The Challenge</span>
-            </div>
             <h2 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
               The Reality of Chronic Care
             </h2>
