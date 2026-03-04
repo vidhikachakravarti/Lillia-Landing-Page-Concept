@@ -11,11 +11,26 @@
 
   body {
     @apply font-lato text-gray-900 antialiased;
-    @apply bg-neutral-50;
+    @apply overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
+  }
+}
+
+/* Parallax and animation enhancements */
+@layer utilities {
+  .parallax-slow {
+    transform: translateY(calc(var(--scroll) * 0.5px));
+  }
+
+  .parallax-medium {
+    transform: translateY(calc(var(--scroll) * 0.3px));
+  }
+
+  .parallax-fast {
+    transform: translateY(calc(var(--scroll) * 0.1px));
   }
 }
 

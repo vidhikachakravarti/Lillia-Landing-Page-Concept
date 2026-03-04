@@ -7,12 +7,13 @@ export const FinalCTA: React.FC = () => {
   return (
     <section id="demo" className="relative py-40 overflow-hidden">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-deep-blue" />
+      <div className="absolute inset-0 bg-gradient-to-br from-lillia-deep/95 via-lillia-primary/90 to-lillia-deep-blue/95" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
 
       {/* Animated circles */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-lillia-light/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-lillia-peach/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-lillia-peach/20 rounded-full blur-3xl animate-pulse"
+           style={{ animationDelay: '1.5s', animationDuration: '4s' }} />
 
       <Container>
         <div className="relative max-w-4xl mx-auto text-center text-white">

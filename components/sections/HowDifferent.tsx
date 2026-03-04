@@ -12,33 +12,43 @@ export const HowDifferent: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
+      {/* Distinctive darker background with pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-lillia-deep to-neutral-900" />
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+          backgroundSize: '30px 30px',
+        }}
+      />
+
       <Container>
-        <div className="max-w-6xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Header & Description */}
             <div>
               <div className="inline-flex items-center gap-2 mb-6">
-                <Sparkles className="w-6 h-6 text-lillia-primary" />
-                <span className="text-sm font-semibold text-lillia-primary uppercase tracking-wider">What Sets Us Apart</span>
+                <Sparkles className="w-6 h-6 text-lillia-light" />
+                <span className="text-sm font-semibold text-lillia-light uppercase tracking-wider">What Sets Us Apart</span>
               </div>
 
-              <h2 className="text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                How Lillia Is <span className="text-gradient-purple">Different</span>
+              <h2 className="text-5xl font-bold text-white mb-8 leading-tight">
+                How Lillia Is <span className="text-lillia-peach">Different</span>
               </h2>
 
               <div className="space-y-6 mb-8">
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-gray-300 leading-relaxed">
                   Many vendors focus on devices, messaging tools, or outsourced call centers.
                 </p>
-                <p className="text-xl text-gray-900 font-semibold leading-relaxed">
+                <p className="text-xl text-white font-semibold leading-relaxed">
                   Lillia is built around structured remote chronic care execution.
                 </p>
               </div>
 
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-lillia-primary/5 to-transparent rounded-2xl" />
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 border-l-4 border-lillia-primary shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-lillia-primary/20 to-transparent rounded-2xl" />
+                <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-8 border-l-4 border-lillia-peach shadow-2xl">
                   <p className="text-2xl text-gray-900 font-bold leading-relaxed">
                     A structured remote chronic care operating model — not just engagement software.
                   </p>

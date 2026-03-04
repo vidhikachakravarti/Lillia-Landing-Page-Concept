@@ -31,10 +31,13 @@ export const SolutionsHub: React.FC = () => {
   }, []);
 
   return (
-    <section id="solutions" className="py-32 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section id="solutions" className="relative py-32 overflow-hidden">
+      {/* Darker section background for contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-neutral-100/80 via-neutral-50/60 to-white/80 backdrop-blur-sm" />
+
       <Container>
         {/* Header */}
-        <div className="mb-20 text-center">
+        <div className="relative mb-20 text-center">
           <h2 className="text-5xl font-bold text-gray-900 mb-4 max-w-3xl mx-auto">
             Three Integrated Products.<br />
             <span className="text-gradient-purple">One Complete Platform.</span>
