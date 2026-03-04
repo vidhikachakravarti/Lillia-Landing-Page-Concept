@@ -27,11 +27,7 @@ export const WhyLillia: React.FC = () => {
         <div className="max-w-5xl mx-auto mb-24 relative group">
           <div className="absolute inset-0 bg-gradient-to-br from-lillia-primary via-lillia-medium to-lillia-deep rounded-3xl opacity-90 blur-2xl group-hover:opacity-100 transition-opacity" />
           <div className="relative bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium rounded-3xl p-16 shadow-2xl">
-            {/* Decorative corner accent */}
-            <div className="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-br-full" />
-            <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/10 rounded-tl-full" />
-
-            <div className="relative text-center">
+            <div className="text-center">
               <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6 border border-white/30">
                 <span className="text-sm font-bold text-white uppercase tracking-wider">Revenue Model</span>
               </div>

@@ -32,7 +32,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        inter: ['Inter', 'system-ui', 'sans-serif'],
+        lato: ['Lato', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'display-2xl': ['5.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em', fontWeight: '700' }],

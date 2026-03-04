@@ -1,14 +1,14 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { Check, Sparkles } from 'lucide-react';
+import { Sparkles, DollarSign, FileText, Target, Settings, Zap } from 'lucide-react';
 
 export const HowDifferent: React.FC = () => {
   const differentiators = [
-    'Reimbursement-aligned workflow design',
-    'Consistent monthly documentation',
-    'Adherence-focused engagement',
-    'Operational discipline',
-    'Flexible deployment'
+    { text: 'Reimbursement-aligned workflow design', icon: DollarSign },
+    { text: 'Consistent monthly documentation', icon: FileText },
+    { text: 'Adherence-focused engagement', icon: Target },
+    { text: 'Operational discipline', icon: Settings },
+    { text: 'Flexible deployment', icon: Zap }
   ];
 
   return (
@@ -48,23 +48,26 @@ export const HowDifferent: React.FC = () => {
 
             {/* Right: Differentiators */}
             <div className="space-y-6">
-              {differentiators.map((item, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-2xl p-6 border border-gray-200/60 shadow-md hover:shadow-xl hover:border-lillia-primary/30 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lillia-primary to-lillia-medium flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <Check className="w-6 h-6 text-white" strokeWidth={3} />
+              {differentiators.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group bg-white rounded-2xl p-6 border border-gray-200/60 shadow-md hover:shadow-xl hover:border-lillia-primary/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lillia-primary to-lillia-medium flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="w-6 h-6 text-white" strokeWidth={2} />
+                        </div>
                       </div>
+                      <p className="text-lg text-gray-900 font-semibold leading-relaxed">
+                        {item.text}
+                      </p>
                     </div>
-                    <p className="text-lg text-gray-900 font-semibold leading-relaxed">
-                      {item}
-                    </p>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
