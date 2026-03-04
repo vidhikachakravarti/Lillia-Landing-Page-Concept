@@ -26,27 +26,6 @@ export const SolutionsHub: React.FC = () => {
     if (product2Ref.current) observer.observe(product2Ref.current);
     if (product3Ref.current) observer.observe(product3Ref.current);
 
-    // Tab switching functionality
-    const tabs = document.querySelectorAll('.ccm-tab');
-    const screenshots = document.querySelectorAll('.ccm-screenshot');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabName = tab.getAttribute('data-tab');
-
-        // Remove active class from all tabs and screenshots
-        tabs.forEach(t => t.classList.remove('active'));
-        screenshots.forEach(s => s.classList.add('hidden'));
-
-        // Add active class to clicked tab and corresponding screenshot
-        tab.classList.add('active');
-        const activeScreenshot = document.querySelector(`[data-content="${tabName}"]`);
-        if (activeScreenshot) {
-          activeScreenshot.classList.remove('hidden');
-        }
-      });
-    });
-
     return () => observer.disconnect();
   }, []);
 
@@ -64,10 +43,10 @@ export const SolutionsHub: React.FC = () => {
           </h2>
         </div>
 
-        {/* Product 1 - Premium Screenshot Showcase */}
+        {/* Product 1 - Cascading Screenshot Showcase */}
         <div ref={product1Ref} className="product-section mb-32 opacity-0">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <div className="px-4 py-2 bg-lillia-lighter rounded-full mb-4 inline-block">
               <span className="text-xs font-bold text-lillia-deep">🏥 CORE PLATFORM</span>
             </div>
@@ -79,79 +58,97 @@ export const SolutionsHub: React.FC = () => {
             </p>
           </div>
 
-          {/* Tabbed Interface with Screenshots */}
-          <div className="ccm-platform-showcase">
-            <div className="flex justify-center gap-2 mb-8">
-              <button className="ccm-tab active" data-tab="dashboard">
-                <span className="text-lg mr-2">📊</span>
-                Dashboard
-              </button>
-              <button className="ccm-tab" data-tab="billing">
-                <span className="text-lg mr-2">💰</span>
-                Billing
-              </button>
-              <button className="ccm-tab" data-tab="monitoring">
-                <span className="text-lg mr-2">📱</span>
-                Monitoring
-              </button>
+          {/* Staggered Screenshot Grid - Browser Window Style */}
+          <div className="relative max-w-7xl mx-auto">
+            {/* Main large screenshot - Dashboard */}
+            <div className="ccm-main-screenshot relative z-30 mb-8">
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200/50">
+                {/* Browser chrome */}
+                <div className="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-200">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <div className="inline-flex items-center gap-2 px-4 py-1 bg-white rounded-lg text-xs text-gray-600">
+                      <span>📊</span>
+                      <span className="font-medium">Organization Dashboard</span>
+                    </div>
+                  </div>
+                </div>
+                {/* Screenshot */}
+                <img
+                  src="/images/ccm-dashboard.png"
+                  alt="Organization Dashboard"
+                  className="w-full h-auto"
+                />
+              </div>
             </div>
 
-            {/* Screenshot Display */}
-            <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200/50 shadow-2xl">
-              {/* Dashboard */}
-              <div className="ccm-screenshot active" data-content="dashboard">
-                <div className="rounded-xl overflow-hidden border border-gray-300/50 shadow-xl bg-white">
-                  <img
-                    src="/images/ccm-dashboard.png"
-                    alt="Dashboard - Organization overview and billing metrics"
-                    className="w-full h-auto"
-                  />
-                </div>
-                <div className="mt-6 text-center">
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">Organization Dashboard</h4>
-                  <p className="text-gray-600">Real-time overview of patients, health system members, and billing metrics</p>
-                </div>
-              </div>
-
-              {/* Billing */}
-              <div className="ccm-screenshot hidden" data-content="billing">
-                <div className="rounded-xl overflow-hidden border border-gray-300/50 shadow-xl bg-white">
+            {/* Two smaller screenshots side by side with offset */}
+            <div className="grid md:grid-cols-2 gap-8 relative">
+              {/* Billing screenshot */}
+              <div className="ccm-side-screenshot relative z-20 transform md:-translate-y-12">
+                <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200/50 hover:shadow-2xl transition-shadow">
+                  {/* Browser chrome */}
+                  <div className="bg-gray-100 px-3 py-2 flex items-center gap-2 border-b border-gray-200">
+                    <div className="flex gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="flex-1 text-center">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-white rounded text-xs text-gray-600">
+                        <span>💰</span>
+                        <span className="font-medium">Billing & Reimbursement</span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Screenshot */}
                   <img
                     src="/images/ccm-billing.png"
-                    alt="Billing & Reimbursement - Claims tracking"
+                    alt="Billing & Reimbursement"
                     className="w-full h-auto"
                   />
-                </div>
-                <div className="mt-6 text-center">
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">Billing & Reimbursement</h4>
-                  <p className="text-gray-600">Track CCM/RPM claims from submission to approval with full revenue visibility</p>
                 </div>
               </div>
 
-              {/* Monitoring */}
-              <div className="ccm-screenshot hidden" data-content="monitoring">
-                <div className="rounded-xl overflow-hidden border border-gray-300/50 shadow-xl bg-white">
+              {/* Monitoring screenshot */}
+              <div className="ccm-side-screenshot relative z-10 transform md:-translate-y-12">
+                <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200/50 hover:shadow-2xl transition-shadow">
+                  {/* Browser chrome */}
+                  <div className="bg-gray-100 px-3 py-2 flex items-center gap-2 border-b border-gray-200">
+                    <div className="flex gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="flex-1 text-center">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-0.5 bg-white rounded text-xs text-gray-600">
+                        <span>📱</span>
+                        <span className="font-medium">Remote Care Monitoring</span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Screenshot */}
                   <img
                     src="/images/ccm-monitoring.png"
-                    alt="Remote Care Monitoring - Device readings and patient vitals"
+                    alt="Remote Care Monitoring"
                     className="w-full h-auto"
                   />
-                </div>
-                <div className="mt-6 text-center">
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">Remote Care Monitoring</h4>
-                  <p className="text-gray-600">Device readings, patient vitals, and adherence tracking for comprehensive care</p>
                 </div>
               </div>
             </div>
 
-            {/* Features Grid Below */}
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
+            {/* Key features below */}
+            <div className="grid md:grid-cols-3 gap-6 mt-16">
               {[
-                { icon: '✅', title: 'CMS Compliant', desc: 'Automated documentation' },
+                { icon: '✅', title: 'CMS Compliant', desc: 'Automated compliant documentation' },
                 { icon: '⏱️', title: 'Time Tracking', desc: 'Structured billable hours' },
                 { icon: '📊', title: 'Real-time Analytics', desc: 'Patient & revenue insights' }
               ].map((feature, i) => (
-                <div key={i} className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-md transition-shadow">
+                <div key={i} className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
                   <div className="text-3xl mb-3">{feature.icon}</div>
                   <h5 className="font-bold text-gray-900 mb-1">{feature.title}</h5>
                   <p className="text-sm text-gray-600">{feature.desc}</p>
@@ -302,48 +299,33 @@ export const SolutionsHub: React.FC = () => {
           transition-delay: 0.2s;
         }
 
-        /* CCM Platform Tabs */
-        .ccm-tab {
-          padding: 12px 24px;
-          border-radius: 12px;
-          font-size: 14px;
-          font-weight: 600;
-          color: #6B7280;
-          background: white;
-          border: 2px solid #E5E7EB;
-          cursor: pointer;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          display: inline-flex;
-          align-items: center;
+        /* CCM Screenshots - Cascading animation */
+        .ccm-main-screenshot,
+        .ccm-side-screenshot {
+          opacity: 0;
+          transform: translateY(30px);
         }
 
-        .ccm-tab:hover {
-          border-color: #7848FE;
-          color: #7848FE;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(120, 72, 254, 0.15);
+        .product-section.animate-in .ccm-main-screenshot {
+          animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        .ccm-tab.active {
-          background: linear-gradient(135deg, #7848FE 0%, #9F7BFF 100%);
-          color: white;
-          border-color: #7848FE;
-          box-shadow: 0 4px 16px rgba(120, 72, 254, 0.3);
+        .product-section.animate-in .ccm-side-screenshot {
+          animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        /* Screenshot container */
-        .ccm-screenshot {
-          animation: fadeIn 0.5s ease-out;
+        .product-section.animate-in .ccm-side-screenshot:first-child {
+          animation-delay: 0.2s;
         }
 
-        .ccm-screenshot.hidden {
-          display: none;
+        .product-section.animate-in .ccm-side-screenshot:last-child {
+          animation-delay: 0.4s;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(30px);
           }
           to {
             opacity: 1;
