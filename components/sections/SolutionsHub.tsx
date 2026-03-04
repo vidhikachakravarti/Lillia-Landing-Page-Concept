@@ -43,107 +43,96 @@ export const SolutionsHub: React.FC = () => {
           </h2>
         </div>
 
-        {/* Product 1 - Image Collage Left, Text Right */}
+        {/* Product 1 - Overlapping Images with Content Below */}
         <div ref={product1Ref} className="product-section mb-32 opacity-0">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image Collage - slides from left */}
-            <div className="product-image-left">
-              <div className="grid grid-cols-2 gap-4">
-                {/* Large dashboard - spans 2 columns */}
-                <div className="col-span-2">
-                  <div className="rounded-xl overflow-hidden border border-gray-200/50 shadow-xl hover:shadow-2xl transition-shadow">
-                    <img
-                      src="/Lillia-Landing-Page-Concept/images/ccm-dashboard.png"
-                      alt="Organization Dashboard - Admin overview"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                  <p className="text-xs text-gray-500 mt-2 text-center">Organization Dashboard</p>
-                </div>
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="px-4 py-2 bg-lillia-lighter rounded-full mb-4 inline-block">
+              <span className="text-xs font-bold text-lillia-deep">🏥 CORE PLATFORM</span>
+            </div>
+            <h3 className="text-4xl font-bold text-gray-900 mb-4">
+              Chronic Care Management Platform
+            </h3>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Complete care team orchestration and workflow management
+            </p>
+          </div>
 
-                {/* Billing - bottom left */}
-                <div>
-                  <div className="rounded-lg overflow-hidden border border-gray-200/50 shadow-lg hover:shadow-xl transition-shadow">
-                    <img
-                      src="/Lillia-Landing-Page-Concept/images/ccm-billing.png"
-                      alt="Billing & Reimbursement tracking"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                  <p className="text-xs text-gray-500 mt-2 text-center">Billing & Reimbursement</p>
-                </div>
-
-                {/* Monitoring - bottom right */}
-                <div>
-                  <div className="rounded-lg overflow-hidden border border-gray-200/50 shadow-lg hover:shadow-xl transition-shadow">
-                    <img
-                      src="/Lillia-Landing-Page-Concept/images/ccm-monitoring.png"
-                      alt="Remote Care Monitoring - Patient vitals"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                  <p className="text-xs text-gray-500 mt-2 text-center">Remote Monitoring</p>
-                </div>
+          {/* Overlapping Images */}
+          <div className="relative h-[600px] lg:h-[700px] mb-16">
+            {/* Dashboard - Back */}
+            <div className="absolute top-0 left-[5%] w-[70%] z-10 ccm-image-1">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                <img
+                  src="/Lillia-Landing-Page-Concept/images/ccm-dashboard.png"
+                  alt="Organization Dashboard"
+                  className="w-full h-auto"
+                />
               </div>
             </div>
 
-            {/* Text - slides from right */}
-            <div className="product-text-right">
-              <div className="px-4 py-2 bg-lillia-lighter rounded-full mb-4 inline-block">
-                <span className="text-xs font-bold text-lillia-deep">🏥 CORE PLATFORM</span>
+            {/* Billing - Middle */}
+            <div className="absolute top-[120px] right-[10%] w-[65%] z-20 ccm-image-2">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                <img
+                  src="/Lillia-Landing-Page-Concept/images/ccm-billing.png"
+                  alt="Billing & Reimbursement"
+                  className="w-full h-auto"
+                />
               </div>
-              <h3 className="text-4xl font-bold text-gray-900 mb-4">
-                Chronic Care Management Platform
-              </h3>
-              <p className="text-xl text-gray-600 mb-8">
-                Complete care team orchestration and workflow management
-              </p>
+            </div>
 
-              <div className="space-y-6 mb-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-lillia-primary to-lillia-medium rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                    <span className="text-xl">📊</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Organization Dashboard</h4>
-                    <p className="text-sm text-gray-600">Track patients, health system members, and real-time billing metrics</p>
-                  </div>
-                </div>
+            {/* Monitoring - Front */}
+            <div className="absolute bottom-0 left-[15%] w-[60%] z-30 ccm-image-3">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
+                <img
+                  src="/Lillia-Landing-Page-Concept/images/ccm-monitoring.png"
+                  alt="Remote Care Monitoring"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                    <span className="text-xl">💰</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Billing & Reimbursement</h4>
-                    <p className="text-sm text-gray-600">Complete claims management from submission to approval</p>
-                  </div>
+          {/* Content Below */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-lillia-primary to-lillia-medium rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <span className="text-3xl">📊</span>
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
-                    <span className="text-xl">📱</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Remote Care Monitoring</h4>
-                    <p className="text-sm text-gray-600">Device readings and patient vitals in one comprehensive view</p>
-                  </div>
-                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Organization Dashboard</h4>
+                <p className="text-sm text-gray-600">Track patients, health system members, and real-time billing metrics</p>
               </div>
 
-              <div className="flex flex-wrap gap-3 mb-6">
-                {['CMS Compliant', 'Time Tracking', 'Real-time Analytics'].map((feature, i) => (
-                  <div key={i} className="px-4 py-2 bg-gradient-to-r from-lillia-primary/10 to-lillia-medium/10 border border-lillia-primary/20 rounded-full text-sm font-medium text-lillia-deep">
-                    {feature}
+              <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <span className="text-3xl">💰</span>
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Billing & Reimbursement</h4>
+                <p className="text-sm text-gray-600">Complete claims management from submission to approval</p>
+              </div>
+
+              <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <span className="text-3xl">📱</span>
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Remote Care Monitoring</h4>
+                <p className="text-sm text-gray-600">Device readings and patient vitals in one comprehensive view</p>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-lillia-lighter/50 to-lillia-light/30 rounded-2xl p-8 border border-lillia-primary/20">
+              <div className="flex flex-wrap gap-3 mb-4">
+                {['CMS Compliant', 'Time Tracking', 'Real-time Analytics', 'Automated Documentation'].map((feature, i) => (
+                  <div key={i} className="px-4 py-2 bg-white rounded-full text-sm font-medium text-lillia-deep shadow-sm">
+                    ✓ {feature}
                   </div>
                 ))}
               </div>
-
-              <div className="bg-gradient-to-r from-lillia-lighter/50 to-lillia-light/30 rounded-xl p-6 border-l-4 border-lillia-primary">
-                <p className="text-gray-800 font-medium">
-                  Everything required for compliant, reimbursable care in one unified platform.
-                </p>
-              </div>
+              <p className="text-gray-800 font-medium text-center text-lg">
+                Everything required for compliant, reimbursable care in one unified platform.
+              </p>
             </div>
           </div>
         </div>
@@ -287,6 +276,33 @@ export const SolutionsHub: React.FC = () => {
         .product-section.animate-in .product-text-right,
         .product-section.animate-in .product-image-right {
           transition-delay: 0.2s;
+        }
+
+        /* Overlapping images animation */
+        .ccm-image-1,
+        .ccm-image-2,
+        .ccm-image-3 {
+          opacity: 0;
+          transform: scale(0.95) translateY(30px);
+          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-section.animate-in .ccm-image-1 {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+          transition-delay: 0.1s;
+        }
+
+        .product-section.animate-in .ccm-image-2 {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+          transition-delay: 0.3s;
+        }
+
+        .product-section.animate-in .ccm-image-3 {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+          transition-delay: 0.5s;
         }
       `}</style>
     </section>
