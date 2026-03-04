@@ -83,176 +83,135 @@ export const PurposeSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Animated Workflow Diagram - Circular Loop */}
+          {/* Workflow Diagram - Premium Design */}
           <div ref={workflowRef} className="workflow-container mb-24">
-            <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-16 border border-gray-200/50 shadow-xl overflow-hidden">
-              {/* Subtle background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-lillia-primary/5 via-transparent to-lillia-peach/5" />
+            {/* Section intro */}
+            <div className="text-center mb-16">
+              <p className="text-sm font-semibold text-lillia-primary uppercase tracking-wider mb-2">
+                How It Works
+              </p>
+              <h3 className="text-3xl font-bold text-gray-900">
+                A Continuous Cycle of Care
+              </h3>
+            </div>
 
+            <div className="relative max-w-6xl mx-auto">
+              {/* Main flow visualization */}
               <div className="relative">
-                {/* Center Circle - Lillia Platform */}
-                <div className="flex items-center justify-center mb-12">
-                  <div className="workflow-center relative">
-                    <div className="relative z-10 bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium rounded-full p-12 shadow-2xl">
-                      <div className="text-center">
-                        <div className="text-5xl mb-3">⚡</div>
-                        <h3 className="text-2xl font-bold text-white mb-2">Lillia Platform</h3>
-                        <p className="text-sm text-white/90">Continuous Care Enablement</p>
-                      </div>
-                    </div>
-                    {/* Pulsing ring */}
-                    <div className="absolute inset-0 rounded-full border-4 border-lillia-primary/30 pulse-ring"></div>
-                  </div>
-                </div>
+                {/* Background glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-lillia-primary/5 via-lillia-peach/5 to-lillia-primary/5 rounded-3xl blur-3xl" />
 
-                {/* Circular Flow - 6 Steps in Circle */}
-                <div className="relative max-w-5xl mx-auto" style={{ aspectRatio: '16/9' }}>
-                  {/* Connecting circular path */}
-                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 450">
-                    <defs>
-                      <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#7848FE" stopOpacity="0.3" />
-                        <stop offset="50%" stopColor="#9F7BFF" stopOpacity="0.3" />
-                        <stop offset="100%" stopColor="#FFD2BB" stopOpacity="0.3" />
-                      </linearGradient>
-                    </defs>
-                    {/* Elliptical path */}
-                    <ellipse
-                      cx="400"
-                      cy="225"
-                      rx="320"
-                      ry="180"
-                      fill="none"
-                      stroke="url(#pathGradient)"
-                      strokeWidth="3"
-                      strokeDasharray="10,5"
-                      className="flow-path"
-                    />
-                    {/* Animated flowing dots */}
-                    <circle r="6" fill="#7848FE" className="flow-dot flow-dot-1">
-                      <animateMotion
-                        dur="8s"
-                        repeatCount="indefinite"
-                        path="M 400,225 m -320,0 a 320,180 0 1,0 640,0 a 320,180 0 1,0 -640,0"
-                      />
-                    </circle>
-                    <circle r="6" fill="#9F7BFF" className="flow-dot flow-dot-2">
-                      <animateMotion
-                        dur="8s"
-                        begin="2s"
-                        repeatCount="indefinite"
-                        path="M 400,225 m -320,0 a 320,180 0 1,0 640,0 a 320,180 0 1,0 -640,0"
-                      />
-                    </circle>
-                    <circle r="6" fill="#FFD2BB" className="flow-dot flow-dot-3">
-                      <animateMotion
-                        dur="8s"
-                        begin="4s"
-                        repeatCount="indefinite"
-                        path="M 400,225 m -320,0 a 320,180 0 1,0 640,0 a 320,180 0 1,0 -640,0"
-                      />
-                    </circle>
-                  </svg>
-
-                  {/* Flow steps positioned in circle */}
+                {/* Flow steps in horizontal layout */}
+                <div className="relative grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200/40 rounded-2xl overflow-hidden">
                   {[
                     {
-                      icon: '📊',
-                      title: 'Collect Data',
-                      desc: 'Patient vitals, medications & symptoms',
-                      position: 'top-0 left-1/2 -translate-x-1/2',
-                      delay: '0s'
+                      step: '01',
+                      title: 'Collect & Engage',
+                      desc: 'Automated data collection from patients with intelligent engagement workflows',
+                      gradient: 'from-lillia-primary to-lillia-medium'
                     },
                     {
-                      icon: '💬',
-                      title: 'Engage Patients',
-                      desc: 'Automated check-ins & reminders',
-                      position: 'top-[15%] right-[8%]',
-                      delay: '0.1s'
+                      step: '02',
+                      title: 'Track & Document',
+                      desc: 'Real-time monitoring with structured time documentation for compliance',
+                      gradient: 'from-lillia-medium to-lillia-primary'
                     },
                     {
-                      icon: '📈',
-                      title: 'Track Progress',
-                      desc: 'Real-time monitoring & insights',
-                      position: 'bottom-[15%] right-[8%]',
-                      delay: '0.2s'
-                    },
-                    {
-                      icon: '📄',
-                      title: 'Document Care',
-                      desc: 'Structured time tracking',
-                      position: 'bottom-0 left-1/2 -translate-x-1/2',
-                      delay: '0.3s'
-                    },
-                    {
-                      icon: '✅',
-                      title: 'Verify Compliance',
-                      desc: 'CMS alignment checks',
-                      position: 'bottom-[15%] left-[8%]',
-                      delay: '0.4s'
-                    },
-                    {
-                      icon: '📊',
-                      title: 'Generate Reports',
-                      desc: 'Compliant billing documentation',
-                      position: 'top-[15%] left-[8%]',
-                      delay: '0.5s'
+                      step: '03',
+                      title: 'Verify & Report',
+                      desc: 'CMS-aligned verification with automated compliant reporting',
+                      gradient: 'from-lillia-primary to-lillia-deep'
                     }
-                  ].map((step, index) => (
+                  ].map((phase, index) => (
                     <div
                       key={index}
-                      className={`workflow-step-circle absolute ${step.position}`}
-                      style={{ animationDelay: step.delay }}
+                      className="workflow-phase bg-white p-8 lg:p-10 relative group"
+                      style={{ animationDelay: `${index * 0.15}s` }}
                     >
-                      <div className="group relative">
-                        {/* Step card */}
-                        <div className="bg-white rounded-2xl p-5 shadow-lg border-2 border-gray-200/50 hover:border-lillia-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 w-44">
-                          {/* Icon with gradient background */}
-                          <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-lillia-primary to-lillia-medium rounded-xl mb-3 mx-auto shadow-md">
-                            <span className="text-2xl">{step.icon}</span>
-                          </div>
+                      {/* Step number */}
+                      <div className="inline-flex items-center justify-center mb-6">
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${phase.gradient} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow`}>
+                          <span className="text-2xl font-bold text-white">{phase.step}</span>
+                        </div>
+                      </div>
 
-                          {/* Content */}
-                          <h4 className="text-sm font-bold text-gray-900 mb-1 text-center">{step.title}</h4>
-                          <p className="text-xs text-gray-600 text-center leading-relaxed">{step.desc}</p>
+                      {/* Content */}
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">
+                        {phase.title}
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed text-sm">
+                        {phase.desc}
+                      </p>
 
-                          {/* Step number badge */}
-                          <div className="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-lillia-deep to-lillia-primary rounded-full flex items-center justify-center shadow-md border-2 border-white">
-                            <span className="text-xs font-bold text-white">{index + 1}</span>
-                          </div>
-
-                          {/* Arrow indicator */}
-                          <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-lillia-primary to-lillia-medium rounded-full flex items-center justify-center shadow-md">
-                            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      {/* Arrow connector (hidden on last item) */}
+                      {index < 2 && (
+                        <div className="hidden md:block absolute top-1/2 -right-px translate-x-1/2 -translate-y-1/2 z-10">
+                          <div className="w-8 h-8 bg-white rounded-full border-2 border-gray-200/40 flex items-center justify-center shadow-sm">
+                            <svg className="w-4 h-4 text-lillia-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                             </svg>
                           </div>
                         </div>
-                      </div>
+                      )}
+
+                      {/* Hover gradient border */}
+                      <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br ${phase.gradient} -z-10`} style={{ margin: '-1px', borderRadius: 'inherit' }} />
                     </div>
                   ))}
                 </div>
 
-                {/* Key Benefits - Below the Loop */}
-                <div className="mt-20 grid md:grid-cols-4 gap-6">
-                  {[
-                    { icon: '💚', label: 'Better Adherence', metric: '85%' },
-                    { icon: '⚡', label: 'Time Saved', metric: '20min/patient' },
-                    { icon: '💰', label: 'Revenue Generated', metric: '$40k+/year' },
-                    { icon: '✅', label: 'CMS Compliant', metric: '100%' }
-                  ].map((benefit, index) => (
-                    <div
-                      key={index}
-                      className="workflow-benefit text-center"
-                      style={{ animationDelay: `${0.8 + index * 0.1}s` }}
-                    >
-                      <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200/50 hover:shadow-lg transition-all hover:-translate-y-1">
-                        <div className="text-4xl mb-3">{benefit.icon}</div>
-                        <div className="text-2xl font-bold text-lillia-primary mb-1">{benefit.metric}</div>
-                        <div className="text-sm font-medium text-gray-700">{benefit.label}</div>
+                {/* Loop indicator */}
+                <div className="mt-8 flex items-center justify-center">
+                  <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-md border border-gray-200/50">
+                    <div className="w-2 h-2 bg-gradient-to-r from-lillia-primary to-lillia-medium rounded-full animate-pulse" />
+                    <span className="text-sm font-medium text-gray-700">Continuous monthly cycle</span>
+                    <svg className="w-5 h-5 text-lillia-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Outcome metrics */}
+              <div className="mt-20 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium rounded-3xl opacity-[0.03]" />
+
+                <div className="relative bg-white/60 backdrop-blur-sm rounded-3xl p-12 border border-gray-200/50">
+                  <div className="text-center mb-10">
+                    <p className="text-sm font-semibold text-lillia-primary uppercase tracking-wider mb-2">
+                      Proven Results
+                    </p>
+                    <h3 className="text-2xl font-bold text-gray-900">
+                      Measurable Impact on Your Practice
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                    {[
+                      { metric: '85%', label: 'Patient Adherence', subtext: 'vs 60% industry avg' },
+                      { metric: '20min', label: 'Time Saved', subtext: 'per patient/month' },
+                      { metric: '$40k+', label: 'Annual Revenue', subtext: 'per enrolled patient' },
+                      { metric: '100%', label: 'CMS Compliant', subtext: 'documentation' }
+                    ].map((item, index) => (
+                      <div
+                        key={index}
+                        className="workflow-metric text-center"
+                        style={{ animationDelay: `${0.6 + index * 0.1}s` }}
+                      >
+                        <div className="mb-3">
+                          <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium bg-clip-text text-transparent">
+                            {item.metric}
+                          </div>
+                        </div>
+                        <div className="text-sm font-semibold text-gray-900 mb-1">
+                          {item.label}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {item.subtext}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -321,98 +280,31 @@ export const PurposeSection: React.FC = () => {
       </Container>
 
       <style jsx>{`
-        /* Workflow container */
+        /* Container */
         .workflow-container {
           opacity: 1;
-          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Center platform animation */
-        .workflow-center {
+        /* Phase cards */
+        .workflow-phase {
           opacity: 1;
-          animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+          transform: translateY(0);
+          animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes fadeInScale {
-          from {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
+        .workflow-animate .workflow-phase {
+          animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Pulsing ring animation */
-        .pulse-ring {
-          animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.1;
-            transform: scale(1.15);
-          }
-        }
-
-        /* SVG path animation */
-        .flow-path {
-          stroke-dasharray: 2000;
-          stroke-dashoffset: 2000;
-          animation: drawPath 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        @keyframes drawPath {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-
-        /* Flow dots */
-        .flow-dot {
-          filter: drop-shadow(0 0 6px rgba(120, 72, 254, 0.6));
-        }
-
-        /* Circular step cards */
-        .workflow-step-circle {
-          opacity: 1;
-          animation: fadeInBounce 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .workflow-animate .workflow-step-circle {
-          animation: fadeInBounce 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes fadeInBounce {
-          from {
-            opacity: 0;
-            transform: translateY(-20px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        /* Benefits */
-        .workflow-benefit {
-          opacity: 1;
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .workflow-animate .workflow-benefit {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        .workflow-phase:hover {
+          transform: translateY(-4px);
         }
 
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(24px);
           }
           to {
             opacity: 1;
@@ -420,19 +312,29 @@ export const PurposeSection: React.FC = () => {
           }
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-          .workflow-step-circle {
-            position: relative !important;
-            transform: none !important;
-            margin: 1rem auto;
-          }
+        /* Metrics */
+        .workflow-metric {
+          opacity: 1;
+          animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-          .workflow-step-circle > div > div {
-            width: 100% !important;
-            max-width: 300px;
-            margin: 0 auto;
+        .workflow-animate .workflow-metric {
+          animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
           }
+          to {
+            opacity: 1;
+          }
+        }
+
+        /* Subtle hover state for metrics */
+        .workflow-metric:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
       `}</style>
     </section>
