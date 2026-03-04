@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
+import { DollarSign, HeartPulse, ClipboardCheck } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
@@ -38,14 +39,23 @@ export const Hero: React.FC = () => {
 
             {/* Value Propositions */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/20 mb-8">
-              <div className="text-center md:text-left">
-                <div className="text-2xl font-bold mb-1">Increase reimbursement.</div>
+              <div className="flex flex-col items-center md:items-start gap-3">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                  <DollarSign className="w-6 h-6 text-white" strokeWidth={2.5} />
+                </div>
+                <div className="text-xl md:text-2xl font-bold whitespace-nowrap">Increase reimbursement.</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold mb-1">Improve adherence.</div>
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                  <HeartPulse className="w-6 h-6 text-white" strokeWidth={2.5} />
+                </div>
+                <div className="text-xl md:text-2xl font-bold whitespace-nowrap">Improve adherence.</div>
               </div>
-              <div className="text-center md:text-right">
-                <div className="text-2xl font-bold mb-1">Reduce administrative burden.</div>
+              <div className="flex flex-col items-center md:items-end gap-3">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                  <ClipboardCheck className="w-6 h-6 text-white" strokeWidth={2.5} />
+                </div>
+                <div className="text-xl md:text-2xl font-bold whitespace-nowrap">Reduce administrative burden.</div>
               </div>
             </div>
 
