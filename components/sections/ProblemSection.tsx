@@ -1,28 +1,29 @@
 import React from 'react';
 import { Container } from '../ui/Container';
+import { MessageCircle, ClipboardList, Users, DollarSign } from 'lucide-react';
 
 const problems = [
   {
     title: 'Maintain consistent between-visit engagement',
-    icon: '💬',
+    icon: MessageCircle,
     stat: '65%',
     description: 'of practices struggle with patient engagement'
   },
   {
     title: 'Document structured monthly care',
-    icon: '📋',
+    icon: ClipboardList,
     stat: '3hrs',
     description: 'wasted per week on manual documentation'
   },
   {
     title: 'Allocate staff efficiently',
-    icon: '👥',
+    icon: Users,
     stat: '40%',
     description: 'of staff time spent on admin tasks'
   },
   {
     title: 'Capture eligible reimbursement',
-    icon: '💰',
+    icon: DollarSign,
     stat: '$250k',
     description: 'potential revenue left uncaptured annually'
   }
@@ -51,25 +52,30 @@ export const ProblemSection: React.FC = () => {
 
           {/* Right: Problem Cards - Staggered */}
           <div className="lg:col-span-8 space-y-6">
-            {problems.map((problem, index) => (
-              <div
-                key={index}
-                className={`bg-gradient-to-br from-lillia-lighter/50 to-white border-l-4 border-lillia-primary rounded-2xl p-8 hover:shadow-xl transition-all ${
-                  index % 2 === 0 ? 'lg:ml-12' : 'lg:mr-12'
-                }`}
-              >
-                <div className="flex items-start gap-6">
-                  <div className="text-5xl">{problem.icon}</div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{problem.title}</h3>
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl font-bold text-lillia-primary">{problem.stat}</span>
-                      <span className="text-sm text-gray-600">{problem.description}</span>
+            {problems.map((problem, index) => {
+              const IconComponent = problem.icon;
+              return (
+                <div
+                  key={index}
+                  className={`bg-gradient-to-br from-lillia-lighter/50 to-white border-l-4 border-lillia-primary rounded-2xl p-8 hover:shadow-xl transition-all ${
+                    index % 2 === 0 ? 'lg:ml-12' : 'lg:mr-12'
+                  }`}
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{problem.title}</h3>
+                      <div className="flex items-baseline gap-2 mb-2">
+                        <span className="text-4xl font-bold text-lillia-primary">{problem.stat}</span>
+                        <span className="text-sm text-gray-600">{problem.description}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

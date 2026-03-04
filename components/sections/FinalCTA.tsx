@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
+import { Calendar, Presentation } from 'lucide-react';
 
 export const FinalCTA: React.FC = () => {
   return (
@@ -30,17 +31,19 @@ export const FinalCTA: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
               variant="primary"
-              className="bg-white text-lillia-primary hover:bg-lillia-lighter hover:shadow-2xl text-lg px-10 py-5"
+              className="bg-white text-lillia-primary hover:bg-lillia-lighter hover:shadow-2xl text-lg px-10 py-5 flex items-center justify-center gap-2"
               href="#book-demo"
             >
-              📅 Book a Demo
+              <Calendar className="w-5 h-5" />
+              Book a Demo
             </Button>
             <Button
               variant="secondary"
-              className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/20 text-lg px-10 py-5"
+              className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/20 text-lg px-10 py-5 flex items-center justify-center gap-2"
               href="#strategic-overview"
             >
-              📊 Request Strategic Overview
+              <Presentation className="w-5 h-5" />
+              Request Strategic Overview
             </Button>
           </div>
 

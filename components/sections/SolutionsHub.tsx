@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Container } from '../ui/Container';
+import { Check, Calendar, FileText, CheckCircle2 } from 'lucide-react';
 
 export const SolutionsHub: React.FC = () => {
   const product1Ref = useRef<HTMLDivElement>(null);
@@ -47,8 +48,11 @@ export const SolutionsHub: React.FC = () => {
         <div ref={product1Ref} className="product-section mb-32 opacity-0">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="px-4 py-2 bg-lillia-lighter rounded-full mb-4 inline-block">
-              <span className="text-xs font-bold text-lillia-deep">🏥 CORE PLATFORM</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-lillia-lighter rounded-full mb-4">
+              <svg className="w-4 h-4 text-lillia-deep" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span className="text-xs font-bold text-lillia-deep uppercase tracking-wider">CORE PLATFORM</span>
             </div>
             <h3 className="text-4xl font-bold text-gray-900 mb-4">
               Chronic Care Management Platform
@@ -99,7 +103,9 @@ export const SolutionsHub: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
                 <div className="w-16 h-16 bg-gradient-to-br from-lillia-primary to-lillia-medium rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
-                  <span className="text-3xl">📊</span>
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Organization Dashboard</h4>
                 <p className="text-sm text-gray-600">Track patients, health system members, and real-time billing metrics</p>
@@ -107,7 +113,9 @@ export const SolutionsHub: React.FC = () => {
 
               <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
-                  <span className="text-3xl">💰</span>
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Billing & Reimbursement</h4>
                 <p className="text-sm text-gray-600">Complete claims management from submission to approval</p>
@@ -115,7 +123,9 @@ export const SolutionsHub: React.FC = () => {
 
               <div className="text-center p-6 bg-white rounded-xl border border-gray-200/50 shadow-sm hover:shadow-lg transition-all">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-md">
-                  <span className="text-3xl">📱</span>
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                  </svg>
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Remote Care Monitoring</h4>
                 <p className="text-sm text-gray-600">Device readings and patient vitals in one comprehensive view</p>
@@ -129,8 +139,11 @@ export const SolutionsHub: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text - slides from left */}
             <div className="product-text-left lg:order-1">
-              <div className="px-4 py-2 bg-lillia-lighter rounded-full mb-4 inline-block">
-                <span className="text-xs font-bold text-lillia-deep">📱 PATIENT APP</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-lillia-lighter rounded-full mb-4">
+                <svg className="w-4 h-4 text-lillia-deep" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+                <span className="text-xs font-bold text-lillia-deep uppercase tracking-wider">PATIENT APP</span>
               </div>
               <h3 className="text-4xl font-bold text-gray-900 mb-4">
                 Lillia App
@@ -143,7 +156,7 @@ export const SolutionsHub: React.FC = () => {
                 {['Monthly check-ins', 'Adherence tracking', 'Secure engagement'].map((feature, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-6 h-6 bg-gradient-to-br from-lillia-medium to-lillia-primary rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-xs font-bold">✓</span>
+                      <Check className="w-3 h-3 text-white" strokeWidth={3} />
                     </div>
                     <span className="text-gray-700 font-medium">{feature}</span>
                   </div>
@@ -159,12 +172,12 @@ export const SolutionsHub: React.FC = () => {
 
             {/* Image - slides from right */}
             <div className="product-image-right lg:order-2">
-              <div className="aspect-[3/4] bg-gradient-to-br from-lillia-lighter/30 to-lillia-light/20 rounded-2xl border-2 border-dashed border-lillia-medium flex items-center justify-center shadow-xl">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4">📱</div>
-                  <p className="text-lg text-gray-600 font-semibold">App Preview</p>
-                  <p className="text-sm text-gray-500 mt-2">Visual will be provided</p>
-                </div>
+              <div className="relative">
+                <img
+                  src="/Lillia-Landing-Page-Concept/images/lillia-app.png"
+                  alt="Lillia App - Patient Engagement Interface"
+                  className="w-full h-auto max-w-md mx-auto drop-shadow-2xl"
+                />
               </div>
             </div>
           </div>
@@ -177,7 +190,9 @@ export const SolutionsHub: React.FC = () => {
             <div className="product-image-left">
               <div className="aspect-video bg-gradient-to-br from-lillia-deep/10 to-lillia-primary/10 rounded-2xl border-2 border-dashed border-lillia-deep flex items-center justify-center shadow-xl">
                 <div className="text-center p-8">
-                  <div className="text-6xl mb-4">⚡</div>
+                  <svg className="w-20 h-20 text-lillia-deep mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                   <p className="text-lg text-gray-600 font-semibold">Execution OS Preview</p>
                   <p className="text-sm text-gray-500 mt-2">Visual will be provided</p>
                 </div>
@@ -186,8 +201,11 @@ export const SolutionsHub: React.FC = () => {
 
             {/* Text - slides from right */}
             <div className="product-text-right">
-              <div className="px-4 py-2 bg-lillia-lighter rounded-full mb-4 inline-block">
-                <span className="text-xs font-bold text-lillia-deep">⚡ AUTOMATION</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-lillia-lighter rounded-full mb-4">
+                <svg className="w-4 h-4 text-lillia-deep" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                </svg>
+                <span className="text-xs font-bold text-lillia-deep uppercase tracking-wider">AUTOMATION</span>
               </div>
               <h3 className="text-4xl font-bold text-gray-900 mb-4">
                 Execution OS
@@ -198,15 +216,20 @@ export const SolutionsHub: React.FC = () => {
 
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
-                  { icon: '📅', title: 'Monthly Execution' },
-                  { icon: '📄', title: 'Documentation' },
-                  { icon: '✅', title: 'CMS-Aligned' }
-                ].map((item, i) => (
-                  <div key={i} className="text-center p-4 bg-white rounded-xl border border-gray-200 hover:border-lillia-deep/30 transition-colors">
-                    <div className="text-3xl mb-2">{item.icon}</div>
-                    <p className="text-xs font-medium text-gray-700">{item.title}</p>
-                  </div>
-                ))}
+                  { icon: Calendar, title: 'Monthly Execution', color: 'from-blue-500 to-blue-600' },
+                  { icon: FileText, title: 'Documentation', color: 'from-purple-500 to-purple-600' },
+                  { icon: CheckCircle2, title: 'CMS-Aligned', color: 'from-green-500 to-green-600' }
+                ].map((item, i) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div key={i} className="text-center p-4 bg-white rounded-xl border border-gray-200 hover:border-lillia-deep/30 transition-colors">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md`}>
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <p className="text-xs font-medium text-gray-700">{item.title}</p>
+                    </div>
+                  );
+                })}
               </div>
 
               <div className="bg-gradient-to-r from-lillia-lighter/50 to-lillia-light/30 rounded-xl p-6 border-l-4 border-lillia-deep">

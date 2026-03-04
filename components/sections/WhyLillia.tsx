@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
+import { Building2, Building, Monitor } from 'lucide-react';
 
 export const WhyLillia: React.FC = () => {
   return (
@@ -49,8 +50,8 @@ export const WhyLillia: React.FC = () => {
           <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform" />
             <div className="relative bg-white rounded-3xl p-8 border-2 border-lillia-primary/20 shadow-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl flex items-center justify-center text-3xl mb-6">
-                🏥
+              <div className="w-16 h-16 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl flex items-center justify-center mb-6">
+                <Building2 className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-4">
                 Independent Practices
@@ -78,8 +79,8 @@ export const WhyLillia: React.FC = () => {
           <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-br from-lillia-medium to-lillia-primary rounded-3xl transform -rotate-2 group-hover:-rotate-4 transition-transform" />
             <div className="relative bg-white rounded-3xl p-8 border-2 border-lillia-medium/20 shadow-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-lillia-medium to-lillia-primary rounded-2xl flex items-center justify-center text-3xl mb-6">
-                🏢
+              <div className="w-16 h-16 bg-gradient-to-br from-lillia-medium to-lillia-primary rounded-2xl flex items-center justify-center mb-6">
+                <Building className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-4">
                 Health Systems
@@ -107,8 +108,8 @@ export const WhyLillia: React.FC = () => {
           <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-br from-lillia-deep to-lillia-deep-blue rounded-3xl transform rotate-2 group-hover:rotate-4 transition-transform" />
             <div className="relative bg-white rounded-3xl p-8 border-2 border-lillia-deep/20 shadow-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-lillia-deep to-lillia-deep-blue rounded-2xl flex items-center justify-center text-3xl mb-6">
-                💻
+              <div className="w-16 h-16 bg-gradient-to-br from-lillia-deep to-lillia-deep-blue rounded-2xl flex items-center justify-center mb-6">
+                <Monitor className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-4">
                 Digital Health Partners

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Container } from '../ui/Container';
+import { Activity, Pill, FileText, Smartphone, Bell, RefreshCw, MessageCircle, TrendingUp, CheckCircle, HeartPulse, Zap, DollarSign, BarChart3 } from 'lucide-react';
 
 const features = [
   {
@@ -109,23 +110,26 @@ export const PurposeSection: React.FC = () => {
                   <div className="space-y-3">
                     <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Input Sources</h4>
                     {[
-                      { icon: '📊', label: 'Patient Vitals', color: 'from-blue-500 to-blue-600' },
-                      { icon: '💊', label: 'Medications', color: 'from-green-500 to-green-600' },
-                      { icon: '📝', label: 'Symptoms', color: 'from-orange-500 to-orange-600' },
-                      { icon: '📱', label: 'App Activity', color: 'from-purple-500 to-purple-600' },
-                      { icon: '🔔', label: 'Alerts', color: 'from-red-500 to-red-600' }
-                    ].map((source, index) => (
+                      { icon: Activity, label: 'Patient Vitals', color: 'from-blue-500 to-blue-600' },
+                      { icon: Pill, label: 'Medications', color: 'from-green-500 to-green-600' },
+                      { icon: FileText, label: 'Symptoms', color: 'from-orange-500 to-orange-600' },
+                      { icon: Smartphone, label: 'App Activity', color: 'from-purple-500 to-purple-600' },
+                      { icon: Bell, label: 'Alerts', color: 'from-red-500 to-red-600' }
+                    ].map((source, index) => {
+                      const IconComponent = source.icon;
+                      return (
                       <div
                         key={index}
                         className="flow-source-item bg-white rounded-xl p-3 shadow-sm border border-gray-200/50 flex items-center gap-3"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         <div className={`w-10 h-10 bg-gradient-to-br ${source.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-md`}>
-                          <span className="text-lg">{source.icon}</span>
+                          <IconComponent className="w-5 h-5 text-white" />
                         </div>
                         <span className="text-sm font-medium text-gray-700">{source.label}</span>
                       </div>
-                    ))}
+                    );
+                    })}
                   </div>
 
                   {/* Animated flowing arrows - Left to Center */}
@@ -167,12 +171,14 @@ export const PurposeSection: React.FC = () => {
                     <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 text-center">Lillia Platform</h4>
 
                     {[
-                      { icon: '🔄', title: 'Integrate', desc: 'Collect & normalize data' },
-                      { icon: '💬', title: 'Engage', desc: 'Automated patient interactions' },
-                      { icon: '📈', title: 'Analyze', desc: 'Real-time monitoring' },
-                      { icon: '📄', title: 'Document', desc: 'Structured time tracking' },
-                      { icon: '✅', title: 'Verify', desc: 'CMS compliance check' }
-                    ].map((step, index) => (
+                      { icon: RefreshCw, title: 'Integrate', desc: 'Collect & normalize data' },
+                      { icon: MessageCircle, title: 'Engage', desc: 'Automated patient interactions' },
+                      { icon: TrendingUp, title: 'Analyze', desc: 'Real-time monitoring' },
+                      { icon: FileText, title: 'Document', desc: 'Structured time tracking' },
+                      { icon: CheckCircle, title: 'Verify', desc: 'CMS compliance check' }
+                    ].map((step, index) => {
+                      const IconComponent = step.icon;
+                      return (
                       <div
                         key={index}
                         className="flow-process-step bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium rounded-2xl p-5 shadow-xl relative overflow-hidden group"
@@ -183,7 +189,7 @@ export const PurposeSection: React.FC = () => {
 
                         <div className="relative flex items-center gap-4">
                           <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span className="text-2xl">{step.icon}</span>
+                            <IconComponent className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="text-white font-bold text-sm mb-1">{step.title}</div>
@@ -196,7 +202,8 @@ export const PurposeSection: React.FC = () => {
                           <div className="progress-bar h-full bg-white/60" style={{ animationDelay: `${0.5 + index * 0.1}s` }} />
                         </div>
                       </div>
-                    ))}
+                    );
+                    })}
                   </div>
 
                   {/* Animated flowing arrows - Center to Right */}
@@ -237,11 +244,13 @@ export const PurposeSection: React.FC = () => {
                   <div className="space-y-3">
                     <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Outcomes</h4>
                     {[
-                      { icon: '💚', label: 'Better Adherence', metric: '85%', color: 'from-green-400 to-green-600' },
-                      { icon: '⚡', label: 'Reduced Workload', metric: '20min', color: 'from-yellow-400 to-orange-500' },
-                      { icon: '💰', label: 'Revenue Growth', metric: '$40k+', color: 'from-lillia-primary to-lillia-deep' },
-                      { icon: '📊', label: 'CMS Reports', metric: '100%', color: 'from-blue-500 to-purple-600' }
-                    ].map((outcome, index) => (
+                      { icon: HeartPulse, label: 'Better Adherence', metric: '85%', color: 'from-green-400 to-green-600' },
+                      { icon: Zap, label: 'Reduced Workload', metric: '20min', color: 'from-yellow-400 to-orange-500' },
+                      { icon: DollarSign, label: 'Revenue Growth', metric: '$40k+', color: 'from-lillia-primary to-lillia-deep' },
+                      { icon: BarChart3, label: 'CMS Reports', metric: '100%', color: 'from-blue-500 to-purple-600' }
+                    ].map((outcome, index) => {
+                      const IconComponent = outcome.icon;
+                      return (
                       <div
                         key={index}
                         className="flow-outcome-item bg-white rounded-xl p-4 shadow-md border-2 border-gray-200/50 hover:border-lillia-primary/30 transition-all hover:shadow-xl"
@@ -249,7 +258,7 @@ export const PurposeSection: React.FC = () => {
                       >
                         <div className="flex items-center gap-3">
                           <div className={`w-12 h-12 bg-gradient-to-br ${outcome.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-md`}>
-                            <span className="text-xl">{outcome.icon}</span>
+                            <IconComponent className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="text-sm font-medium text-gray-600 mb-0.5">{outcome.label}</div>
@@ -257,7 +266,8 @@ export const PurposeSection: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                    ))}
+                    );
+                    })}
                   </div>
                 </div>
 
