@@ -53,7 +53,7 @@ export const SolutionsHub: React.FC = () => {
                 <div className="col-span-2">
                   <div className="rounded-xl overflow-hidden border border-gray-200/50 shadow-xl hover:shadow-2xl transition-shadow">
                     <img
-                      src="/images/ccm-dashboard.png"
+                      src="/Lillia-Landing-Page-Concept/images/ccm-dashboard.png"
                       alt="Organization Dashboard - Admin overview"
                       className="w-full h-auto"
                     />
@@ -65,7 +65,7 @@ export const SolutionsHub: React.FC = () => {
                 <div>
                   <div className="rounded-lg overflow-hidden border border-gray-200/50 shadow-lg hover:shadow-xl transition-shadow">
                     <img
-                      src="/images/ccm-billing.png"
+                      src="/Lillia-Landing-Page-Concept/images/ccm-billing.png"
                       alt="Billing & Reimbursement tracking"
                       className="w-full h-auto"
                     />
@@ -77,7 +77,7 @@ export const SolutionsHub: React.FC = () => {
                 <div>
                   <div className="rounded-lg overflow-hidden border border-gray-200/50 shadow-lg hover:shadow-xl transition-shadow">
                     <img
-                      src="/images/ccm-monitoring.png"
+                      src="/Lillia-Landing-Page-Concept/images/ccm-monitoring.png"
                       alt="Remote Care Monitoring - Patient vitals"
                       className="w-full h-auto"
                     />
