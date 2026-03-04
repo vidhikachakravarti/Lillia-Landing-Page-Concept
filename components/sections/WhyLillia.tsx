@@ -11,7 +11,8 @@ export const WhyLillia: React.FC = () => {
             <span className="text-sm font-semibold text-green-600">Reimbursement Ready</span>
           </div>
           <h2 className="text-5xl font-bold text-gray-900 mb-4 max-w-3xl mx-auto">
-            Revenue Today. <span className="text-gradient-purple">Ready for Evolving Models.</span>
+            Revenue Today.<br />
+            <span className="text-gradient-purple">Ready for Evolving Models.</span>
           </h2>
         </div>
 
