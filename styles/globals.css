@@ -89,10 +89,10 @@
 
 @layer utilities {
   .text-gradient-purple {
-    @apply text-lillia-primary;
+    @apply bg-gradient-to-r from-lillia-primary to-lillia-medium bg-clip-text text-transparent;
   }
 
   .bg-gradient-subtle {
-    @apply bg-neutral-50;
+    @apply bg-gradient-to-br from-white via-lillia-lighter/20 to-white;
   }
 }

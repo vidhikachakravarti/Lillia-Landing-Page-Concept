@@ -9,14 +9,14 @@ module.exports = {
     extend: {
       colors: {
         lillia: {
-          primary: '#6366f1',
-          deep: '#4338ca',
-          medium: '#818cf8',
-          light: '#a5b4fc',
-          lighter: '#e0e7ff',
+          primary: '#7848FE',
+          deep: '#280470',
+          medium: '#9F7BFF',
+          light: '#D3B9F9',
+          lighter: '#EADEFC',
           peach: '#FFD2BB',
           'peach-light': '#F9EAE4',
-          'deep-blue': '#1e40af',
+          'deep-blue': '#1405D6',
         },
         neutral: {
           50: '#fafafa',
