@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Container } from '../ui/Container';
 
 const features = [
@@ -35,6 +35,31 @@ const features = [
 ];
 
 export const PurposeSection: React.FC = () => {
+  const workflowRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px'
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('workflow-animate');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    if (workflowRef.current) {
+      observer.observe(workflowRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative py-32 bg-gradient-to-b from-white via-lillia-lighter/10 to-white overflow-hidden">
       {/* Decorative background */}
@@ -56,6 +81,103 @@ export const PurposeSection: React.FC = () => {
             <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               A remote chronic care enablement platform built for structured, reimbursable care.
             </p>
+          </div>
+
+          {/* Animated Workflow Diagram */}
+          <div ref={workflowRef} className="workflow-container mb-24 px-4">
+            <div className="relative bg-gradient-to-br from-white to-lillia-lighter/20 rounded-3xl p-8 lg:p-12 border-2 border-lillia-primary/20 shadow-2xl overflow-hidden">
+              {/* Decorative elements */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-lillia-peach rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-lillia-primary rounded-full blur-3xl" />
+              </div>
+
+              <div className="relative grid lg:grid-cols-[1fr_2fr_1fr] gap-8 items-center">
+                {/* Left: Data Inputs */}
+                <div className="workflow-inputs space-y-4">
+                  <h3 className="text-lg font-bold text-lillia-deep mb-6">Data Inputs</h3>
+                  {[
+                    { icon: '📊', label: 'Patient Vitals' },
+                    { icon: '💊', label: 'Medications' },
+                    { icon: '📝', label: 'Symptoms' },
+                    { icon: '📅', label: 'Care Plans' },
+                    { icon: '🔔', label: 'Alerts' }
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="workflow-input-item flex items-center gap-3 bg-white rounded-lg p-3 border border-lillia-primary/20 shadow-sm"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div className="w-8 h-8 bg-gradient-to-br from-lillia-peach to-lillia-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-sm">{item.icon}</span>
+                      </div>
+                      <span className="text-sm font-medium text-gray-800">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Center: Process Flow */}
+                <div className="workflow-process">
+                  <div className="grid grid-cols-3 gap-4">
+                    {[
+                      { icon: '🔄', title: 'Collect', desc: 'Automated patient data collection' },
+                      { icon: '💬', title: 'Engage', desc: 'Continuous patient engagement' },
+                      { icon: '📈', title: 'Track', desc: 'Real-time monitoring & insights' },
+                      { icon: '📄', title: 'Document', desc: 'Structured time tracking' },
+                      { icon: '✅', title: 'Verify', desc: 'CMS compliance checks' },
+                      { icon: '📊', title: 'Report', desc: 'Generate compliant reports' }
+                    ].map((step, index) => (
+                      <div
+                        key={index}
+                        className="workflow-step text-center"
+                        style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                      >
+                        <div className="bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium rounded-xl p-4 shadow-lg mb-2 relative overflow-hidden group">
+                          {/* Shimmer effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer" />
+
+                          <div className="relative">
+                            <div className="text-3xl mb-2">{step.icon}</div>
+                            <div className="text-sm font-bold text-white mb-1">{step.title}</div>
+                          </div>
+                        </div>
+                        <p className="text-xs text-gray-600">{step.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Flow arrows */}
+                  <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex items-center justify-between px-4 pointer-events-none hidden lg:flex">
+                    <div className="workflow-arrow text-lillia-primary text-3xl">→</div>
+                    <div className="workflow-arrow text-lillia-primary text-3xl" style={{ animationDelay: '1.2s' }}>→</div>
+                  </div>
+                </div>
+
+                {/* Right: Outcomes */}
+                <div className="workflow-outcomes space-y-4">
+                  <h3 className="text-lg font-bold text-lillia-deep mb-6">Outcomes</h3>
+                  {[
+                    { icon: '💚', label: 'Improved Patient Adherence', color: 'from-green-400 to-green-600' },
+                    { icon: '⚡', label: 'Reduced Staff Workload', color: 'from-lillia-peach to-lillia-primary' },
+                    { icon: '💰', label: 'Compliant Billing', color: 'from-lillia-primary to-lillia-deep' },
+                    { icon: '📈', label: 'Better Health Outcomes', color: 'from-lillia-medium to-lillia-primary' }
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="workflow-outcome-item"
+                      style={{ animationDelay: `${1.3 + index * 0.1}s` }}
+                    >
+                      <div className="flex items-center gap-3 bg-white rounded-lg p-4 border-2 border-lillia-primary/30 shadow-md hover:shadow-xl transition-shadow">
+                        <div className={`w-12 h-12 bg-gradient-to-br ${item.color} rounded-full flex items-center justify-center flex-shrink-0`}>
+                          <span className="text-xl">{item.icon}</span>
+                        </div>
+                        <span className="text-sm font-semibold text-gray-800">{item.label}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Features Grid - All Equal Size */}
@@ -119,6 +241,105 @@ export const PurposeSection: React.FC = () => {
           </div>
         </div>
       </Container>
+
+      <style jsx>{`
+        /* Workflow animations */
+        .workflow-container {
+          opacity: 1;
+          transform: translateY(0);
+          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .workflow-input-item,
+        .workflow-step,
+        .workflow-outcome-item,
+        .workflow-arrow {
+          opacity: 1;
+          transform: translateX(0);
+          animation: none;
+        }
+
+        .workflow-animate .workflow-input-item {
+          animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .workflow-animate .workflow-step {
+          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .workflow-animate .workflow-outcome-item {
+          animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .workflow-animate .workflow-arrow {
+          animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        /* Shimmer effect for process steps */
+        .shimmer {
+          animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+
+        /* Hover effects */
+        .workflow-step {
+          transition: transform 0.3s ease;
+        }
+
+        .workflow-step:hover {
+          transform: scale(1.05);
+        }
+      `}</style>
     </section>
   );
 };
