@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { Building2, Building, Monitor } from 'lucide-react';
+import { Building2, Building, Monitor, Check } from 'lucide-react';
 
 export const WhyLillia: React.FC = () => {
   return (
@@ -44,28 +44,45 @@ export const WhyLillia: React.FC = () => {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* TG 1 */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform" />
-            <div className="relative bg-white rounded-3xl p-8 border-2 border-lillia-primary/20 shadow-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl flex items-center justify-center mb-6">
-                <Building2 className="w-8 h-8 text-white" />
+          <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-10 border border-gray-200/60 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            {/* Gradient border effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-lillia-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <div className="relative">
+              {/* Icon */}
+              <div className="mb-6 inline-flex">
+                <div className="w-14 h-14 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-xl flex items-center justify-center shadow-lg">
+                  <Building2 className="w-7 h-7 text-white" />
+                </div>
               </div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-4">
+
+              {/* Title */}
+              <h4 className="text-2xl font-bold text-gray-900 mb-3">
                 Independent Practices
               </h4>
-              <p className="text-gray-600 mb-6">
+
+              {/* Description */}
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 Unlock recurring monthly revenue without hiring staff.
               </p>
-              <ul className="space-y-3 mb-6">
+
+              {/* Features */}
+              <ul className="space-y-3 mb-8">
                 {['Identify eligible patients', 'Monthly engagement', 'Track billable time', 'Compliant docs'].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm">
-                    <span className="text-lillia-primary">→</span>
-                    <span>{item}</span>
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex-shrink-0">
+                      <div className="w-5 h-5 rounded-full bg-lillia-primary/10 flex items-center justify-center">
+                        <Check className="w-3 h-3 text-lillia-primary" strokeWidth={3} />
+                      </div>
+                    </div>
+                    <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
-              <div className="pt-6 border-t border-gray-200">
-                <p className="text-sm font-semibold text-lillia-primary">
+
+              {/* Bottom highlight */}
+              <div className="pt-6 border-t border-gray-200/80">
+                <p className="text-sm font-semibold bg-gradient-to-r from-lillia-primary to-lillia-medium bg-clip-text text-transparent">
                   Lillia structures everything in between.
                 </p>
               </div>
@@ -73,28 +90,45 @@ export const WhyLillia: React.FC = () => {
           </div>
 
           {/* TG 2 */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-lillia-medium to-lillia-primary rounded-3xl transform -rotate-2 group-hover:-rotate-4 transition-transform" />
-            <div className="relative bg-white rounded-3xl p-8 border-2 border-lillia-medium/20 shadow-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-lillia-medium to-lillia-primary rounded-2xl flex items-center justify-center mb-6">
-                <Building className="w-8 h-8 text-white" />
+          <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-10 border border-gray-200/60 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            {/* Gradient border effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-lillia-medium/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <div className="relative">
+              {/* Icon */}
+              <div className="mb-6 inline-flex">
+                <div className="w-14 h-14 bg-gradient-to-br from-lillia-medium to-lillia-primary rounded-xl flex items-center justify-center shadow-lg">
+                  <Building className="w-7 h-7 text-white" />
+                </div>
               </div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-4">
+
+              {/* Title */}
+              <h4 className="text-2xl font-bold text-gray-900 mb-3">
                 Health Systems
               </h4>
-              <p className="text-gray-600 mb-6">
+
+              {/* Description */}
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 Standardize remote care across sites.
               </p>
-              <ul className="space-y-3 mb-6">
+
+              {/* Features */}
+              <ul className="space-y-3 mb-8">
                 {['Consistent workflows', 'Centralized tracking', 'Operational dashboards', 'Revenue visibility'].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm">
-                    <span className="text-lillia-medium">→</span>
-                    <span>{item}</span>
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex-shrink-0">
+                      <div className="w-5 h-5 rounded-full bg-lillia-medium/10 flex items-center justify-center">
+                        <Check className="w-3 h-3 text-lillia-medium" strokeWidth={3} />
+                      </div>
+                    </div>
+                    <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
-              <div className="pt-6 border-t border-gray-200">
-                <p className="text-sm font-semibold text-lillia-medium">
+
+              {/* Bottom highlight */}
+              <div className="pt-6 border-t border-gray-200/80">
+                <p className="text-sm font-semibold bg-gradient-to-r from-lillia-medium to-lillia-primary bg-clip-text text-transparent">
                   Scale without operational complexity.
                 </p>
               </div>
@@ -102,28 +136,45 @@ export const WhyLillia: React.FC = () => {
           </div>
 
           {/* TG 3 */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-lillia-deep to-lillia-deep-blue rounded-3xl transform rotate-2 group-hover:rotate-4 transition-transform" />
-            <div className="relative bg-white rounded-3xl p-8 border-2 border-lillia-deep/20 shadow-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-lillia-deep to-lillia-deep-blue rounded-2xl flex items-center justify-center mb-6">
-                <Monitor className="w-8 h-8 text-white" />
+          <div className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-10 border border-gray-200/60 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            {/* Gradient border effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-lillia-deep/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <div className="relative">
+              {/* Icon */}
+              <div className="mb-6 inline-flex">
+                <div className="w-14 h-14 bg-gradient-to-br from-lillia-deep to-lillia-deep-blue rounded-xl flex items-center justify-center shadow-lg">
+                  <Monitor className="w-7 h-7 text-white" />
+                </div>
               </div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-4">
+
+              {/* Title */}
+              <h4 className="text-2xl font-bold text-gray-900 mb-3">
                 Digital Health Partners
               </h4>
-              <p className="text-gray-600 mb-6">
+
+              {/* Description */}
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 Add structured care infrastructure.
               </p>
-              <ul className="space-y-3 mb-6">
+
+              {/* Features */}
+              <ul className="space-y-3 mb-8">
                 {['Tech-only workflow', 'Tech + services', 'White-label engine'].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm">
-                    <span className="text-lillia-deep">→</span>
-                    <span>{item}</span>
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex-shrink-0">
+                      <div className="w-5 h-5 rounded-full bg-lillia-deep/10 flex items-center justify-center">
+                        <Check className="w-3 h-3 text-lillia-deep" strokeWidth={3} />
+                      </div>
+                    </div>
+                    <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
-              <div className="pt-6 border-t border-gray-200">
-                <p className="text-sm font-semibold text-lillia-deep">
+
+              {/* Bottom highlight */}
+              <div className="pt-6 border-t border-gray-200/80">
+                <p className="text-sm font-semibold bg-gradient-to-r from-lillia-deep to-lillia-deep-blue bg-clip-text text-transparent">
                   Reimbursement-aligned workflows.
                 </p>
               </div>
