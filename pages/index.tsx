@@ -4,6 +4,7 @@ import { ProblemSection } from '../components/sections/ProblemSection';
 import { PurposeSection } from '../components/sections/PurposeSection';
 import { SolutionsHub } from '../components/sections/SolutionsHub';
 import { WhyLillia } from '../components/sections/WhyLillia';
+import { HowDifferent } from '../components/sections/HowDifferent';
 import { FinalCTA } from '../components/sections/FinalCTA';
 
 export default function Home() {
@@ -25,6 +26,9 @@ export default function Home() {
 
         {/* Revenue Today. Ready for Evolving Models */}
         <WhyLillia />
+
+        {/* How Lillia Is Different */}
+        <HowDifferent />
 
         {/* Final CTA */}
         <FinalCTA />
