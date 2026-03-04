@@ -24,14 +24,24 @@ export const WhyLillia: React.FC = () => {
         </div>
 
         {/* CTA Box */}
-        <div className="max-w-5xl mx-auto mb-24 bg-gradient-to-br from-lillia-lighter via-lillia-light/50 to-lillia-medium/30 rounded-3xl p-12 border-2 border-lillia-primary/20 shadow-xl">
-          <div className="text-center">
-            <p className="text-3xl font-bold text-lillia-deep mb-4">
-              Start with fee-for-service reimbursement.
-            </p>
-            <p className="text-xl text-gray-700">
-              Build structured remote care aligned with evolving Medicare dynamics.
-            </p>
+        <div className="max-w-5xl mx-auto mb-24 relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-lillia-primary via-lillia-medium to-lillia-deep rounded-3xl opacity-90 blur-2xl group-hover:opacity-100 transition-opacity" />
+          <div className="relative bg-gradient-to-br from-lillia-deep via-lillia-primary to-lillia-medium rounded-3xl p-16 shadow-2xl">
+            {/* Decorative corner accent */}
+            <div className="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-br-full" />
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/10 rounded-tl-full" />
+
+            <div className="relative text-center">
+              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6 border border-white/30">
+                <span className="text-sm font-bold text-white uppercase tracking-wider">Revenue Model</span>
+              </div>
+              <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Start with fee-for-service reimbursement.
+              </h3>
+              <p className="text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+                Build structured remote care aligned with evolving Medicare dynamics.
+              </p>
+            </div>
           </div>
         </div>
 

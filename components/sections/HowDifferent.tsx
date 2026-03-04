@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { Check } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 
 export const HowDifferent: React.FC = () => {
   const differentiators = [
@@ -12,48 +12,60 @@ export const HowDifferent: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 bg-white">
+    <section className="py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       <Container>
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">
-              How Lillia Is Different
-            </h2>
-            <div className="space-y-4">
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Many vendors focus on devices, messaging tools, or outsourced call centers.
-              </p>
-              <p className="text-xl text-gray-900 font-medium leading-relaxed">
-                Lillia is built around structured remote chronic care execution:
-              </p>
-            </div>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Header & Description */}
+            <div>
+              <div className="inline-flex items-center gap-2 mb-6">
+                <Sparkles className="w-6 h-6 text-lillia-primary" />
+                <span className="text-sm font-semibold text-lillia-primary uppercase tracking-wider">What Sets Us Apart</span>
+              </div>
 
-          {/* Differentiators List */}
-          <div className="space-y-4 mb-16">
-            {differentiators.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-4 py-4"
-              >
-                <div className="flex-shrink-0 mt-1">
-                  <div className="w-6 h-6 rounded-full bg-lillia-primary/10 flex items-center justify-center">
-                    <Check className="w-4 h-4 text-lillia-primary" strokeWidth={2.5} />
-                  </div>
-                </div>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {item}
+              <h2 className="text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                How Lillia Is <span className="text-gradient-purple">Different</span>
+              </h2>
+
+              <div className="space-y-6 mb-8">
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  Many vendors focus on devices, messaging tools, or outsourced call centers.
+                </p>
+                <p className="text-xl text-gray-900 font-semibold leading-relaxed">
+                  Lillia is built around structured remote chronic care execution.
                 </p>
               </div>
-            ))}
-          </div>
 
-          {/* Bottom statement */}
-          <div className="border-l-4 border-lillia-primary pl-8 py-6">
-            <p className="text-2xl text-gray-900 font-semibold leading-relaxed">
-              A structured remote chronic care operating model — not just engagement software.
-            </p>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-lillia-primary/5 to-transparent rounded-2xl" />
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 border-l-4 border-lillia-primary shadow-lg">
+                  <p className="text-2xl text-gray-900 font-bold leading-relaxed">
+                    A structured remote chronic care operating model — not just engagement software.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Differentiators */}
+            <div className="space-y-6">
+              {differentiators.map((item, index) => (
+                <div
+                  key={index}
+                  className="group bg-white rounded-2xl p-6 border border-gray-200/60 shadow-md hover:shadow-xl hover:border-lillia-primary/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lillia-primary to-lillia-medium flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <Check className="w-6 h-6 text-white" strokeWidth={3} />
+                      </div>
+                    </div>
+                    <p className="text-lg text-gray-900 font-semibold leading-relaxed">
+                      {item}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Container>
