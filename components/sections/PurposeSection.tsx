@@ -58,41 +58,9 @@ export const PurposeSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Hero Feature Card */}
-          <div className="mb-20">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-              {/* Image with overlay */}
-              <div className="relative h-[500px]">
-                <img
-                  src={features[0].imageUrl}
-                  alt={features[0].title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-lillia-deep/95 via-lillia-primary/80 to-transparent" />
-              </div>
-
-              {/* Content overlay */}
-              <div className="absolute inset-0 flex items-end">
-                <div className="p-12 lg:p-16 text-white">
-                  <div className="max-w-3xl">
-                    <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6 border border-white/30">
-                      <span className="text-sm font-bold">CORE CAPABILITY</span>
-                    </div>
-                    <h3 className="text-4xl lg:text-5xl font-bold mb-4">
-                      {features[0].title}
-                    </h3>
-                    <p className="text-xl text-white/90 leading-relaxed">
-                      {features[0].description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Features Grid */}
+          {/* Features Grid - All Equal Size */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {features.slice(1).map((feature, index) => (
+            {features.map((feature, index) => (
               <div
                 key={index}
                 className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
@@ -104,11 +72,12 @@ export const PurposeSection: React.FC = () => {
                     alt={feature.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
+                  {/* Peach-Purple gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-lillia-peach/60 via-lillia-primary/70 to-lillia-deep/80" />
 
                   {/* Number badge */}
                   <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">{index + 2}</span>
+                    <span className="text-white font-bold text-sm">{index + 1}</span>
                   </div>
                 </div>
 
