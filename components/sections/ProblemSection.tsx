@@ -40,13 +40,10 @@ export const ProblemSection: React.FC = () => {
           {/* Left: Sticky Header */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
             <h2 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              The Reality of Chronic Care
+              Chronic care practices struggle with...
             </h2>
             <p className="text-xl text-lillia-primary font-medium mb-4">
               Chronic care is ongoing – reimbursement requires structure.
-            </p>
-            <p className="text-gray-600">
-              Most Medicare patients live with ongoing conditions, yet practices struggle to:
             </p>
           </div>
 
