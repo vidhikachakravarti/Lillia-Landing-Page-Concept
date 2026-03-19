@@ -57,9 +57,9 @@ export const SolutionsHub: React.FC = () => {
           </div>
 
           {/* Overlapping Images */}
-          <div className="relative h-[800px] lg:h-[700px] mb-16">
+          <div className="relative h-[700px] lg:h-[700px] mb-16">
             {/* Dashboard - Back */}
-            <div className="absolute top-0 left-0 w-[85%] lg:top-0 lg:left-[5%] lg:w-[70%] z-10 ccm-image-1">
+            <div className="absolute top-0 left-0 w-[92%] lg:top-0 lg:left-[5%] lg:w-[70%] z-10 ccm-image-1">
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
                 <img
                   src="/Lillia-Landing-Page-Concept/images/ccm-dashboard.png"
@@ -70,7 +70,7 @@ export const SolutionsHub: React.FC = () => {
             </div>
 
             {/* Billing - Middle */}
-            <div className="absolute top-[240px] right-0 w-[85%] lg:top-[120px] lg:right-[10%] lg:w-[65%] z-20 ccm-image-2">
+            <div className="absolute top-[180px] right-0 w-[92%] lg:top-[120px] lg:right-[10%] lg:w-[65%] z-20 ccm-image-2">
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
                 <img
                   src="/Lillia-Landing-Page-Concept/images/ccm-billing.png"
@@ -81,7 +81,7 @@ export const SolutionsHub: React.FC = () => {
             </div>
 
             {/* Monitoring - Front */}
-            <div className="absolute top-[480px] left-[7.5%] w-[85%] lg:bottom-0 lg:top-auto lg:left-[15%] lg:w-[60%] z-30 ccm-image-3">
+            <div className="absolute top-[360px] left-[4%] w-[92%] lg:bottom-0 lg:top-auto lg:left-[15%] lg:w-[60%] z-30 ccm-image-3">
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
                 <img
                   src="/Lillia-Landing-Page-Concept/images/ccm-monitoring.png"
@@ -184,9 +184,9 @@ export const SolutionsHub: React.FC = () => {
           </div>
 
           {/* Overlapping Images */}
-          <div className="relative h-[800px] lg:h-[700px] mb-16">
+          <div className="relative h-[700px] lg:h-[700px] mb-16">
             {/* Journey Tracker - Back */}
-            <div className="absolute top-0 left-0 w-[85%] lg:top-0 lg:left-[5%] lg:w-[70%] z-10 ccm-image-1">
+            <div className="absolute top-0 left-0 w-[92%] lg:top-0 lg:left-[5%] lg:w-[70%] z-10 ccm-image-1">
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
                 <img
                   src="/Lillia-Landing-Page-Concept/images/execution-os-1.png"
@@ -197,7 +197,7 @@ export const SolutionsHub: React.FC = () => {
             </div>
 
             {/* My Tasks - Middle */}
-            <div className="absolute top-[240px] right-0 w-[85%] lg:top-[120px] lg:right-[10%] lg:w-[65%] z-20 ccm-image-2">
+            <div className="absolute top-[180px] right-0 w-[92%] lg:top-[120px] lg:right-[10%] lg:w-[65%] z-20 ccm-image-2">
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
                 <img
                   src="/Lillia-Landing-Page-Concept/images/execution-os-2.png"
@@ -208,7 +208,7 @@ export const SolutionsHub: React.FC = () => {
             </div>
 
             {/* Journey Tracker Detail - Front */}
-            <div className="absolute top-[480px] left-[7.5%] w-[85%] lg:bottom-0 lg:top-auto lg:left-[15%] lg:w-[60%] z-30 ccm-image-3">
+            <div className="absolute top-[360px] left-[4%] w-[92%] lg:bottom-0 lg:top-auto lg:left-[15%] lg:w-[60%] z-30 ccm-image-3">
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white">
                 <img
                   src="/Lillia-Landing-Page-Concept/images/execution-os-3.png"
