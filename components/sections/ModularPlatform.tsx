@@ -1,361 +1,200 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Container } from '../ui/Container';
-import Image from 'next/image';
+import { Smartphone, Activity, Receipt, Settings, Phone, Wifi } from 'lucide-react';
 
 const modules = [
   {
-    chip: 'Patient-Facing',
-    name: 'Patient Agentic App',
-    image: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
-    outcome: 'Keep patients activated between visits.',
-    size: 'large'
+    icon: Smartphone,
+    badge: 'Patient-Facing',
+    title: 'Patient Agentic App',
+    headline: 'Keep patients activated between visits',
+    description: 'A co-branded patient app powered by agentic AI. Tracks meals, vitals, medications, and lifestyle. Delivers personalized coaching and nudges — 24/7, without staff involvement.',
+    features: [
+      'AI Conversation Coach',
+      'Lifestyle & Meal Tracking',
+      'Medication Reminders'
+    ]
   },
   {
-    chip: 'Care Documentation',
-    name: 'Time Tracking',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'Every minute of care — captured automatically.',
-    size: 'medium'
+    icon: Activity,
+    badge: 'Reimbursement-Ready',
+    title: 'CCM & RPM Tracking',
+    headline: 'Structured time and device tracking for billable care',
+    description: 'Purpose-built for Chronic Care Management (CCM) and Remote Patient Monitoring (RPM). Tracks every minute of care time and every device reading — automatically, in real time.',
+    features: [
+      'CCM Time Tracking (CPT 99490, 99439)',
+      'RPM Device Data Capture (CPT 99457, 99458)',
+      'CMS-Aligned Compliance'
+    ]
   },
   {
-    chip: 'Revenue Operations',
-    name: 'Bill Generation',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'From care activity to clean claims, without manual work.',
-    size: 'medium'
+    icon: Receipt,
+    badge: 'Revenue Operations',
+    title: 'Billing & Claims',
+    headline: 'From care activity to clean claims — automatically',
+    description: 'CPT codes mapped in real time. Minute thresholds validated. Audit-ready evidence attached to every code. Every billed interaction backed by a time-stamped, payer-ready trail.',
+    features: [
+      'Auto CPT Code Mapping',
+      'Real-Time Eligibility Validation',
+      'Payer-Ready Audit Trails'
+    ]
   },
   {
-    chip: 'Care Operations',
-    name: 'Execution OS',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'Run your entire chronic care program from one console.',
-    size: 'large'
+    icon: Settings,
+    badge: 'Care Operations',
+    title: 'Execution OS — Journey Management',
+    headline: 'The operating system for your chronic care program',
+    description: 'A care manager console that configures, runs, and monitors patient journeys across your panel. Triage queues, care plan management, and program performance — all in one view.',
+    features: [
+      'Journey Configurator & Console',
+      'Care Manager Triage Planner',
+      'Panel-Level Program Dashboard'
+    ]
   },
   {
-    chip: 'Workflow Automation',
-    name: 'AI Voice Calling',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'Automated outreach that frees your staff for what matters.',
-    size: 'medium'
+    icon: Phone,
+    badge: 'Workflow Automation',
+    title: 'AI Voice Calling',
+    headline: 'Automated outreach that sounds human',
+    description: 'Lillia\'s Voice AI handles repetitive, non-clinical calls — GLP-1 reminders, appointment check-ins, adherence nudges, and enrollment conversations. Frees your staff for work that matters.',
+    features: [
+      'Medication & GLP-1 Reminders',
+      'Enrollment Conversations',
+      'Adherence Check-Ins'
+    ]
   },
   {
-    chip: 'Remote Monitoring',
-    name: 'Device Connectivity',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.',
-    size: 'medium'
-  },
-  {
-    chip: 'Patient Engagement',
-    name: 'Patient Connect via Chat',
-    image: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
-    outcome: 'Keep patients close — without adding to your team\'s workload.',
-    size: 'medium'
+    icon: Wifi,
+    badge: 'Remote Monitoring',
+    title: 'Device Connectivity',
+    headline: 'FDA-approved devices. Zero logistics burden.',
+    description: 'Connects BP cuffs, CGMs, scales, pulse oximeters, and smart wearables directly to the Lillia platform. Device logistics handled. Data streams in real time. Alerts fire only when clinically relevant.',
+    features: [
+      'FDA-Approved Device Supply',
+      'EHR + Apple Health Integration',
+      'Auto-Alert on Out-of-Range Readings'
+    ]
   }
 ];
 
 export const ModularPlatform: React.FC = () => {
-  const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(7).fill(false));
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            modules.forEach((_, index) => {
-              setTimeout(() => {
-                setVisibleCards(prev => {
-                  const newState = [...prev];
-                  newState[index] = true;
-                  return newState;
-                });
-              }, index * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="py-32 relative overflow-hidden bg-white">
+    <section id="modules" className="py-24 lg:py-32 bg-white">
       <Container>
+        {/* Section Label */}
+        <div className="text-center mb-4">
+          <span className="text-xs font-bold tracking-wider text-lillia-primary uppercase">
+            Modular Platform
+          </span>
+        </div>
+
         {/* Heading */}
-        <div className="text-center mb-24 max-w-4xl mx-auto">
-          <h2 className="text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-[1.1] tracking-tight">
-            One platform.<br/>
-            Seven powerful modules.
+        <div className="text-center mb-6 max-w-4xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Choose the pieces that fit your practice.<br />
+            Or take the full picture.
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed font-light">
-            Modular by design. Pick what you need. Scale when you're ready.
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Lillia is designed in modular components — so you can start with what you need
+            and expand as your chronic care program grows. Each piece works independently.
+            All six work together seamlessly.
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="bento-grid max-w-7xl mx-auto">
-          {modules.map((module, index) => (
-            <div
-              key={index}
-              className={`module-card ${module.size} ${visibleCards[index] ? 'card-visible' : ''}`}
-              style={{ animationDelay: `${index * 80}ms` }}
-            >
-              <div className="card-inner">
-                {/* Image Background */}
-                <div className="card-image">
-                  <Image
-                    src={module.image}
-                    alt={module.name}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="image-overlay" />
+        {/* Module Cards - 3x2 Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          {modules.map((module, index) => {
+            const IconComponent = module.icon;
+            return (
+              <div
+                key={index}
+                className="card-module group"
+              >
+                {/* Badge */}
+                <div className="inline-block mb-4">
+                  <span className="text-xs font-bold tracking-wider text-lillia-primary bg-lillia-lighter px-3 py-1 rounded-full uppercase">
+                    {module.badge}
+                  </span>
                 </div>
 
-                {/* Content */}
-                <div className="card-content">
-                  <div className="chip">{module.chip}</div>
-                  <h3 className="card-title">{module.name}</h3>
-                  <p className="card-outcome">{module.outcome}</p>
+                {/* Icon */}
+                <div className="w-14 h-14 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <IconComponent className="w-7 h-7 text-white" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {module.title}
+                </h3>
+
+                {/* Headline */}
+                <p className="text-base font-semibold text-lillia-primary mb-3">
+                  {module.headline}
+                </p>
+
+                {/* Description */}
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  {module.description}
+                </p>
+
+                {/* Features */}
+                <div className="space-y-2 pt-4 border-t border-gray-200">
+                  {module.features.map((feature, fIndex) => (
+                    <div key={fIndex} className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-xs text-gray-700 font-medium">{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Bottom Message */}
-        <div className="text-center mt-24">
-          <p className="text-2xl text-gray-900 font-medium">
-            Each module works independently.<br/>
-            Together, they're transformative.
-          </p>
+        {/* Assembly CTA */}
+        <div className="mt-20">
+          <div className="bg-gradient-to-br from-lillia-lighter/50 to-white border-2 border-lillia-light rounded-3xl p-12 text-center">
+            {/* Visual representation of "assembled puzzle" */}
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <div className="flex items-center gap-1">
+                {modules.slice(0, 6).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-12 h-12 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-lg flex items-center justify-center"
+                  >
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              The Complete Lillia Platform
+            </h3>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="#contact"
+                className="btn-primary"
+              >
+                Start with one module
+              </a>
+              <a
+                href="#contact"
+                className="btn-secondary"
+              >
+                See the full platform
+              </a>
+            </div>
+
+            <p className="text-sm text-gray-600 mt-6">
+              Talk to us about which combination fits your patient panel and practice model.
+            </p>
+          </div>
         </div>
       </Container>
-
-      <style jsx>{`
-        .bento-grid {
-          display: grid;
-          grid-template-columns: repeat(12, 1fr);
-          gap: 1.5rem;
-          grid-auto-rows: 320px;
-        }
-
-        /* Bento Box Layout - Asymmetric Grid */
-        .module-card.large {
-          grid-column: span 7;
-          grid-row: span 2;
-        }
-
-        .module-card.medium {
-          grid-column: span 5;
-          grid-row: span 1;
-        }
-
-        /* Specific positioning for visual interest */
-        .module-card:nth-child(1) {
-          grid-column: 1 / span 7;
-          grid-row: 1 / span 2;
-        }
-
-        .module-card:nth-child(2) {
-          grid-column: 8 / span 5;
-          grid-row: 1;
-        }
-
-        .module-card:nth-child(3) {
-          grid-column: 8 / span 5;
-          grid-row: 2;
-        }
-
-        .module-card:nth-child(4) {
-          grid-column: 1 / span 7;
-          grid-row: 3 / span 2;
-        }
-
-        .module-card:nth-child(5) {
-          grid-column: 8 / span 5;
-          grid-row: 3;
-        }
-
-        .module-card:nth-child(6) {
-          grid-column: 8 / span 5;
-          grid-row: 4;
-        }
-
-        .module-card:nth-child(7) {
-          grid-column: 1 / span 12;
-          grid-row: 5;
-        }
-
-        .module-card {
-          position: relative;
-          opacity: 0;
-          transform: translateY(20px);
-          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .module-card.card-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .card-inner {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          border-radius: 20px;
-          overflow: hidden;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          box-shadow:
-            0 1px 3px rgba(0, 0, 0, 0.05),
-            0 10px 40px -15px rgba(102, 126, 234, 0.25);
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .module-card:hover .card-inner {
-          transform: translateY(-4px);
-          box-shadow:
-            0 1px 3px rgba(0, 0, 0, 0.05),
-            0 20px 60px -15px rgba(102, 126, 234, 0.4);
-        }
-
-        .card-image {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-        }
-
-        .card-image img {
-          transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .module-card:hover .card-image img {
-          transform: scale(1.05);
-        }
-
-        .image-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(135deg, rgba(102, 126, 234, 0.92) 0%, rgba(118, 75, 162, 0.92) 100%);
-          z-index: 1;
-          transition: opacity 0.4s ease;
-        }
-
-        .module-card:hover .image-overlay {
-          opacity: 0.88;
-        }
-
-        .card-content {
-          position: relative;
-          z-index: 2;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          padding: 2.5rem;
-        }
-
-        .large .card-content {
-          padding: 3.5rem;
-        }
-
-        .chip {
-          display: inline-block;
-          align-self: flex-start;
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.9);
-          background: rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(10px);
-          padding: 0.5rem 1rem;
-          border-radius: 100px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          margin-bottom: 1.5rem;
-        }
-
-        .card-title {
-          font-size: 2rem;
-          font-weight: 700;
-          color: white;
-          line-height: 1.2;
-          margin-bottom: 0.75rem;
-          letter-spacing: -0.02em;
-        }
-
-        .large .card-title {
-          font-size: 3rem;
-        }
-
-        .card-outcome {
-          font-size: 1.125rem;
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.9);
-          line-height: 1.6;
-          max-width: 90%;
-        }
-
-        .large .card-outcome {
-          font-size: 1.25rem;
-          max-width: 85%;
-        }
-
-        /* Tablet */
-        @media (max-width: 1024px) {
-          .bento-grid {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 280px;
-          }
-
-          .module-card {
-            grid-column: span 1 !important;
-            grid-row: span 1 !important;
-          }
-
-          .module-card:nth-child(7) {
-            grid-column: span 2 !important;
-          }
-        }
-
-        /* Mobile */
-        @media (max-width: 640px) {
-          .bento-grid {
-            grid-template-columns: 1fr;
-            grid-auto-rows: 320px;
-            gap: 1rem;
-          }
-
-          .module-card {
-            grid-column: span 1 !important;
-            grid-row: span 1 !important;
-          }
-
-          .card-title {
-            font-size: 1.75rem;
-          }
-
-          .large .card-title {
-            font-size: 2rem;
-          }
-
-          .card-content {
-            padding: 2rem;
-          }
-
-          .large .card-content {
-            padding: 2rem;
-          }
-        }
-      `}</style>
     </section>
   );
 };
