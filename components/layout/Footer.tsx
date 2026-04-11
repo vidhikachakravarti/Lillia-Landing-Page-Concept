@@ -2,23 +2,19 @@ import React from 'react';
 import { Container } from '../ui/Container';
 
 const footerLinks = {
-  product: [
-    { label: 'Care Management Platform', href: '#platform' },
-    { label: 'Agentic App', href: '#agentic-app' },
-    { label: 'Journey Tracker', href: '#journey-tracker' },
-    { label: 'Conversational AI', href: '#conversational-ai' }
+  platform: [
+    { label: 'Patient App', href: '#modules' },
+    { label: 'CCM & RPM Tracking', href: '#modules' },
+    { label: 'Billing & Claims', href: '#modules' },
+    { label: 'Journey Management', href: '#modules' },
+    { label: 'Voice AI', href: '#modules' },
+    { label: 'Device Connectivity', href: '#modules' }
   ],
   company: [
     { label: 'About', href: '#about' },
-    { label: 'Clinical Evidence', href: '#evidence' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Contact', href: '#contact' }
-  ],
-  resources: [
-    { label: 'Case Studies', href: '#case-studies' },
-    { label: 'Documentation', href: '#docs' },
-    { label: 'Security & Compliance', href: '#security' },
-    { label: 'Support', href: '#support' }
+    { label: 'Research', href: '#outcomes' },
+    { label: 'Partners', href: '#who-its-for' },
+    { label: 'Contact', href: 'https://www.lilliacare.ai/contact' }
   ]
 };
 
@@ -28,28 +24,28 @@ export const Footer: React.FC = () => {
       {/* Main Footer */}
       <div className="border-b border-gray-800">
         <Container>
-          <div className="py-16 grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+          <div className="py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Logo and tagline */}
-            <div className="lg:col-span-2">
+            <div>
               <img
                 src="/assets/lillia-logo.png"
                 alt="Lillia"
                 className="h-8 w-auto mb-6 brightness-0 invert"
               />
-              <p className="text-body-lg text-gray-400 leading-relaxed max-w-sm">
-                AI-powered chronic care infrastructure for healthcare systems that demand better outcomes.
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Enabling chronic patient care between visits.
               </p>
             </div>
 
-            {/* Product Links */}
+            {/* Platform Links */}
             <div>
-              <h3 className="text-body-md font-semibold text-white mb-4">Product</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Platform</h3>
               <ul className="space-y-3">
-                {footerLinks.product.map((link, index) => (
+                {footerLinks.platform.map((link, index) => (
                   <li key={index}>
                     <a
                       href={link.href}
-                      className="text-body-md text-gray-400 hover:text-lillia-light transition-colors"
+                      className="text-sm text-gray-400 hover:text-lillia-light transition-colors"
                     >
                       {link.label}
                     </a>
@@ -60,13 +56,13 @@ export const Footer: React.FC = () => {
 
             {/* Company Links */}
             <div>
-              <h3 className="text-body-md font-semibold text-white mb-4">Company</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Company</h3>
               <ul className="space-y-3">
                 {footerLinks.company.map((link, index) => (
                   <li key={index}>
                     <a
                       href={link.href}
-                      className="text-body-md text-gray-400 hover:text-lillia-light transition-colors"
+                      className="text-sm text-gray-400 hover:text-lillia-light transition-colors"
                     >
                       {link.label}
                     </a>
@@ -75,20 +71,29 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
 
-            {/* Resources Links */}
+            {/* Contact */}
             <div>
-              <h3 className="text-body-md font-semibold text-white mb-4">Resources</h3>
-              <ul className="space-y-3">
-                {footerLinks.resources.map((link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link.href}
-                      className="text-body-md text-gray-400 hover:text-lillia-light transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+              <h3 className="text-sm font-semibold text-white mb-4">Contact</h3>
+              <ul className="space-y-3 text-sm text-gray-400">
+                <li>
+                  <a href="https://www.lilliacare.ai" className="hover:text-lillia-light transition-colors">
+                    www.lilliacare.ai
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:othmane@lilliacare.ai" className="hover:text-lillia-light transition-colors">
+                    othmane@lilliacare.ai
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+12013783267" className="hover:text-lillia-light transition-colors">
+                    +1 (201) 378-3267
+                  </a>
+                </li>
+                <li className="text-gray-500 text-xs pt-2">
+                  16192 Coastal Hwy<br />
+                  Lewes, DE 19958
+                </li>
               </ul>
             </div>
           </div>
@@ -96,24 +101,24 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="py-8">
+      <div className="py-6">
         <Container>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
-            <p className="text-body-sm text-gray-500">
-              © {new Date().getFullYear()} Lillia. All rights reserved.
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Lillia Healthcare Technologies. All rights reserved.
             </p>
 
             {/* Legal Links */}
-            <div className="flex gap-6">
-              <a href="#privacy" className="text-body-sm text-gray-500 hover:text-lillia-light transition-colors">
+            <div className="flex gap-6 text-sm">
+              <a href="#privacy" className="text-gray-500 hover:text-lillia-light transition-colors">
                 Privacy Policy
               </a>
-              <a href="#terms" className="text-body-sm text-gray-500 hover:text-lillia-light transition-colors">
-                Terms of Service
+              <a href="#terms" className="text-gray-500 hover:text-lillia-light transition-colors">
+                Terms of Use
               </a>
-              <a href="#hipaa" className="text-body-sm text-gray-500 hover:text-lillia-light transition-colors">
-                HIPAA Compliance
+              <a href="#hipaa" className="text-gray-500 hover:text-lillia-light transition-colors">
+                HIPAA Notice
               </a>
             </div>
           </div>

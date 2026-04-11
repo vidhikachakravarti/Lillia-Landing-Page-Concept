@@ -53,24 +53,24 @@
     text-wrap: balance;
   }
 
-  /* Button patterns */
+  /* Button patterns - Updated for US Landing Page Brief */
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium rounded-lg;
-    @apply bg-neutral-900 text-white;
+    @apply bg-lillia-primary text-white;
     @apply transition-all duration-200;
-    @apply hover:bg-neutral-800;
-    @apply focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2;
+    @apply hover:bg-lillia-deep hover:shadow-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-lillia-primary focus:ring-offset-2;
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium rounded-lg;
-    @apply bg-white text-neutral-900 border border-neutral-300;
+    @apply bg-white text-lillia-primary border-2 border-lillia-light;
     @apply transition-all duration-200;
-    @apply hover:bg-neutral-50 hover:border-neutral-400;
-    @apply focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2;
+    @apply hover:bg-lillia-lighter hover:border-lillia-primary;
+    @apply focus:outline-none focus:ring-2 focus:ring-lillia-primary focus:ring-offset-2;
   }
 
-  /* Card patterns */
+  /* Card patterns - Updated for US Landing Page Brief */
   .card-enterprise {
     @apply bg-white rounded-xl border border-neutral-200;
     @apply transition-all duration-200;
@@ -81,6 +81,18 @@
     @apply p-8 lg:p-10 bg-white rounded-xl border border-neutral-200;
     @apply transition-all duration-200;
     @apply hover:border-neutral-300 hover:shadow-sm;
+  }
+
+  .card-module {
+    @apply p-8 bg-white rounded-xl border-2 border-lillia-light shadow-soft;
+    @apply transition-all duration-300;
+    @apply hover:border-lillia-primary hover:shadow-soft-lg hover:-translate-y-1;
+  }
+
+  .card-stat {
+    @apply p-6 bg-white rounded-lg border-l-4 border-lillia-primary shadow-soft;
+    @apply transition-all duration-200;
+    @apply hover:shadow-soft-lg;
   }
 
   /* Icon patterns */

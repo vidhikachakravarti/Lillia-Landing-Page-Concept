@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { DollarSign, HeartPulse, ClipboardCheck } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
@@ -17,54 +16,64 @@ export const Hero: React.FC = () => {
       </div>
 
       <Container>
-        <div className="relative z-10 max-w-5xl mx-auto py-20 pt-32">
-          {/* Content */}
-          <div className="text-white text-center">
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Turn Remote Chronic Care Into <span className="text-lillia-peach">Predictable Revenue</span>
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center py-20 pt-32">
+          {/* Left: Content */}
+          <div className="text-white">
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Turn Remote Chronic Care Into Predictable Revenue.
             </h1>
 
-            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Lillia enables structured remote chronic care programs through patient engagement, workflow automation, and compliant documentation.
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Your chronic care patients need consistent support between visits.<br />
+              Lillia makes it structured, documented, and reimbursable —<br />
+              without adding to your team's workload.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button variant="primary" href="https://www.lilliacare.ai/contact" className="bg-white text-lillia-primary hover:bg-lillia-lighter text-lg px-10 py-4">
-                Book a Demo
-              </Button>
-              <Button variant="secondary" href="#solutions" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/20 text-lg px-10 py-4">
-                See Our Solutions
-              </Button>
+            {/* Benefit Pills */}
+            <div className="flex flex-wrap gap-3 mb-10">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium">
+                ● Improve Patient Outcomes
+              </span>
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium">
+                ● Automate Documentation
+              </span>
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium">
+                ● Capture Reimbursable Care
+              </span>
             </div>
 
-            {/* Value Propositions */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/20 mb-8">
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <DollarSign className="w-7 h-7 text-white" strokeWidth={2.5} />
-                </div>
-                <div className="text-lg md:text-xl font-bold text-left whitespace-nowrap">Increase reimbursement.</div>
-              </div>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <HeartPulse className="w-7 h-7 text-white" strokeWidth={2.5} />
-                </div>
-                <div className="text-lg md:text-xl font-bold text-left whitespace-nowrap">Improve adherence.</div>
-              </div>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <ClipboardCheck className="w-7 h-7 text-white" strokeWidth={2.5} />
-                </div>
-                <div className="text-lg md:text-xl font-bold text-left whitespace-nowrap">Reduce administrative burden.</div>
-              </div>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button variant="primary" href="https://www.lilliacare.ai/contact" className="bg-white text-lillia-primary hover:bg-lillia-lighter text-base px-8 py-4">
+                Book a 15-Min Walkthrough
+              </Button>
+              <Button variant="secondary" href="#platform" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/20 text-base px-8 py-4">
+                See How It Works →
+              </Button>
             </div>
+          </div>
 
-            {/* TIME Magazine recognition */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-              <svg className="w-5 h-5 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <span className="text-sm font-medium">Recognised by TIME Magazine as one of the World's Top HealthTech Companies of 2025</span>
+          {/* Right: Visual placeholder (screenshots to be added) */}
+          <div className="relative hidden lg:block">
+            <div className="relative">
+              {/* Placeholder for dashboard screenshot */}
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/30 p-8 shadow-2xl">
+                <div className="aspect-video bg-gradient-to-br from-lillia-light/20 to-lillia-deep/20 rounded-lg flex items-center justify-center">
+                  <span className="text-white/70 text-sm">Lillia Dashboard Screenshot</span>
+                </div>
+              </div>
+
+              {/* Placeholder for phone app screenshot */}
+              <div className="absolute -bottom-8 -left-8 w-48 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 p-4 shadow-2xl">
+                <div className="aspect-[9/19] bg-gradient-to-br from-lillia-light/20 to-lillia-deep/20 rounded-2xl flex items-center justify-center">
+                  <span className="text-white/70 text-xs text-center px-2">Patient App</span>
+                </div>
+              </div>
+
+              {/* HIPAA Badge */}
+              <div className="absolute -top-4 -right-4 bg-white/95 rounded-full px-4 py-2 shadow-lg">
+                <span className="text-lillia-primary text-xs font-bold">HIPAA Compliant</span>
+              </div>
             </div>
           </div>
         </div>

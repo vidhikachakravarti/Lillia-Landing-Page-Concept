@@ -1,12 +1,19 @@
 import React from 'react';
 import { AnimatedBackground } from '../components/AnimatedBackground';
+import { Navigation } from '../components/layout/Navigation';
 import { Hero } from '../components/sections/Hero';
+import { TrustBar } from '../components/sections/TrustBar';
 import { ProblemSection } from '../components/sections/ProblemSection';
+import { BannerCallout } from '../components/sections/BannerCallout';
 import { PurposeSection } from '../components/sections/PurposeSection';
-import { SolutionsHub } from '../components/sections/SolutionsHub';
-import { WhyLillia } from '../components/sections/WhyLillia';
-import { HowDifferent } from '../components/sections/HowDifferent';
+import { ModularPlatform } from '../components/sections/ModularPlatform';
+import { FeatureDeepDives } from '../components/sections/FeatureDeepDives';
+import { ClinicalOutcomes } from '../components/sections/ClinicalOutcomes';
+import { WhoItsFor } from '../components/sections/WhoItsFor';
+import { Differentiators } from '../components/sections/Differentiators';
+import { ComplianceScope } from '../components/sections/ComplianceScope';
 import { FinalCTA } from '../components/sections/FinalCTA';
+import { Footer } from '../components/layout/Footer';
 
 export default function Home() {
   return (
@@ -14,29 +21,50 @@ export default function Home() {
       {/* Animated Background */}
       <AnimatedBackground />
 
+      {/* Navigation */}
+      <Navigation />
+
       {/* Main Content */}
       <main className="relative">
-        {/* Hero Section */}
+        {/* 1. Hero Section */}
         <Hero />
 
-        {/* The Reality */}
+        {/* 2. Trust Bar (Recognition + Partners) */}
+        <TrustBar />
+
+        {/* 3. Problem Section */}
         <ProblemSection />
 
-        {/* What Lillia Does */}
+        {/* 4. Banner Callout */}
+        <BannerCallout />
+
+        {/* 5. What Lillia Does (Platform Intro) */}
         <PurposeSection />
 
-        {/* How Lillia Works Inside Your Practice */}
-        <SolutionsHub />
+        {/* 6. Modular Platform — 6 Puzzle Pieces */}
+        <ModularPlatform />
 
-        {/* Revenue Today. Ready for Evolving Models */}
-        <WhyLillia />
+        {/* 7. Feature Deep-Dives */}
+        <FeatureDeepDives />
 
-        {/* How Lillia Is Different */}
-        <HowDifferent />
+        {/* 8. Clinical Outcomes */}
+        <ClinicalOutcomes />
 
-        {/* Final CTA */}
+        {/* 9. Who It's For (Practice Models) */}
+        <WhoItsFor />
+
+        {/* 10. Differentiators */}
+        <Differentiators />
+
+        {/* 11. Compliance & Scope */}
+        <ComplianceScope />
+
+        {/* 12. Final CTA */}
         <FinalCTA />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,200 @@
+import React from 'react';
+import { Container } from '../ui/Container';
+import { Smartphone, Activity, Receipt, Settings, Phone, Wifi } from 'lucide-react';
+
+const modules = [
+  {
+    icon: Smartphone,
+    badge: 'Patient-Facing',
+    title: 'Patient Agentic App',
+    headline: 'Keep patients activated between visits',
+    description: 'A co-branded patient app powered by agentic AI. Tracks meals, vitals, medications, and lifestyle. Delivers personalized coaching and nudges — 24/7, without staff involvement.',
+    features: [
+      'AI Conversation Coach',
+      'Lifestyle & Meal Tracking',
+      'Medication Reminders'
+    ]
+  },
+  {
+    icon: Activity,
+    badge: 'Reimbursement-Ready',
+    title: 'CCM & RPM Tracking',
+    headline: 'Structured time and device tracking for billable care',
+    description: 'Purpose-built for Chronic Care Management (CCM) and Remote Patient Monitoring (RPM). Tracks every minute of care time and every device reading — automatically, in real time.',
+    features: [
+      'CCM Time Tracking (CPT 99490, 99439)',
+      'RPM Device Data Capture (CPT 99457, 99458)',
+      'CMS-Aligned Compliance'
+    ]
+  },
+  {
+    icon: Receipt,
+    badge: 'Revenue Operations',
+    title: 'Billing & Claims',
+    headline: 'From care activity to clean claims — automatically',
+    description: 'CPT codes mapped in real time. Minute thresholds validated. Audit-ready evidence attached to every code. Every billed interaction backed by a time-stamped, payer-ready trail.',
+    features: [
+      'Auto CPT Code Mapping',
+      'Real-Time Eligibility Validation',
+      'Payer-Ready Audit Trails'
+    ]
+  },
+  {
+    icon: Settings,
+    badge: 'Care Operations',
+    title: 'Execution OS — Journey Management',
+    headline: 'The operating system for your chronic care program',
+    description: 'A care manager console that configures, runs, and monitors patient journeys across your panel. Triage queues, care plan management, and program performance — all in one view.',
+    features: [
+      'Journey Configurator & Console',
+      'Care Manager Triage Planner',
+      'Panel-Level Program Dashboard'
+    ]
+  },
+  {
+    icon: Phone,
+    badge: 'Workflow Automation',
+    title: 'AI Voice Calling',
+    headline: 'Automated outreach that sounds human',
+    description: 'Lillia\'s Voice AI handles repetitive, non-clinical calls — GLP-1 reminders, appointment check-ins, adherence nudges, and enrollment conversations. Frees your staff for work that matters.',
+    features: [
+      'Medication & GLP-1 Reminders',
+      'Enrollment Conversations',
+      'Adherence Check-Ins'
+    ]
+  },
+  {
+    icon: Wifi,
+    badge: 'Remote Monitoring',
+    title: 'Device Connectivity',
+    headline: 'FDA-approved devices. Zero logistics burden.',
+    description: 'Connects BP cuffs, CGMs, scales, pulse oximeters, and smart wearables directly to the Lillia platform. Device logistics handled. Data streams in real time. Alerts fire only when clinically relevant.',
+    features: [
+      'FDA-Approved Device Supply',
+      'EHR + Apple Health Integration',
+      'Auto-Alert on Out-of-Range Readings'
+    ]
+  }
+];
+
+export const ModularPlatform: React.FC = () => {
+  return (
+    <section id="modules" className="py-24 lg:py-32 bg-white">
+      <Container>
+        {/* Section Label */}
+        <div className="text-center mb-4">
+          <span className="text-xs font-bold tracking-wider text-lillia-primary uppercase">
+            Modular Platform
+          </span>
+        </div>
+
+        {/* Heading */}
+        <div className="text-center mb-6 max-w-4xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Choose the pieces that fit your practice.<br />
+            Or take the full picture.
+          </h2>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Lillia is designed in modular components — so you can start with what you need
+            and expand as your chronic care program grows. Each piece works independently.
+            All six work together seamlessly.
+          </p>
+        </div>
+
+        {/* Module Cards - 3x2 Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          {modules.map((module, index) => {
+            const IconComponent = module.icon;
+            return (
+              <div
+                key={index}
+                className="card-module group"
+              >
+                {/* Badge */}
+                <div className="inline-block mb-4">
+                  <span className="text-xs font-bold tracking-wider text-lillia-primary bg-lillia-lighter px-3 py-1 rounded-full uppercase">
+                    {module.badge}
+                  </span>
+                </div>
+
+                {/* Icon */}
+                <div className="w-14 h-14 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <IconComponent className="w-7 h-7 text-white" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {module.title}
+                </h3>
+
+                {/* Headline */}
+                <p className="text-base font-semibold text-lillia-primary mb-3">
+                  {module.headline}
+                </p>
+
+                {/* Description */}
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  {module.description}
+                </p>
+
+                {/* Features */}
+                <div className="space-y-2 pt-4 border-t border-gray-200">
+                  {module.features.map((feature, fIndex) => (
+                    <div key={fIndex} className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-xs text-gray-700 font-medium">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Assembly CTA */}
+        <div className="mt-20">
+          <div className="bg-gradient-to-br from-lillia-lighter/50 to-white border-2 border-lillia-light rounded-3xl p-12 text-center">
+            {/* Visual representation of "assembled puzzle" */}
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <div className="flex items-center gap-1">
+                {modules.slice(0, 6).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-12 h-12 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-lg flex items-center justify-center"
+                  >
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              The Complete Lillia Platform
+            </h3>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="#contact"
+                className="btn-primary"
+              >
+                Start with one module
+              </a>
+              <a
+                href="#contact"
+                className="btn-secondary"
+              >
+                See the full platform
+              </a>
+            </div>
+
+            <p className="text-sm text-gray-600 mt-6">
+              Talk to us about which combination fits your patient panel and practice model.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+};

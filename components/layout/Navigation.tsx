@@ -26,22 +26,22 @@ export const Navigation: React.FC = () => {
               Platform
             </a>
             <a
-              href="#solutions"
+              href="#outcomes"
               className="text-sm font-medium text-gray-700 hover:text-lillia-primary transition-colors"
             >
-              Solutions
+              Outcomes
             </a>
             <a
-              href="#impact"
+              href="#who-its-for"
               className="text-sm font-medium text-gray-700 hover:text-lillia-primary transition-colors"
             >
-              Impact
+              Who It's For
             </a>
             <a
-              href="#why-lillia"
+              href="#resources"
               className="text-sm font-medium text-gray-700 hover:text-lillia-primary transition-colors"
             >
-              Why Lillia
+              Resources
             </a>
           </div>
 

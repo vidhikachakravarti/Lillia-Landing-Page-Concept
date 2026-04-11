@@ -9,14 +9,19 @@ module.exports = {
     extend: {
       colors: {
         lillia: {
-          primary: '#7848FE',
-          deep: '#280470',
-          medium: '#9F7BFF',
-          light: '#D3B9F9',
-          lighter: '#EADEFC',
+          // Updated to match US Landing Page Brief v1.0
+          primary: '#3B14C9',      // --purple-primary (buttons, active states)
+          deep: '#1A0F6B',         // --purple-deep (hero BG, dark sections, footer)
+          medium: '#9F7BFF',       // kept for gradients
+          light: '#C9B8F5',        // --purple-light (card accents, pill badges)
+          lighter: '#F3F0FF',      // --lavender-bg (section alternation background)
           peach: '#FFD2BB',
           'peach-light': '#F9EAE4',
           'deep-blue': '#1405D6',
+        },
+        text: {
+          dark: '#1A1A2E',         // --text-dark (body copy on white)
+          muted: '#6B6B8A',        // --text-muted (subtext, footnotes)
         },
         neutral: {
           50: '#fafafa',
