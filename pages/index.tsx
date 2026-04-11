@@ -7,7 +7,6 @@ import { LogoMarquee } from '../components/sections/LogoMarquee';
 import { ProblemSection } from '../components/sections/ProblemSection';
 import { BannerCallout } from '../components/sections/BannerCallout';
 import { ModularPlatform } from '../components/sections/ModularPlatform';
-import { FeatureDeepDives } from '../components/sections/FeatureDeepDives';
 import { WhoItsFor } from '../components/sections/WhoItsFor';
 import { Differentiators } from '../components/sections/Differentiators';
 import { ComplianceScope } from '../components/sections/ComplianceScope';
@@ -43,14 +42,11 @@ export default function Home() {
         {/* 5. Modular Platform — 7 Puzzle Pieces */}
         <ModularPlatform />
 
-        {/* 7. Feature Deep-Dives */}
-        <FeatureDeepDives />
+        {/* 7. Built for Your Practice Model */}
+        <WhoItsFor />
 
         {/* 8. Differentiators */}
         <Differentiators />
-
-        {/* 9. Built for Your Practice Model */}
-        <WhoItsFor />
 
         {/* 11. Compliance & Scope */}
         <ComplianceScope />
