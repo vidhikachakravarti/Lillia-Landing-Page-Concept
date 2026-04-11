@@ -6,7 +6,6 @@ import { TrustBar } from '../components/sections/TrustBar';
 import { LogoMarquee } from '../components/sections/LogoMarquee';
 import { ProblemSection } from '../components/sections/ProblemSection';
 import { BannerCallout } from '../components/sections/BannerCallout';
-import { PurposeSection } from '../components/sections/PurposeSection';
 import { ModularPlatform } from '../components/sections/ModularPlatform';
 import { FeatureDeepDives } from '../components/sections/FeatureDeepDives';
 import { ClinicalOutcomes } from '../components/sections/ClinicalOutcomes';
@@ -42,10 +41,7 @@ export default function Home() {
         {/* 4. Banner Callout */}
         <BannerCallout />
 
-        {/* 5. What Lillia Does (Platform Intro) */}
-        <PurposeSection />
-
-        {/* 6. Modular Platform — 6 Puzzle Pieces */}
+        {/* 5. Modular Platform — 7 Puzzle Pieces */}
         <ModularPlatform />
 
         {/* 7. Feature Deep-Dives */}
