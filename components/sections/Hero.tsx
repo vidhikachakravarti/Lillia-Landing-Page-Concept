@@ -30,20 +30,20 @@ export const Hero: React.FC = () => {
             </p>
 
             {/* Benefit Pills */}
-            <div className="flex flex-wrap gap-3 mb-10">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium">
+            <div className="flex flex-col gap-3 mb-10">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium w-fit">
                 <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 Improve Patient Outcomes
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium w-fit">
                 <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 Automate Documentation
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-light/30 backdrop-blur-sm border border-lillia-light/50 text-white text-sm font-medium w-fit">
                 <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
