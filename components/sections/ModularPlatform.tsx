@@ -94,12 +94,12 @@ export const ModularPlatform: React.FC = () => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         >
           <source src="/Lillia-Landing-Page-Concept/background-video.mp4" type="video/mp4" />
         </video>
-        {/* Blue Overlay */}
-        <div className="absolute inset-0 bg-blue-600/40"></div>
+        {/* Lillia Blue Overlay */}
+        <div className="absolute inset-0 bg-lillia-primary/70"></div>
       </div>
 
       <Container>
