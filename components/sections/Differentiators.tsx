@@ -23,20 +23,8 @@ const differentiators = [
 export const Differentiators: React.FC = () => {
   return (
     <section id="differentiators" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 -z-10">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/Lillia-Landing-Page-Concept/assets/differentiators-background.mp4" type="video/mp4" />
-        </video>
-        {/* Lillia blue overlay */}
-        <div className="absolute inset-0 bg-lillia-primary/15"></div>
-      </div>
+      {/* Dynamic Gradient Background */}
+      <div className="absolute inset-0 -z-10 gradient-background"></div>
 
       <Container>
         {/* Section Label */}
@@ -157,6 +145,32 @@ export const Differentiators: React.FC = () => {
       </Container>
 
       <style jsx>{`
+        @keyframes gradientShift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
+        .gradient-background {
+          background: linear-gradient(
+            -45deg,
+            #FFF5F7,
+            #FFE5EC,
+            #F3E8FF,
+            #E9D5FF,
+            #FFE5EC,
+            #FFF5F7
+          );
+          background-size: 400% 400%;
+          animation: gradientShift 15s ease infinite;
+        }
+
         @keyframes fadeInScale {
           0% {
             opacity: 0;

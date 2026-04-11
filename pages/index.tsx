@@ -8,7 +8,6 @@ import { ProblemSection } from '../components/sections/ProblemSection';
 import { BannerCallout } from '../components/sections/BannerCallout';
 import { ModularPlatform } from '../components/sections/ModularPlatform';
 import { FeatureDeepDives } from '../components/sections/FeatureDeepDives';
-import { ClinicalOutcomes } from '../components/sections/ClinicalOutcomes';
 import { WhoItsFor } from '../components/sections/WhoItsFor';
 import { Differentiators } from '../components/sections/Differentiators';
 import { ComplianceScope } from '../components/sections/ComplianceScope';
@@ -49,6 +48,9 @@ export default function Home() {
 
         {/* 8. Differentiators */}
         <Differentiators />
+
+        {/* 9. Built for Your Practice Model */}
+        <WhoItsFor />
 
         {/* 11. Compliance & Scope */}
         <ComplianceScope />
