@@ -87,24 +87,34 @@ export const ModularPlatform: React.FC = () => {
 
   return (
     <section ref={sectionRef} id="platform" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Gradient Background */}
+      {/* Video Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-lillia-lighter via-lillia-peach/30 to-lillia-primary/20"></div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/Lillia-Landing-Page-Concept/background-video.mp4" type="video/mp4" />
+        </video>
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-blue-600/40"></div>
       </div>
 
       <Container>
         {/* Heading */}
         <div className="text-center mb-16 max-w-5xl mx-auto">
-          <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-6">
+          <h2 className="text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
             One platform.
           </h2>
-          <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-6">
+          <h2 className="text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
             End-to-end chronic care.
           </h2>
-          <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-8">
+          <h2 className="text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-8">
             Built to fit the way your practice works.
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed font-light">
+          <p className="text-xl text-white/90 leading-relaxed font-light">
             Choose the pieces that fit your practice. Or take the full picture. Lillia is designed in modular components,
             so you can start with what you need and expand as your chronic care program grows. Each piece works independently.
             All seven work together seamlessly.
@@ -143,7 +153,7 @@ export const ModularPlatform: React.FC = () => {
 
         {/* Bottom Message */}
         <div className="text-center mt-24">
-          <p className="text-2xl font-medium text-gray-900">
+          <p className="text-2xl font-medium text-white">
             Pick one piece. Pick three. Or take the whole puzzle.
             <br />
             It all fits together.
