@@ -53,20 +53,28 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Visual placeholder (screenshots to be added) */}
+          {/* Right: Visual - Dashboard and App Screenshots */}
           <div className="relative hidden lg:block">
             <div className="relative">
-              {/* Placeholder for dashboard screenshot */}
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/30 p-8 shadow-2xl">
-                <div className="aspect-video bg-gradient-to-br from-lillia-light/20 to-lillia-deep/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white/70 text-sm">Lillia Dashboard Screenshot</span>
+              {/* Dashboard screenshot */}
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/30 p-4 shadow-2xl">
+                <div className="aspect-video bg-white rounded-lg overflow-hidden">
+                  <img
+                    src="/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png"
+                    alt="Lillia Dashboard - Panel Health View"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
-              {/* Placeholder for phone app screenshot */}
-              <div className="absolute -bottom-8 -left-8 w-48 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 p-4 shadow-2xl">
-                <div className="aspect-[9/19] bg-gradient-to-br from-lillia-light/20 to-lillia-deep/20 rounded-2xl flex items-center justify-center">
-                  <span className="text-white/70 text-xs text-center px-2">Patient App</span>
+              {/* Phone app screenshot */}
+              <div className="absolute -bottom-8 -left-8 w-48 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 p-3 shadow-2xl">
+                <div className="aspect-[9/19] bg-white rounded-2xl overflow-hidden">
+                  <img
+                    src="/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg"
+                    alt="Lillia Patient App - AI Coach"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
