@@ -56,19 +56,19 @@ export const Hero: React.FC = () => {
           {/* Right: Visual - Dashboard and App Screenshots */}
           <div className="relative hidden lg:block">
             <div className="relative">
-              {/* Dashboard screenshot */}
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/30 p-4 shadow-2xl">
-                <div className="aspect-video bg-white rounded-lg overflow-hidden">
+              {/* Desktop/Dashboard screenshot - larger frame */}
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-2 shadow-2xl">
+                <div className="bg-white rounded-lg overflow-hidden">
                   <img
                     src="/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png"
                     alt="Lillia Dashboard - Panel Health View"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
 
-              {/* Phone app screenshot */}
-              <div className="absolute -bottom-8 -left-8 w-48 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 p-3 shadow-2xl">
+              {/* Phone app screenshot - positioned on the right */}
+              <div className="absolute -bottom-12 -right-8 w-48 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-2 shadow-2xl">
                 <div className="aspect-[9/19] bg-white rounded-2xl overflow-hidden">
                   <img
                     src="/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg"
