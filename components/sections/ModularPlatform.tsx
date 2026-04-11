@@ -89,48 +89,50 @@ export const ModularPlatform: React.FC = () => {
 
       <Container>
         {/* Heading */}
-        <div className="text-center mb-6 max-w-4xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+        <div className="text-center mb-12 max-w-5xl mx-auto">
+          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
             One platform. End-to-end chronic care.<br />
             Built to fit the way your practice works.
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed">
+          <p className="text-2xl text-gray-700 leading-relaxed">
             Choose the pieces that fit your practice. Or take the full picture. Lillia is designed in modular components,
             so you can start with what you need and expand as your chronic care program grows. Each piece works independently.
             All seven work together seamlessly.
           </p>
         </div>
 
-        {/* Puzzle Pieces Grid - 4 top + 3 bottom */}
-        <div className="mt-16 max-w-7xl mx-auto">
+        {/* Puzzle Pieces - Desktop: 4 top + 3 bottom, Mobile: Stack */}
+        <div className="puzzle-container mt-20">
           {/* Top Row - 4 pieces */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 mb-0">
+          <div className="puzzle-row-top">
             {puzzlePieces.slice(0, 4).map((piece, index) => (
               <div
                 key={index}
-                className={`puzzle-piece puzzle-piece-${index + 1} ${visiblePieces[index] ? 'puzzle-visible' : ''}`}
-                style={{
-                  animationDelay: `${index * 150}ms`,
-                  backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.85), rgba(139, 92, 246, 0.85)), url(${piece.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
+                className={`puzzle-piece puzzle-${index + 1} ${visiblePieces[index] ? 'puzzle-visible' : ''}`}
               >
+                <div
+                  className="puzzle-bg"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.88), rgba(139, 92, 246, 0.88)), url(${piece.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
                 <div className="puzzle-content">
                   {/* Chip */}
-                  <div className="inline-block mb-4">
-                    <span className="text-xs font-bold tracking-wider bg-lillia-peach/90 text-lillia-deep px-3 py-1.5 rounded-full uppercase">
+                  <div className="inline-block mb-6">
+                    <span className="text-sm font-bold tracking-wider bg-lillia-peach/95 text-lillia-deep px-4 py-2 rounded-full uppercase shadow-md">
                       {piece.chip}
                     </span>
                   </div>
 
                   {/* Name */}
-                  <h3 className="text-xl font-bold text-white mb-auto">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-auto leading-tight">
                     {piece.name}
                   </h3>
 
                   {/* Outcome */}
-                  <p className="text-sm text-white/90 italic font-light mt-auto pt-4">
+                  <p className="text-base lg:text-lg text-white/95 italic font-light mt-auto pt-6 leading-relaxed">
                     {piece.outcome}
                   </p>
                 </div>
@@ -138,34 +140,36 @@ export const ModularPlatform: React.FC = () => {
             ))}
           </div>
 
-          {/* Bottom Row - 3 pieces (centered) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 max-w-5xl mx-auto">
+          {/* Bottom Row - 3 pieces */}
+          <div className="puzzle-row-bottom">
             {puzzlePieces.slice(4, 7).map((piece, index) => (
               <div
                 key={index + 4}
-                className={`puzzle-piece puzzle-piece-${index + 5} ${visiblePieces[index + 4] ? 'puzzle-visible' : ''}`}
-                style={{
-                  animationDelay: `${(index + 4) * 150}ms`,
-                  backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.85), rgba(139, 92, 246, 0.85)), url(${piece.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
+                className={`puzzle-piece puzzle-${index + 5} ${visiblePieces[index + 4] ? 'puzzle-visible' : ''}`}
               >
+                <div
+                  className="puzzle-bg"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.88), rgba(139, 92, 246, 0.88)), url(${piece.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
                 <div className="puzzle-content">
                   {/* Chip */}
-                  <div className="inline-block mb-4">
-                    <span className="text-xs font-bold tracking-wider bg-lillia-peach/90 text-lillia-deep px-3 py-1.5 rounded-full uppercase">
+                  <div className="inline-block mb-6">
+                    <span className="text-sm font-bold tracking-wider bg-lillia-peach/95 text-lillia-deep px-4 py-2 rounded-full uppercase shadow-md">
                       {piece.chip}
                     </span>
                   </div>
 
                   {/* Name */}
-                  <h3 className="text-xl font-bold text-white mb-auto">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-auto leading-tight">
                     {piece.name}
                   </h3>
 
                   {/* Outcome */}
-                  <p className="text-sm text-white/90 italic font-light mt-auto pt-4">
+                  <p className="text-base lg:text-lg text-white/95 italic font-light mt-auto pt-6 leading-relaxed">
                     {piece.outcome}
                   </p>
                 </div>
@@ -175,33 +179,42 @@ export const ModularPlatform: React.FC = () => {
         </div>
 
         {/* Key Message */}
-        <div className="text-center mt-16">
-          <p className="text-2xl font-semibold text-gray-900">
+        <div className="text-center mt-20">
+          <p className="text-3xl font-semibold text-gray-900">
             Pick one piece. Pick three. Or take the whole puzzle. It all fits together.
           </p>
         </div>
       </Container>
 
       <style jsx>{`
+        .puzzle-container {
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+
+        .puzzle-row-top,
+        .puzzle-row-bottom {
+          display: grid;
+          gap: 0;
+        }
+
         .puzzle-piece {
           position: relative;
-          min-height: 320px;
-          padding: 2.5rem;
-          backdrop-filter: blur(4px);
+          min-height: 450px;
           opacity: 0;
-          transform: translateY(30px) scale(0.95);
-          transition: all 0.4s ease-out;
+          transform: translateY(40px) scale(0.9) rotate(-2deg);
+          transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .puzzle-piece.puzzle-visible {
           opacity: 1;
-          transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1) rotate(0deg);
         }
 
-        .puzzle-piece:hover {
-          transform: translateY(-4px) scale(1.02);
-          filter: brightness(1.1);
-          z-index: 10;
+        .puzzle-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
         }
 
         .puzzle-content {
@@ -210,69 +223,114 @@ export const ModularPlatform: React.FC = () => {
           height: 100%;
           display: flex;
           flex-direction: column;
+          padding: 3rem;
         }
 
-        /* Desktop Puzzle Piece Shapes */
+        .puzzle-piece:hover {
+          transform: translateY(-8px) scale(1.03);
+          filter: brightness(1.15) drop-shadow(0 25px 50px rgba(139, 92, 246, 0.4));
+          z-index: 20;
+          transition: all 0.3s ease;
+        }
+
+        /* Desktop Puzzle Layout */
         @media (min-width: 1024px) {
-          /* Piece 1 - Top Left: Tab on right, notch on bottom */
-          .puzzle-piece-1 {
-            clip-path: path('M 0,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 130,300 Q 130,290 120,285 Q 110,280 100,285 Q 90,290 90,300 L 0,300 Z');
+          .puzzle-row-top {
+            grid-template-columns: repeat(4, 1fr);
+            margin-bottom: -1px;
           }
 
-          /* Piece 2 - Top Center-Left: Notch on left, tab on right, tab on bottom */
-          .puzzle-piece-2 {
-            clip-path: path('M 0,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 130,300 Q 130,310 120,315 Q 110,320 100,315 Q 90,310 90,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
+          .puzzle-row-bottom {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1050px;
+            margin: 0 auto;
           }
 
-          /* Piece 3 - Top Center-Right: Notch on left, tab on right, notch on bottom */
-          .puzzle-piece-3 {
-            clip-path: path('M 0,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 130,300 Q 130,290 120,285 Q 110,280 100,285 Q 90,290 90,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
+          /* Realistic Jigsaw Puzzle Pieces with Rounded Tabs */
+
+          /* Piece 1 - Top Left: Right tab OUT, Bottom tab IN */
+          .puzzle-1 {
+            clip-path: path('M 0,10 L 0,440 L 340,440 L 340,260 Q 320,260 315,250 Q 310,240 315,230 Q 320,220 340,220 L 340,10 L 220,10 Q 220,30 210,35 Q 200,40 190,35 Q 180,30 180,10 Z');
+            filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.2));
           }
 
-          /* Piece 4 - Top Right: Notch on left, tab on bottom */
-          .puzzle-piece-4 {
-            clip-path: path('M 0,0 L 250,0 L 250,300 L 130,300 Q 130,310 120,315 Q 110,320 100,315 Q 90,310 90,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
+          /* Piece 2 - Top Mid-Left: Left tab IN, Right tab OUT, Bottom tab OUT */
+          .puzzle-2 {
+            clip-path: path('M 0,10 L 0,220 Q 20,220 25,230 Q 30,240 25,250 Q 20,260 0,260 L 0,440 L 340,440 L 340,260 Q 320,260 315,250 Q 310,240 315,230 Q 320,220 340,220 L 340,10 L 220,10 Q 220,-10 210,-15 Q 200,-20 190,-15 Q 180,-10 180,10 Z');
+            filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.2));
           }
 
-          /* Piece 5 - Bottom Left: Notch on top, tab on right */
-          .puzzle-piece-5 {
-            clip-path: path('M 0,0 L 90,0 Q 90,10 100,15 Q 110,20 120,15 Q 130,10 130,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 0,300 Z');
+          /* Piece 3 - Top Mid-Right: Left tab IN, Right tab OUT, Bottom tab IN */
+          .puzzle-3 {
+            clip-path: path('M 0,10 L 0,220 Q 20,220 25,230 Q 30,240 25,250 Q 20,260 0,260 L 0,440 L 340,440 L 340,260 Q 320,260 315,250 Q 310,240 315,230 Q 320,220 340,220 L 340,10 L 220,10 Q 220,30 210,35 Q 200,40 190,35 Q 180,30 180,10 Z');
+            filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.2));
           }
 
-          /* Piece 6 - Bottom Center: Tab on top, notch on left, tab on right */
-          .puzzle-piece-6 {
-            clip-path: path('M 0,0 L 90,0 Q 90,-10 100,-15 Q 110,-20 120,-15 Q 130,-10 130,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
+          /* Piece 4 - Top Right: Left tab IN, Bottom tab OUT */
+          .puzzle-4 {
+            clip-path: path('M 0,10 L 0,220 Q 20,220 25,230 Q 30,240 25,250 Q 20,260 0,260 L 0,440 L 340,440 L 340,10 L 220,10 Q 220,-10 210,-15 Q 200,-20 190,-15 Q 180,-10 180,10 Z');
+            filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.2));
           }
 
-          /* Piece 7 - Bottom Right: Notch on top, notch on left */
-          .puzzle-piece-7 {
-            clip-path: path('M 0,0 L 90,0 Q 90,10 100,15 Q 110,20 120,15 Q 130,10 130,0 L 250,0 L 250,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
+          /* Piece 5 - Bottom Left: Top tab OUT, Right tab IN */
+          .puzzle-5 {
+            clip-path: path('M 0,10 L 0,440 L 340,440 L 340,260 Q 360,260 365,250 Q 370,240 365,230 Q 360,220 340,220 L 340,10 L 220,10 Q 220,-10 210,-15 Q 200,-20 190,-15 Q 180,-10 180,10 Z');
+            filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.2));
           }
 
-          /* Add margins to make pieces fit together better */
+          /* Piece 6 - Bottom Center: Top tab IN, Left tab OUT, Right tab IN */
+          .puzzle-6 {
+            clip-path: path('M 0,10 L 0,220 Q -20,220 -25,230 Q -30,240 -25,250 Q -20,260 0,260 L 0,440 L 340,440 L 340,260 Q 360,260 365,250 Q 370,240 365,230 Q 360,220 340,220 L 340,10 L 220,10 Q 220,30 210,35 Q 200,40 190,35 Q 180,30 180,10 Z');
+            filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.2));
+          }
+
+          /* Piece 7 - Bottom Right: Top tab OUT, Left tab OUT */
+          .puzzle-7 {
+            clip-path: path('M 0,10 L 0,220 Q -20,220 -25,230 Q -30,240 -25,250 Q -20,260 0,260 L 0,440 L 340,440 L 340,10 L 220,10 Q 220,-10 210,-15 Q 200,-20 190,-15 Q 180,-10 180,10 Z');
+            filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.2));
+          }
+
           .puzzle-piece {
-            margin: -2px;
+            margin: -1px;
           }
         }
 
-        /* Mobile: Standard Cards */
-        @media (max-width: 1023px) {
+        /* Tablet Layout */
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .puzzle-row-top,
+          .puzzle-row-bottom {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+          }
+
           .puzzle-piece {
             clip-path: none;
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
           }
         }
 
-        @keyframes slideInPuzzle {
-          from {
-            opacity: 0;
-            transform: translateY(30px) scale(0.95);
+        /* Mobile Layout */
+        @media (max-width: 767px) {
+          .puzzle-row-top,
+          .puzzle-row-bottom {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
           }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
+
+          .puzzle-piece {
+            clip-path: none;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            min-height: 350px;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+          }
+
+          .puzzle-content {
+            padding: 2rem;
           }
         }
       `}</style>
