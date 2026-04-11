@@ -7,48 +7,55 @@ const modules = [
     chip: 'Patient-Facing',
     name: 'Patient Agentic App',
     image: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
-    outcome: 'Keep patients activated between visits.'
+    outcome: 'Keep patients activated between visits.',
+    size: 'large' // 2x2
   },
   {
     chip: 'Care Documentation',
     name: 'Time Tracking',
     image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'Every minute of care — captured automatically.'
+    outcome: 'Every minute of care — captured automatically.',
+    size: 'medium' // 1x1
   },
   {
     chip: 'Revenue Operations',
     name: 'Bill Generation',
     image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'From care activity to clean claims, without manual work.'
+    outcome: 'From care activity to clean claims, without manual work.',
+    size: 'medium' // 1x1
   },
   {
     chip: 'Care Operations',
     name: 'Execution OS',
     image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'Run your entire chronic care program from one console.'
+    outcome: 'Run your entire chronic care program from one console.',
+    size: 'medium' // 1x1
   },
   {
     chip: 'Workflow Automation',
     name: 'AI Voice Calling',
     image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'Automated outreach that frees your staff for what matters.'
+    outcome: 'Automated outreach that frees your staff for what matters.',
+    size: 'medium' // 1x1
   },
   {
     chip: 'Remote Monitoring',
     name: 'Device Connectivity',
     image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.'
+    outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.',
+    size: 'wide' // 2x1
   },
   {
     chip: 'Patient Engagement',
     name: 'Patient Connect via Chat',
     image: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
-    outcome: 'Keep patients close — without adding to your team\'s workload.'
+    outcome: 'Keep patients close — without adding to your team\'s workload.',
+    size: 'medium' // 1x1
   }
 ];
 
 export const ModularPlatform: React.FC = () => {
-  const [visiblePieces, setVisiblePieces] = useState<boolean[]>(new Array(7).fill(false));
+  const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(7).fill(false));
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,17 +65,17 @@ export const ModularPlatform: React.FC = () => {
           if (entry.isIntersecting) {
             modules.forEach((_, index) => {
               setTimeout(() => {
-                setVisiblePieces(prev => {
+                setVisibleCards(prev => {
                   const newState = [...prev];
                   newState[index] = true;
                   return newState;
                 });
-              }, index * 150);
+              }, index * 100);
             });
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -80,141 +87,179 @@ export const ModularPlatform: React.FC = () => {
 
   return (
     <section ref={sectionRef} id="platform" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Video Background with Gradient Overlay */}
+      {/* Gradient Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-lillia-lighter via-lillia-peach/40 to-lillia-primary/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-lillia-lighter via-lillia-peach/30 to-lillia-primary/20"></div>
       </div>
 
       <Container>
         {/* Heading */}
-        <div className="text-center mb-16 max-w-4xl mx-auto">
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            One platform. End-to-end chronic care.<br />
+        <div className="text-center mb-16 max-w-5xl mx-auto">
+          <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-6">
+            One platform.
+          </h2>
+          <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-6">
+            End-to-end chronic care.
+          </h2>
+          <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-8">
             Built to fit the way your practice works.
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed">
+          <p className="text-xl text-gray-700 leading-relaxed font-light">
             Choose the pieces that fit your practice. Or take the full picture. Lillia is designed in modular components,
             so you can start with what you need and expand as your chronic care program grows. Each piece works independently.
             All seven work together seamlessly.
           </p>
         </div>
 
-        {/* Puzzle Grid */}
-        <div className="puzzle-container">
-          {/* Top Row - 4 pieces */}
-          <div className="puzzle-row-top">
-            {modules.slice(0, 4).map((module, index) => (
-              <div
-                key={index}
-                className={`puzzle-card ${visiblePieces[index] ? 'visible' : ''}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div className="card-bg">
-                  <Image
-                    src={module.image}
-                    alt={module.name}
-                    fill
-                    className="object-cover opacity-25"
-                    unoptimized
-                  />
-                  <div className="bg-gradient-to-br from-lillia-primary/95 to-lillia-deep/95 absolute inset-0"></div>
-                </div>
-                <div className="card-content">
-                  <div className="chip">{module.chip}</div>
-                  <h3 className="card-name">{module.name}</h3>
-                  <p className="card-outcome">{module.outcome}</p>
-                </div>
+        {/* Bento Grid */}
+        <div className="bento-grid max-w-7xl mx-auto">
+          {modules.map((module, index) => (
+            <div
+              key={index}
+              className={`bento-card ${module.size} ${visibleCards[index] ? 'visible' : ''}`}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              {/* Image Background */}
+              <div className="card-image">
+                <Image
+                  src={module.image}
+                  alt={module.name}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="image-gradient"></div>
               </div>
-            ))}
-          </div>
 
-          {/* Bottom Row - 3 pieces */}
-          <div className="puzzle-row-bottom">
-            {modules.slice(4, 7).map((module, index) => (
-              <div
-                key={index + 4}
-                className={`puzzle-card ${visiblePieces[index + 4] ? 'visible' : ''}`}
-                style={{ transitionDelay: `${(index + 4) * 150}ms` }}
-              >
-                <div className="card-bg">
-                  <Image
-                    src={module.image}
-                    alt={module.name}
-                    fill
-                    className="object-cover opacity-25"
-                    unoptimized
-                  />
-                  <div className="bg-gradient-to-br from-lillia-primary/95 to-lillia-deep/95 absolute inset-0"></div>
-                </div>
-                <div className="card-content">
-                  <div className="chip">{module.chip}</div>
-                  <h3 className="card-name">{module.name}</h3>
-                  <p className="card-outcome">{module.outcome}</p>
-                </div>
+              {/* Content */}
+              <div className="card-content">
+                <div className="chip">{module.chip}</div>
+                <h3 className="card-title">{module.name}</h3>
+                <p className="card-outcome">{module.outcome}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Bottom Message */}
-        <div className="text-center mt-20">
+        <div className="text-center mt-24">
           <p className="text-2xl font-medium text-gray-900">
-            Pick one piece. Pick three. Or take the whole puzzle.<br />
+            Pick one piece. Pick three. Or take the whole puzzle.
+            <br />
             It all fits together.
           </p>
         </div>
       </Container>
 
       <style jsx>{`
-        .puzzle-container {
-          max-w-6xl;
-          margin: 0 auto;
-        }
-
-        .puzzle-row-top,
-        .puzzle-row-bottom {
+        .bento-grid {
           display: grid;
-          gap: 0;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.5rem;
+          grid-auto-rows: 280px;
         }
 
-        @media (min-width: 1024px) {
-          .puzzle-row-top {
-            grid-template-columns: repeat(4, 1fr);
-            margin-bottom: -1px;
-          }
-
-          .puzzle-row-bottom {
-            grid-template-columns: repeat(3, 1fr);
-            max-width: 75%;
-            margin: 0 auto;
-          }
+        /* Bento Layout - Asymmetric Grid */
+        .bento-card.large {
+          grid-column: span 2;
+          grid-row: span 2;
         }
 
-        @media (max-width: 1023px) {
-          .puzzle-row-top,
-          .puzzle-row-bottom {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-          }
+        .bento-card.medium {
+          grid-column: span 1;
+          grid-row: span 1;
         }
 
-        .puzzle-card {
+        .bento-card.wide {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+
+        /* Specific positioning */
+        .bento-card:nth-child(1) {
+          grid-column: 1 / span 2;
+          grid-row: 1 / span 2;
+        }
+
+        .bento-card:nth-child(2) {
+          grid-column: 3 / span 1;
+          grid-row: 1;
+        }
+
+        .bento-card:nth-child(3) {
+          grid-column: 4 / span 1;
+          grid-row: 1;
+        }
+
+        .bento-card:nth-child(4) {
+          grid-column: 3 / span 1;
+          grid-row: 2;
+        }
+
+        .bento-card:nth-child(5) {
+          grid-column: 4 / span 1;
+          grid-row: 2;
+        }
+
+        .bento-card:nth-child(6) {
+          grid-column: 1 / span 2;
+          grid-row: 3;
+        }
+
+        .bento-card:nth-child(7) {
+          grid-column: 3 / span 2;
+          grid-row: 3;
+        }
+
+        .bento-card {
           position: relative;
-          min-height: 400px;
-          background: white;
+          border-radius: 24px;
+          overflow: hidden;
           opacity: 0;
-          transform: translateX(-30px);
-          transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transform: translateY(20px);
+          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.05),
+            0 10px 40px -15px rgba(139, 92, 246, 0.15);
         }
 
-        .puzzle-card.visible {
+        .bento-card.visible {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateY(0);
         }
 
-        .card-bg {
+        .bento-card:hover {
+          transform: translateY(-6px);
+          box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.05),
+            0 20px 60px -15px rgba(139, 92, 246, 0.35);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-image {
           position: absolute;
           inset: 0;
+          z-index: 0;
+        }
+
+        .card-image img {
+          transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bento-card:hover .card-image img {
+          transform: scale(1.05);
+        }
+
+        .image-gradient {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(139, 92, 246, 0.92) 0%, rgba(118, 75, 162, 0.92) 100%);
+          z-index: 1;
+          transition: opacity 0.3s ease;
+        }
+
+        .bento-card:hover .image-gradient {
+          opacity: 0.88;
         }
 
         .card-content {
@@ -225,6 +270,10 @@ export const ModularPlatform: React.FC = () => {
           flex-direction: column;
           justify-content: space-between;
           padding: 2.5rem;
+        }
+
+        .large .card-content {
+          padding: 3rem;
         }
 
         .chip {
@@ -238,16 +287,21 @@ export const ModularPlatform: React.FC = () => {
           color: white;
           padding: 0.5rem 1rem;
           border-radius: 100px;
-          backdrop-filter: blur(8px);
+          backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .card-name {
-          font-size: 1.5rem;
+        .card-title {
+          font-size: 1.75rem;
           font-weight: 700;
           color: white;
-          line-height: 1.3;
-          margin-top: auto;
+          line-height: 1.2;
+          letter-spacing: -0.01em;
+          margin-bottom: 0.5rem;
+        }
+
+        .large .card-title {
+          font-size: 2.5rem;
           margin-bottom: 0.75rem;
         }
 
@@ -257,28 +311,58 @@ export const ModularPlatform: React.FC = () => {
           font-style: italic;
           color: rgba(255, 255, 255, 0.95);
           line-height: 1.5;
+          max-width: 90%;
         }
 
-        .puzzle-card:hover {
-          transform: translateY(-4px);
-          transition: all 0.3s ease;
+        .large .card-outcome {
+          font-size: 1.25rem;
+          max-width: 85%;
         }
 
-        .puzzle-card:hover .card-bg {
-          filter: brightness(1.1);
-        }
-
-        /* Mobile: Standard Cards */
-        @media (max-width: 1023px) {
-          .puzzle-card {
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
-            transform: translateY(20px);
+        /* Tablet */
+        @media (max-width: 1024px) {
+          .bento-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 280px;
           }
 
-          .puzzle-card.visible {
-            transform: translateY(0);
+          .bento-card {
+            grid-column: span 1 !important;
+            grid-row: span 1 !important;
+          }
+
+          .bento-card:nth-child(6) {
+            grid-column: span 2 !important;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+          .bento-grid {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 320px;
+            gap: 1rem;
+          }
+
+          .bento-card {
+            grid-column: span 1 !important;
+            grid-row: span 1 !important;
+          }
+
+          .card-title {
+            font-size: 1.5rem;
+          }
+
+          .large .card-title {
+            font-size: 1.75rem;
+          }
+
+          .card-content {
+            padding: 2rem;
+          }
+
+          .large .card-content {
+            padding: 2rem;
           }
         }
       `}</style>
