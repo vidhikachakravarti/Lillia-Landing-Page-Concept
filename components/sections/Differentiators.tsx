@@ -6,23 +6,38 @@ const differentiators = [
   {
     icon: Blocks,
     title: 'Modular',
-    description: 'Choose one module or all six. Start with CCM tracking, add Voice AI later, connect devices when you\'re ready. Lillia is designed to grow with your program — not lock you into a fixed configuration from day one.'
+    description: 'Choose one module or all six. Lillia is designed to grow with your program, not lock you into a fixed configuration from day one.'
   },
   {
     icon: Workflow,
     title: 'Interoperable',
-    description: 'Lillia integrates with the systems you already run — Athena, Epic, Cerner, eClinicalWorks, Apple Health, Google Fit, FDA-approved RPM devices, and RCM systems. No rip-and-replace. No siloed data. One connected chronic care layer.'
+    description: 'Lillia integrates with the systems you already run. No rip-and-replace. No siloed data. One connected chronic care layer.'
   },
   {
     icon: Sparkles,
     title: 'AI-First',
-    description: 'Lillia isn\'t AI bolted onto a legacy platform. Agentic AI runs the enrollment, drives the coaching, automates the documentation, and powers the clinical triage — while keeping human providers in authority over every clinical decision.'
+    description: 'Agentic AI runs the enrollment, drives the coaching, and powers the clinical triage, while keeping human providers in authority over every clinical decision.'
   }
 ];
 
 export const Differentiators: React.FC = () => {
   return (
-    <section id="differentiators" className="py-24 lg:py-32 bg-gradient-subtle">
+    <section id="differentiators" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 -z-10">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/Lillia-Landing-Page-Concept/assets/differentiators-background.mp4" type="video/mp4" />
+        </video>
+        {/* Lillia blue overlay */}
+        <div className="absolute inset-0 bg-lillia-primary/15"></div>
+      </div>
+
       <Container>
         {/* Section Label */}
         <div className="text-center mb-4">
@@ -37,7 +52,7 @@ export const Differentiators: React.FC = () => {
             Not just another chronic care point solution.
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Most platforms solve one part of chronic care. Lillia is built to run all of it —
+            Most platforms solve one part of chronic care. Lillia is built to run all of it,
             end-to-end, modularly, and AI-first from the ground up.
           </p>
         </div>
@@ -70,7 +85,7 @@ export const Differentiators: React.FC = () => {
           })}
         </div>
 
-        {/* Optional Comparison Table */}
+        {/* Comparison Table */}
         <div className="max-w-4xl mx-auto bg-white rounded-2xl border-2 border-lillia-light shadow-soft-lg overflow-hidden">
           <table className="w-full">
             <thead>
@@ -84,55 +99,55 @@ export const Differentiators: React.FC = () => {
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">End-to-end chronic care workflow</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Partial</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Full</span>
                 </td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Modular — buy only what you need</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Bundle only</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Yes</span>
                 </td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">EHR + Device Interoperability</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Limited</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Native</span>
                 </td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Agentic AI throughout</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Rule-based</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Yes</span>
                 </td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Audit-ready billing by design</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Manual</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Automated</span>
                 </td>
               </tr>
@@ -140,6 +155,45 @@ export const Differentiators: React.FC = () => {
           </table>
         </div>
       </Container>
+
+      <style jsx>{`
+        @keyframes fadeInScale {
+          0% {
+            opacity: 0;
+            transform: scale(0.5);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-table-mark {
+          display: inline-block;
+          animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          opacity: 0;
+        }
+
+        /* Stagger animation for each row */
+        tr:nth-child(1) .animate-table-mark {
+          animation-delay: 0.2s;
+        }
+        tr:nth-child(2) .animate-table-mark {
+          animation-delay: 0.4s;
+        }
+        tr:nth-child(3) .animate-table-mark {
+          animation-delay: 0.6s;
+        }
+        tr:nth-child(4) .animate-table-mark {
+          animation-delay: 0.8s;
+        }
+        tr:nth-child(5) .animate-table-mark {
+          animation-delay: 1s;
+        }
+      `}</style>
     </section>
   );
 };

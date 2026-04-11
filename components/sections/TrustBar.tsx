@@ -4,7 +4,7 @@ import { FileText, Award, Globe } from 'lucide-react';
 
 export const TrustBar: React.FC = () => {
   return (
-    <section className="relative py-16 overflow-hidden border-y border-lillia-light/30">
+    <section className="relative py-24 overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 -z-10">
         <video
@@ -32,7 +32,7 @@ export const TrustBar: React.FC = () => {
           {/* Three Horizontal Bullets */}
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Point 1 - ADA Studies */}
-            <div className="flex flex-col items-start gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all">
+            <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all text-center">
               <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                 <FileText className="w-6 h-6 text-white" />
               </div>
@@ -40,7 +40,7 @@ export const TrustBar: React.FC = () => {
                 <p className="text-white text-sm leading-relaxed">
                   Two comprehensive ADA-published studies demonstrated meaningful impact on A1c, weight, and adherence.
                 </p>
-                <div className="flex gap-3 mt-3">
+                <div className="flex gap-3 mt-3 justify-center">
                   <a
                     href="https://diabetesjournals.org/diabetes/article/71/Supplement_1/71-LB/146190/71-LB-Real-World-Evidence-of-Arabic-Digital"
                     target="_blank"
@@ -63,7 +63,7 @@ export const TrustBar: React.FC = () => {
             </div>
 
             {/* Point 2 - TIME Recognition */}
-            <div className="flex flex-col items-start gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all">
+            <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all text-center">
               <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Award className="w-6 h-6 text-white" />
               </div>
@@ -84,7 +84,7 @@ export const TrustBar: React.FC = () => {
             </div>
 
             {/* Point 3 - Global Trust */}
-            <div className="flex flex-col items-start gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all">
+            <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all text-center">
               <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Globe className="w-6 h-6 text-white" />
               </div>
@@ -102,6 +102,13 @@ export const TrustBar: React.FC = () => {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Bottom Stats */}
+          <div className="text-center mt-16">
+            <p className="text-xl text-white font-medium">
+              With 50,000+ patients served across 500+ clinics, the results are consistent.
+            </p>
           </div>
         </div>
       </Container>

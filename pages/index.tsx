@@ -47,13 +47,7 @@ export default function Home() {
         {/* 7. Feature Deep-Dives */}
         <FeatureDeepDives />
 
-        {/* 8. Clinical Outcomes */}
-        <ClinicalOutcomes />
-
-        {/* 9. Who It's For (Practice Models) */}
-        <WhoItsFor />
-
-        {/* 10. Differentiators */}
+        {/* 8. Differentiators */}
         <Differentiators />
 
         {/* 11. Compliance & Scope */}
