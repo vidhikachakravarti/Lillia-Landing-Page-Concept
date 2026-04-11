@@ -108,7 +108,7 @@ export const ModularPlatform: React.FC = () => {
             {puzzlePieces.slice(0, 4).map((piece, index) => (
               <div
                 key={index}
-                className={`puzzle-piece puzzle-top ${visiblePieces[index] ? 'puzzle-visible' : ''}`}
+                className={`puzzle-piece puzzle-piece-${index + 1} ${visiblePieces[index] ? 'puzzle-visible' : ''}`}
                 style={{
                   animationDelay: `${index * 150}ms`,
                   backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.85), rgba(139, 92, 246, 0.85)), url(${piece.image})`,
@@ -143,7 +143,7 @@ export const ModularPlatform: React.FC = () => {
             {puzzlePieces.slice(4, 7).map((piece, index) => (
               <div
                 key={index + 4}
-                className={`puzzle-piece puzzle-bottom ${visiblePieces[index + 4] ? 'puzzle-visible' : ''}`}
+                className={`puzzle-piece puzzle-piece-${index + 5} ${visiblePieces[index + 4] ? 'puzzle-visible' : ''}`}
                 style={{
                   animationDelay: `${(index + 4) * 150}ms`,
                   backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.85), rgba(139, 92, 246, 0.85)), url(${piece.image})`,
@@ -186,8 +186,7 @@ export const ModularPlatform: React.FC = () => {
         .puzzle-piece {
           position: relative;
           min-height: 320px;
-          padding: 2rem;
-          border: 2px solid rgba(255, 255, 255, 0.3);
+          padding: 2.5rem;
           backdrop-filter: blur(4px);
           opacity: 0;
           transform: translateY(30px) scale(0.95);
@@ -201,8 +200,8 @@ export const ModularPlatform: React.FC = () => {
 
         .puzzle-piece:hover {
           transform: translateY(-4px) scale(1.02);
-          box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-          border-color: rgba(255, 255, 255, 0.5);
+          filter: brightness(1.1);
+          z-index: 10;
         }
 
         .puzzle-content {
@@ -213,98 +212,46 @@ export const ModularPlatform: React.FC = () => {
           flex-direction: column;
         }
 
-        /* Puzzle Tab Effects - Desktop Only */
+        /* Desktop Puzzle Piece Shapes */
         @media (min-width: 1024px) {
-          .puzzle-top {
-            clip-path: polygon(
-              0 0,
-              100% 0,
-              100% 85%,
-              90% 85%,
-              90% 95%,
-              80% 95%,
-              80% 85%,
-              0 85%
-            );
+          /* Piece 1 - Top Left: Tab on right, notch on bottom */
+          .puzzle-piece-1 {
+            clip-path: path('M 0,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 130,300 Q 130,290 120,285 Q 110,280 100,285 Q 90,290 90,300 L 0,300 Z');
           }
 
-          .puzzle-bottom {
-            clip-path: polygon(
-              10% 0,
-              20% 0,
-              20% 10%,
-              10% 10%,
-              10% 0,
-              100% 0,
-              100% 100%,
-              0 100%,
-              0 10%
-            );
+          /* Piece 2 - Top Center-Left: Notch on left, tab on right, tab on bottom */
+          .puzzle-piece-2 {
+            clip-path: path('M 0,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 130,300 Q 130,310 120,315 Q 110,320 100,315 Q 90,310 90,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
           }
 
-          .puzzle-piece:nth-child(1) {
-            clip-path: polygon(
-              0 0,
-              100% 0,
-              100% 50%,
-              105% 50%,
-              105% 60%,
-              100% 60%,
-              100% 100%,
-              0 100%
-            );
+          /* Piece 3 - Top Center-Right: Notch on left, tab on right, notch on bottom */
+          .puzzle-piece-3 {
+            clip-path: path('M 0,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 130,300 Q 130,290 120,285 Q 110,280 100,285 Q 90,290 90,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
           }
 
-          .puzzle-piece:nth-child(2) {
-            clip-path: polygon(
-              0 0,
-              100% 0,
-              100% 100%,
-              80% 100%,
-              80% 105%,
-              70% 105%,
-              70% 100%,
-              0 100%,
-              0 50%,
-              -5% 50%,
-              -5% 60%,
-              0 60%
-            );
+          /* Piece 4 - Top Right: Notch on left, tab on bottom */
+          .puzzle-piece-4 {
+            clip-path: path('M 0,0 L 250,0 L 250,300 L 130,300 Q 130,310 120,315 Q 110,320 100,315 Q 90,310 90,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
           }
 
-          .puzzle-piece:nth-child(3) {
-            clip-path: polygon(
-              20% 0,
-              30% 0,
-              30% -5%,
-              20% -5%,
-              0 0,
-              100% 0,
-              100% 100%,
-              0 100%,
-              0 0
-            );
+          /* Piece 5 - Bottom Left: Notch on top, tab on right */
+          .puzzle-piece-5 {
+            clip-path: path('M 0,0 L 90,0 Q 90,10 100,15 Q 110,20 120,15 Q 130,10 130,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 0,300 Z');
           }
 
-          .puzzle-piece:nth-child(4) {
-            clip-path: polygon(
-              0 0,
-              100% 0,
-              100% 100%,
-              0 100%,
-              0 60%,
-              -5% 60%,
-              -5% 50%,
-              0 50%
-            );
+          /* Piece 6 - Bottom Center: Tab on top, notch on left, tab on right */
+          .puzzle-piece-6 {
+            clip-path: path('M 0,0 L 90,0 Q 90,-10 100,-15 Q 110,-20 120,-15 Q 130,-10 130,0 L 250,0 L 250,130 L 240,130 Q 235,140 240,150 Q 245,160 250,160 L 250,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
           }
 
-          .puzzle-top:nth-child(odd) {
-            margin-bottom: -2px;
+          /* Piece 7 - Bottom Right: Notch on top, notch on left */
+          .puzzle-piece-7 {
+            clip-path: path('M 0,0 L 90,0 Q 90,10 100,15 Q 110,20 120,15 Q 130,10 130,0 L 250,0 L 250,300 L 0,300 L 0,160 Q 5,160 10,150 Q 15,140 10,130 Q 5,130 0,130 Z');
           }
 
-          .puzzle-top:nth-child(even) {
-            margin-bottom: -2px;
+          /* Add margins to make pieces fit together better */
+          .puzzle-piece {
+            margin: -2px;
           }
         }
 
@@ -314,6 +261,7 @@ export const ModularPlatform: React.FC = () => {
             clip-path: none;
             border-radius: 1rem;
             margin-bottom: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
           }
         }
 
