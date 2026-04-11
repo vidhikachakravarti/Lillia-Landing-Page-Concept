@@ -17,12 +17,8 @@ export const LogoMarquee: React.FC = () => {
     <section className="py-12 bg-white overflow-hidden">
       <Container>
         <div className="relative">
-          {/* Gradient overlays for smooth fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
-
-          {/* Scrolling logos container */}
-          <div className="flex items-center">
+          {/* Scrolling logos container with mask */}
+          <div className="flex items-center logo-scroll-wrapper">
             <div className="flex animate-scroll">
               {/* First set of logos */}
               {logos.map((logo, index) => (
@@ -71,6 +67,23 @@ export const LogoMarquee: React.FC = () => {
           100% {
             transform: translateX(-50%);
           }
+        }
+
+        .logo-scroll-wrapper {
+          -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 15%,
+            black 85%,
+            transparent 100%
+          );
+          mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 15%,
+            black 85%,
+            transparent 100%
+          );
         }
 
         .animate-scroll {
