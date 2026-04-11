@@ -14,7 +14,7 @@ const logos = [
 
 export const LogoMarquee: React.FC = () => {
   return (
-    <section className="py-12 bg-white border-y border-gray-200 overflow-hidden">
+    <section className="py-12 bg-white overflow-hidden">
       <Container>
         <div className="relative">
           {/* Gradient overlays for smooth fade effect */}
@@ -28,7 +28,7 @@ export const LogoMarquee: React.FC = () => {
               {logos.map((logo, index) => (
                 <div
                   key={`logo-1-${index}`}
-                  className="flex-shrink-0 mx-8 grayscale hover:grayscale-0 transition-all duration-300"
+                  className="flex-shrink-0 mx-8 transition-all duration-300"
                 >
                   <div className="relative h-16 w-32 flex items-center justify-center">
                     <Image
@@ -45,7 +45,7 @@ export const LogoMarquee: React.FC = () => {
               {logos.map((logo, index) => (
                 <div
                   key={`logo-2-${index}`}
-                  className="flex-shrink-0 mx-8 grayscale hover:grayscale-0 transition-all duration-300"
+                  className="flex-shrink-0 mx-8 transition-all duration-300"
                 >
                   <div className="relative h-16 w-32 flex items-center justify-center">
                     <Image
