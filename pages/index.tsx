@@ -3,6 +3,7 @@ import { AnimatedBackground } from '../components/AnimatedBackground';
 import { Navigation } from '../components/layout/Navigation';
 import { Hero } from '../components/sections/Hero';
 import { TrustBar } from '../components/sections/TrustBar';
+import { LogoMarquee } from '../components/sections/LogoMarquee';
 import { ProblemSection } from '../components/sections/ProblemSection';
 import { BannerCallout } from '../components/sections/BannerCallout';
 import { PurposeSection } from '../components/sections/PurposeSection';
@@ -31,6 +32,9 @@ export default function Home() {
 
         {/* 2. Trust Bar (Recognition + Partners) */}
         <TrustBar />
+
+        {/* 2.5 Partner Logos */}
+        <LogoMarquee />
 
         {/* 3. Problem Section */}
         <ProblemSection />
