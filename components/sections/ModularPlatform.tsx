@@ -42,7 +42,7 @@ const puzzlePieces = [
     chip: 'Patient Engagement',
     name: 'Patient Connect via Chat',
     image: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
-    outcome: 'Keep patients close — without adding to your team's workload.'
+    outcome: 'Keep patients close — without adding to your team\'s workload.'
   }
 ];
 
