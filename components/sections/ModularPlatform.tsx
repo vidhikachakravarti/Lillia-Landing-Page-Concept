@@ -318,13 +318,23 @@ export const ModularPlatform: React.FC = () => {
         .image-gradient {
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, rgba(255, 210, 187, 0.35) 0%, rgba(249, 234, 228, 0.35) 100%);
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.7) 0%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(0, 0, 0, 0.4) 100%
+          );
           z-index: 1;
           transition: opacity 0.3s ease;
         }
 
         .bento-card:hover .image-gradient {
-          opacity: 0.25;
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.75) 0%,
+            rgba(255, 255, 255, 0.55) 50%,
+            rgba(0, 0, 0, 0.45) 100%
+          );
         }
 
         .card-content {
@@ -348,22 +358,31 @@ export const ModularPlatform: React.FC = () => {
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          background: rgba(59, 20, 201, 0.1);
-          color: #1A0F6B;
+          background: rgba(255, 255, 255, 0.95);
+          color: #7848FE;
           padding: 0.5rem 1rem;
           border-radius: 100px;
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(59, 20, 201, 0.2);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(120, 72, 254, 0.3);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .card-title {
           font-size: 1.625rem;
-          font-weight: 700;
+          font-weight: 800;
           color: #1A0F6B;
           line-height: 1.25;
           letter-spacing: -0.01em;
           margin-bottom: 0.5rem;
-          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+          text-shadow:
+            0 2px 4px rgba(255, 255, 255, 0.9),
+            0 4px 8px rgba(255, 255, 255, 0.6),
+            0 1px 0 rgba(255, 255, 255, 1);
+          background: linear-gradient(to bottom, #1A0F6B 0%, #280470 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
         }
 
         .wide .card-title {
@@ -373,12 +392,19 @@ export const ModularPlatform: React.FC = () => {
 
         .card-outcome {
           font-size: 1rem;
-          font-weight: 400;
+          font-weight: 500;
           font-style: italic;
           color: #1A1A2E;
           line-height: 1.5;
           max-width: 90%;
-          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+          text-shadow:
+            0 1px 2px rgba(255, 255, 255, 0.95),
+            0 2px 4px rgba(255, 255, 255, 0.8),
+            0 0 1px rgba(255, 255, 255, 1);
+          background-color: rgba(255, 255, 255, 0.6);
+          padding: 0.5rem 0.75rem;
+          border-radius: 8px;
+          backdrop-filter: blur(8px);
         }
 
         .wide .card-outcome {
