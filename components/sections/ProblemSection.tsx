@@ -20,7 +20,7 @@ const problems = [
   },
   {
     stat: 'Missed opportunities',
-    description: 'in chronic care reimbursement quietly add up across patient panels.',
+    description: 'in chronic care reimbursement quietly add up across patient panels',
     icon: TrendingDown
   }
 ];
