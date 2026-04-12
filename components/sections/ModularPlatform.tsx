@@ -284,15 +284,19 @@ export const ModularPlatform: React.FC = () => {
         }
 
         .card-image img.image-pan {
-          animation: slowPan 20s ease-in-out infinite alternate;
+          animation: slowPan 15s ease-in-out infinite alternate;
+          object-fit: cover !important;
         }
 
         @keyframes slowPan {
           0% {
-            transform: scale(1.2) translateX(0%);
+            transform: scale(1.05) translateX(-2%);
+          }
+          50% {
+            transform: scale(1.08) translateX(0%);
           }
           100% {
-            transform: scale(1.2) translateX(-10%);
+            transform: scale(1.05) translateX(2%);
           }
         }
 
@@ -302,6 +306,10 @@ export const ModularPlatform: React.FC = () => {
 
         .bento-card:hover .card-image img.image-pan {
           animation-play-state: paused;
+        }
+
+        .card-image video {
+          object-fit: cover;
         }
 
         .image-gradient {
@@ -337,21 +345,22 @@ export const ModularPlatform: React.FC = () => {
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
+          background: rgba(59, 20, 201, 0.15);
+          color: #1A0F6B;
           padding: 0.5rem 1rem;
           border-radius: 100px;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          border: 1px solid rgba(59, 20, 201, 0.3);
         }
 
         .card-title {
           font-size: 1.75rem;
           font-weight: 700;
-          color: white;
+          color: #1A0F6B;
           line-height: 1.2;
           letter-spacing: -0.01em;
           margin-bottom: 0.5rem;
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
         }
 
         .large .card-title {
@@ -361,11 +370,12 @@ export const ModularPlatform: React.FC = () => {
 
         .card-outcome {
           font-size: 1.125rem;
-          font-weight: 300;
+          font-weight: 400;
           font-style: italic;
-          color: rgba(255, 255, 255, 0.95);
+          color: #1A1A2E;
           line-height: 1.5;
           max-width: 90%;
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
         }
 
         .large .card-outcome {
