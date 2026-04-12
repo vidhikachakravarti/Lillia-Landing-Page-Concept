@@ -101,21 +101,8 @@ export const ModularPlatform: React.FC = () => {
 
   return (
     <section ref={sectionRef} id="platform" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 -z-10">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30 transition-transform duration-75"
-          style={{ transform: `translateY(${parallaxOffset}px)` }}
-        >
-          <source src="/Lillia-Landing-Page-Concept/background-video.mp4" type="video/mp4" />
-        </video>
-        {/* Lillia Blue Overlay */}
-        <div className="absolute inset-0 bg-lillia-primary/70"></div>
-      </div>
+      {/* Blue-Purple Gradient Background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-lillia-primary via-lillia-deep to-lillia-medium"></div>
 
       <Container>
         {/* Heading */}
