@@ -1,19 +1,23 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
+import { useParallax } from '../../hooks/useParallax';
 
 export const Hero: React.FC = () => {
+  const { elementRef, offset } = useParallax(0.3);
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section ref={elementRef} className="relative min-h-screen flex items-center overflow-hidden">
       {/* Hero background with SVG */}
       <div className="absolute inset-0 -z-10">
         <div
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-60 transition-transform duration-75"
           style={{
             backgroundImage: 'url(/Lillia-Landing-Page-Concept/hero-background.svg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            transform: `translateY(${offset}px)`
           }}
         />
       </div>

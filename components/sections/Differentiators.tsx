@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Blocks, Workflow, Sparkles } from 'lucide-react';
+import { useParallax } from '../../hooks/useParallax';
 
 const differentiators = [
   {
@@ -21,10 +22,15 @@ const differentiators = [
 ];
 
 export const Differentiators: React.FC = () => {
+  const { elementRef, offset } = useParallax(0.15);
+
   return (
-    <section id="differentiators" className="py-24 lg:py-32 relative overflow-hidden">
+    <section ref={elementRef} id="differentiators" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Dynamic Gradient Background */}
-      <div className="absolute inset-0 -z-10 gradient-background"></div>
+      <div
+        className="absolute inset-0 -z-10 gradient-background transition-transform duration-75"
+        style={{ transform: `translateY(${offset}px)` }}
+      ></div>
 
       <Container>
         {/* Section Label */}

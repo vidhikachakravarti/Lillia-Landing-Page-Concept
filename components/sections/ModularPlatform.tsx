@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
 import Image from 'next/image';
+import { useParallax } from '../../hooks/useParallax';
 
 const modules = [
   {
@@ -57,6 +58,7 @@ const modules = [
 export const ModularPlatform: React.FC = () => {
   const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(7).fill(false));
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { elementRef: parallaxRef, offset: parallaxOffset } = useParallax(0.2);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -82,8 +84,13 @@ export const ModularPlatform: React.FC = () => {
       observer.observe(sectionRef.current);
     }
 
+    // Sync refs
+    if (sectionRef.current && parallaxRef.current !== sectionRef.current) {
+      (parallaxRef as any).current = sectionRef.current;
+    }
+
     return () => observer.disconnect();
-  }, []);
+  }, [parallaxRef]);
 
   return (
     <section ref={sectionRef} id="platform" className="py-24 lg:py-32 relative overflow-hidden">
@@ -94,7 +101,8 @@ export const ModularPlatform: React.FC = () => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 transition-transform duration-75"
+          style={{ transform: `translateY(${parallaxOffset}px)` }}
         >
           <source src="/Lillia-Landing-Page-Concept/background-video.mp4" type="video/mp4" />
         </video>
