@@ -90,7 +90,7 @@ export const Differentiators: React.FC = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              <tr>
+              <tr className="animate-table-row">
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">End-to-end chronic care workflow</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
@@ -101,8 +101,8 @@ export const Differentiators: React.FC = () => {
                   <span className="text-xs text-gray-600 block mt-1">Full</span>
                 </td>
               </tr>
-              <tr>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">Modular — buy only what you need</td>
+              <tr className="animate-table-row">
+                <td className="px-6 py-4 text-sm font-medium text-gray-900">Modular - buy only what you need</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Bundle only</span>
@@ -112,7 +112,7 @@ export const Differentiators: React.FC = () => {
                   <span className="text-xs text-gray-600 block mt-1">Yes</span>
                 </td>
               </tr>
-              <tr>
+              <tr className="animate-table-row">
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">EHR + Device Interoperability</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
@@ -123,7 +123,7 @@ export const Differentiators: React.FC = () => {
                   <span className="text-xs text-gray-600 block mt-1">Native</span>
                 </td>
               </tr>
-              <tr>
+              <tr className="animate-table-row">
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Agentic AI throughout</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
@@ -134,7 +134,7 @@ export const Differentiators: React.FC = () => {
                   <span className="text-xs text-gray-600 block mt-1">Yes</span>
                 </td>
               </tr>
-              <tr>
+              <tr className="animate-table-row">
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Audit-ready billing by design</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
@@ -191,6 +191,22 @@ export const Differentiators: React.FC = () => {
           }
         }
 
+        @keyframes slideInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-table-row {
+          opacity: 0;
+          animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
         .animate-table-mark {
           display: inline-block;
           animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -198,20 +214,36 @@ export const Differentiators: React.FC = () => {
         }
 
         /* Stagger animation for each row */
-        tr:nth-child(1) .animate-table-mark {
+        tbody tr:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        tbody tr:nth-child(2) {
           animation-delay: 0.2s;
         }
-        tr:nth-child(2) .animate-table-mark {
+        tbody tr:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        tbody tr:nth-child(4) {
           animation-delay: 0.4s;
         }
-        tr:nth-child(3) .animate-table-mark {
+        tbody tr:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+
+        tbody tr:nth-child(1) .animate-table-mark {
+          animation-delay: 0.3s;
+        }
+        tbody tr:nth-child(2) .animate-table-mark {
+          animation-delay: 0.4s;
+        }
+        tbody tr:nth-child(3) .animate-table-mark {
+          animation-delay: 0.5s;
+        }
+        tbody tr:nth-child(4) .animate-table-mark {
           animation-delay: 0.6s;
         }
-        tr:nth-child(4) .animate-table-mark {
-          animation-delay: 0.8s;
-        }
-        tr:nth-child(5) .animate-table-mark {
-          animation-delay: 1s;
+        tbody tr:nth-child(5) .animate-table-mark {
+          animation-delay: 0.7s;
         }
       `}</style>
     </section>

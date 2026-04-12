@@ -8,7 +8,7 @@ const provides = [
   'CMS-compliant billing and claims preparation',
   'Remote device monitoring and data capture',
   'AI-powered coaching and lifestyle support',
-  'Modular deployment — configure to your workflow',
+  'Modular deployment - configure to your workflow',
   'HIPAA-compliant infrastructure, end to end'
 ];
 
@@ -27,7 +27,7 @@ export const ComplianceScope: React.FC = () => {
         {/* Heading */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            What Lillia does — and what it doesn't.
+            What Lillia does - and what it doesn't.
           </h2>
         </div>
 
