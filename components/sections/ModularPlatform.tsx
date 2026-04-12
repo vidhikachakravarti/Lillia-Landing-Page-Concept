@@ -15,7 +15,7 @@ const modules = [
   {
     chip: 'Workflow Automation',
     name: 'AI Voice Calling',
-    media: '/Lillia-Landing-Page-Concept/ai-voice-calling.mp4',
+    media: '/Lillia-Landing-Page-Concept/automated-call.mp4',
     mediaType: 'video',
     outcome: 'Automated outreach that frees your staff for what matters.',
     size: 'wide' // Row 1
@@ -23,8 +23,8 @@ const modules = [
   {
     chip: 'Care Documentation',
     name: 'Time Tracking',
-    media: '/Lillia-Landing-Page-Concept/time-tracking.png',
-    mediaType: 'image-pan',
+    media: '/Lillia-Landing-Page-Concept/timetracking.mp4',
+    mediaType: 'video',
     outcome: 'Every minute of care — captured automatically.',
     size: 'medium' // Row 2
   },
