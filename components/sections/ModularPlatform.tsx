@@ -307,13 +307,13 @@ export const ModularPlatform: React.FC = () => {
         .image-gradient {
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, rgba(139, 92, 246, 0.92) 0%, rgba(118, 75, 162, 0.92) 100%);
+          background: linear-gradient(135deg, rgba(255, 210, 187, 0.35) 0%, rgba(249, 234, 228, 0.35) 100%);
           z-index: 1;
           transition: opacity 0.3s ease;
         }
 
         .bento-card:hover .image-gradient {
-          opacity: 0.88;
+          opacity: 0.25;
         }
 
         .card-content {
