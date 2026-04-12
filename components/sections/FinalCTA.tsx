@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { Calendar } from 'lucide-react';
+import { Calendar, Shield, Globe, Award } from 'lucide-react';
 
 export const FinalCTA: React.FC = () => {
   return (
@@ -22,8 +22,7 @@ export const FinalCTA: React.FC = () => {
           </h2>
 
           <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
-            Book a 15-minute walkthrough. We'll show you which modules match your patient panel,
-            your practice model, and your current workflow — with no commitment.
+            Book a demo to understand which modules match your patient panel, your practice model, and your current workflow.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
@@ -35,27 +34,24 @@ export const FinalCTA: React.FC = () => {
               <Calendar className="w-5 h-5" />
               Book a Demo
             </Button>
-            <Button
-              variant="secondary"
-              className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/20 text-lg px-10 py-4"
-              href="#resources"
-            >
-              Download the Overview
-            </Button>
           </div>
 
           {/* Trust micro-copy */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/80">
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+              <Shield className="w-5 h-5 text-green-400" />
               <span>HIPAA Compliant</span>
             </div>
             <div className="w-px h-4 bg-white/30" />
-            <span>Serving 500+ Clinics Globally</span>
+            <div className="flex items-center gap-2">
+              <Globe className="w-5 h-5 text-blue-300" />
+              <span>Serving 500+ Clinics Globally</span>
+            </div>
             <div className="w-px h-4 bg-white/30" />
-            <span>Published ADA Research 2022 & 2024</span>
+            <div className="flex items-center gap-2">
+              <Award className="w-5 h-5 text-yellow-300" />
+              <span>Recognized by TIME as World's Top HealthTech Companies 2025</span>
+            </div>
           </div>
         </div>
       </Container>
