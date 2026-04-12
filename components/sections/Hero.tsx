@@ -28,8 +28,8 @@ export const Hero: React.FC = () => {
 
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
               Your chronic care patients need consistent support between visits.<br />
-              Lillia makes it structured, documented, and reimbursable —<br />
-              without adding to your team's workload.
+              Lillia makes it structured, documented, and reimbursable.<br />
+              Without adding to your team's workload.
             </p>
 
             {/* Benefit Pills */}
@@ -88,11 +88,6 @@ export const Hero: React.FC = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </div>
-
-              {/* HIPAA Badge */}
-              <div className="absolute -top-4 -right-4 bg-white/95 rounded-full px-4 py-2 shadow-lg">
-                <span className="text-lillia-primary text-xs font-bold">HIPAA Compliant</span>
               </div>
             </div>
           </div>
