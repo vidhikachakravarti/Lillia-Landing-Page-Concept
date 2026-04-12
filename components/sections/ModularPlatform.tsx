@@ -10,23 +10,7 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/patient-agentic-app.mp4',
     mediaType: 'video',
     outcome: 'Keep patients activated between visits.',
-    size: 'large' // 2x2
-  },
-  {
-    chip: 'Remote Monitoring',
-    name: 'Device Connectivity',
-    media: '/Lillia-Landing-Page-Concept/device-connectivity.mp4',
-    mediaType: 'video',
-    outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.',
-    size: 'large' // 2x2
-  },
-  {
-    chip: 'Care Operations',
-    name: 'Execution OS',
-    media: '/Lillia-Landing-Page-Concept/execution-os.mp4',
-    mediaType: 'video',
-    outcome: 'Run your entire chronic care program from one console.',
-    size: 'wide' // 2x1
+    size: 'wide' // Row 1
   },
   {
     chip: 'Workflow Automation',
@@ -34,15 +18,7 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/ai-voice-calling.mp4',
     mediaType: 'video',
     outcome: 'Automated outreach that frees your staff for what matters.',
-    size: 'medium' // 1x1
-  },
-  {
-    chip: 'Revenue Operations',
-    name: 'Bill Generation',
-    media: '/Lillia-Landing-Page-Concept/bill-generation.mp4',
-    mediaType: 'video',
-    outcome: 'From care activity to clean claims, without manual work.',
-    size: 'medium' // 1x1
+    size: 'wide' // Row 1
   },
   {
     chip: 'Care Documentation',
@@ -50,7 +26,31 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/time-tracking.png',
     mediaType: 'image-pan',
     outcome: 'Every minute of care — captured automatically.',
-    size: 'wide' // 2x1
+    size: 'medium' // Row 2
+  },
+  {
+    chip: 'Care Operations',
+    name: 'Execution OS',
+    media: '/Lillia-Landing-Page-Concept/execution-os.mp4',
+    mediaType: 'video',
+    outcome: 'Run your entire chronic care program from one console.',
+    size: 'medium' // Row 2
+  },
+  {
+    chip: 'Revenue Operations',
+    name: 'Bill Generation',
+    media: '/Lillia-Landing-Page-Concept/bill-generation.mp4',
+    mediaType: 'video',
+    outcome: 'From care activity to clean claims, without manual work.',
+    size: 'medium' // Row 2
+  },
+  {
+    chip: 'Remote Monitoring',
+    name: 'Device Connectivity',
+    media: '/Lillia-Landing-Page-Concept/device-connectivity.mp4',
+    mediaType: 'video',
+    outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.',
+    size: 'wide' // Row 3
   },
   {
     chip: 'Patient Engagement',
@@ -58,7 +58,7 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
     mediaType: 'image',
     outcome: 'Keep patients close — without adding to your team\'s workload.',
-    size: 'wide' // 2x1
+    size: 'wide' // Row 3
   }
 ];
 
@@ -191,68 +191,65 @@ export const ModularPlatform: React.FC = () => {
       <style jsx>{`
         .bento-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(6, 1fr);
           gap: 1.25rem;
-          grid-auto-rows: 300px;
+          grid-auto-rows: 320px;
         }
 
-        /* Bento Layout - Clean & Balanced */
-        .bento-card.large {
-          grid-column: span 2;
-          grid-row: span 2;
+        /* Bento Layout - 2-3-2 Pattern */
+        .bento-card.wide {
+          grid-column: span 3;
+          grid-row: span 1;
         }
 
         .bento-card.medium {
-          grid-column: span 1;
-          grid-row: span 1;
-        }
-
-        .bento-card.wide {
           grid-column: span 2;
           grid-row: span 1;
         }
 
-        /* Specific positioning */
+        /* Row 1: 2 cards */
         .bento-card:nth-child(1) {
-          /* Patient App - Large */
-          grid-column: 1 / span 2;
-          grid-row: 1 / span 2;
+          /* Patient App */
+          grid-column: 1 / span 3;
+          grid-row: 1;
         }
 
         .bento-card:nth-child(2) {
-          /* Device Connectivity - Large */
-          grid-column: 3 / span 2;
-          grid-row: 1 / span 2;
+          /* AI Voice Calling */
+          grid-column: 4 / span 3;
+          grid-row: 1;
         }
 
+        /* Row 2: 3 cards */
         .bento-card:nth-child(3) {
-          /* Execution OS - Wide */
+          /* Time Tracking */
           grid-column: 1 / span 2;
-          grid-row: 3;
+          grid-row: 2;
         }
 
         .bento-card:nth-child(4) {
-          /* AI Voice - Medium */
-          grid-column: 3 / span 1;
-          grid-row: 3;
+          /* Execution OS */
+          grid-column: 3 / span 2;
+          grid-row: 2;
         }
 
         .bento-card:nth-child(5) {
-          /* Bill Generation - Medium */
-          grid-column: 4 / span 1;
+          /* Bill Generation */
+          grid-column: 5 / span 2;
+          grid-row: 2;
+        }
+
+        /* Row 3: 2 cards */
+        .bento-card:nth-child(6) {
+          /* Device Connectivity */
+          grid-column: 1 / span 3;
           grid-row: 3;
         }
 
-        .bento-card:nth-child(6) {
-          /* Time Tracking - Wide */
-          grid-column: 1 / span 2;
-          grid-row: 4;
-        }
-
         .bento-card:nth-child(7) {
-          /* Patient Chat - Wide */
-          grid-column: 3 / span 2;
-          grid-row: 4;
+          /* Patient Chat */
+          grid-column: 4 / span 3;
+          grid-row: 3;
         }
 
         .bento-card {
@@ -338,10 +335,10 @@ export const ModularPlatform: React.FC = () => {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 2rem;
+          padding: 2.25rem;
         }
 
-        .large .card-content {
+        .wide .card-content {
           padding: 2.5rem;
         }
 
@@ -361,7 +358,7 @@ export const ModularPlatform: React.FC = () => {
         }
 
         .card-title {
-          font-size: 1.5rem;
+          font-size: 1.625rem;
           font-weight: 700;
           color: #1A0F6B;
           line-height: 1.25;
@@ -370,13 +367,13 @@ export const ModularPlatform: React.FC = () => {
           text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
         }
 
-        .large .card-title {
-          font-size: 2rem;
-          margin-bottom: 0.75rem;
+        .wide .card-title {
+          font-size: 1.875rem;
+          margin-bottom: 0.625rem;
         }
 
         .card-outcome {
-          font-size: 0.9375rem;
+          font-size: 1rem;
           font-weight: 400;
           font-style: italic;
           color: #1A1A2E;
@@ -385,7 +382,7 @@ export const ModularPlatform: React.FC = () => {
           text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
         }
 
-        .large .card-outcome {
+        .wide .card-outcome {
           font-size: 1.0625rem;
           max-width: 88%;
         }
@@ -394,21 +391,35 @@ export const ModularPlatform: React.FC = () => {
         @media (max-width: 1024px) {
           .bento-grid {
             grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 280px;
+            grid-auto-rows: 300px;
             gap: 1rem;
           }
 
           .bento-card {
             grid-column: span 1 !important;
-            grid-row: span 1 !important;
+            grid-row: auto !important;
           }
 
+          /* Row 1: Keep as 2 cards */
           .bento-card:nth-child(1),
+          .bento-card:nth-child(2) {
+            grid-column: span 1 !important;
+          }
+
+          /* Row 2: Make 3 cards stack nicely */
           .bento-card:nth-child(3),
+          .bento-card:nth-child(4) {
+            grid-column: span 1 !important;
+          }
+
+          .bento-card:nth-child(5) {
+            grid-column: span 2 !important;
+          }
+
+          /* Row 3: Keep as 2 cards */
           .bento-card:nth-child(6),
           .bento-card:nth-child(7) {
-            /* Wide cards on tablet */
-            grid-column: span 2 !important;
+            grid-column: span 1 !important;
           }
         }
 
@@ -429,7 +440,7 @@ export const ModularPlatform: React.FC = () => {
             font-size: 1.375rem;
           }
 
-          .large .card-title {
+          .wide .card-title {
             font-size: 1.625rem;
           }
 
@@ -437,7 +448,7 @@ export const ModularPlatform: React.FC = () => {
             padding: 1.75rem;
           }
 
-          .large .card-content {
+          .wide .card-content {
             padding: 2rem;
           }
         }
