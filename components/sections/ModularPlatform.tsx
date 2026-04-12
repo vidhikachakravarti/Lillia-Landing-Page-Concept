@@ -7,49 +7,56 @@ const modules = [
   {
     chip: 'Patient-Facing',
     name: 'Patient Agentic App',
-    image: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
+    media: '/Lillia-Landing-Page-Concept/patient-agentic-app.mp4',
+    mediaType: 'video',
     outcome: 'Keep patients activated between visits.',
     size: 'large' // 2x2
   },
   {
     chip: 'Care Documentation',
     name: 'Time Tracking',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
+    media: '/Lillia-Landing-Page-Concept/time-tracking.png',
+    mediaType: 'image-pan',
     outcome: 'Every minute of care — captured automatically.',
     size: 'medium' // 1x1
   },
   {
     chip: 'Revenue Operations',
     name: 'Bill Generation',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
+    media: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
+    mediaType: 'image',
     outcome: 'From care activity to clean claims, without manual work.',
     size: 'medium' // 1x1
   },
   {
     chip: 'Care Operations',
     name: 'Execution OS',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
+    media: '/Lillia-Landing-Page-Concept/execution-os.png',
+    mediaType: 'image-pan',
     outcome: 'Run your entire chronic care program from one console.',
     size: 'medium' // 1x1
   },
   {
     chip: 'Workflow Automation',
     name: 'AI Voice Calling',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
+    media: '/Lillia-Landing-Page-Concept/ai-voice-calling.mp4',
+    mediaType: 'video',
     outcome: 'Automated outreach that frees your staff for what matters.',
     size: 'medium' // 1x1
   },
   {
     chip: 'Remote Monitoring',
     name: 'Device Connectivity',
-    image: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
+    media: '/Lillia-Landing-Page-Concept/device-connectivity.mp4',
+    mediaType: 'video',
     outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.',
     size: 'wide' // 2x1
   },
   {
     chip: 'Patient Engagement',
     name: 'Patient Connect via Chat',
-    image: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
+    media: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
+    mediaType: 'image',
     outcome: 'Keep patients close — without adding to your team\'s workload.',
     size: 'medium' // 1x1
   }
@@ -137,15 +144,27 @@ export const ModularPlatform: React.FC = () => {
               className={`bento-card ${module.size} ${visibleCards[index] ? 'visible' : ''}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Image Background */}
+              {/* Media Background */}
               <div className="card-image">
-                <Image
-                  src={module.image}
-                  alt={module.name}
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
+                {module.mediaType === 'video' ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src={module.media} type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src={module.media}
+                    alt={module.name}
+                    fill
+                    className={`object-cover ${module.mediaType === 'image-pan' ? 'image-pan' : ''}`}
+                    unoptimized
+                  />
+                )}
                 <div className="image-gradient"></div>
               </div>
 
@@ -264,8 +283,25 @@ export const ModularPlatform: React.FC = () => {
           transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .bento-card:hover .card-image img {
+        .card-image img.image-pan {
+          animation: slowPan 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowPan {
+          0% {
+            transform: scale(1.2) translateX(0%);
+          }
+          100% {
+            transform: scale(1.2) translateX(-10%);
+          }
+        }
+
+        .bento-card:hover .card-image img:not(.image-pan) {
           transform: scale(1.05);
+        }
+
+        .bento-card:hover .card-image img.image-pan {
+          animation-play-state: paused;
         }
 
         .image-gradient {
