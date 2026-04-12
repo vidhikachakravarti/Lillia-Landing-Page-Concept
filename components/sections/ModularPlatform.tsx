@@ -368,21 +368,13 @@ export const ModularPlatform: React.FC = () => {
         }
 
         .card-title {
+          font-family: 'Lato', sans-serif;
           font-size: 1.625rem;
-          font-weight: 800;
-          color: #1A0F6B;
+          font-weight: 700;
+          color: #280470;
           line-height: 1.25;
           letter-spacing: -0.01em;
           margin-bottom: 0.5rem;
-          text-shadow:
-            0 2px 4px rgba(255, 255, 255, 0.9),
-            0 4px 8px rgba(255, 255, 255, 0.6),
-            0 1px 0 rgba(255, 255, 255, 1);
-          background: linear-gradient(to bottom, #1A0F6B 0%, #280470 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
         }
 
         .wide .card-title {
