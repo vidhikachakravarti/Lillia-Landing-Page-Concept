@@ -55,8 +55,8 @@ const modules = [
   {
     chip: 'Patient Engagement',
     name: 'Patient Connect via Chat',
-    media: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
-    mediaType: 'image',
+    media: '/Lillia-Landing-Page-Concept/patient-chat.mp4',
+    mediaType: 'video',
     outcome: 'Keep patients close — without adding to your team\'s workload.',
     size: 'wide' // Row 3
   }
