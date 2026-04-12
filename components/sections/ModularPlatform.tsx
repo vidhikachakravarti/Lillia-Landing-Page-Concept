@@ -10,7 +10,7 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/patient-agentic-app.mp4',
     mediaType: 'video',
     outcome: 'Keep patients activated between visits.',
-    size: 'hero' // 3x2 - Hero card
+    size: 'large' // 2x2
   },
   {
     chip: 'Remote Monitoring',
@@ -18,7 +18,7 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/device-connectivity.mp4',
     mediaType: 'video',
     outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.',
-    size: 'featured' // 2x2 - Featured card
+    size: 'large' // 2x2
   },
   {
     chip: 'Care Operations',
@@ -26,7 +26,7 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/execution-os.mp4',
     mediaType: 'video',
     outcome: 'Run your entire chronic care program from one console.',
-    size: 'tall' // 1x2 - Tall card
+    size: 'wide' // 2x1
   },
   {
     chip: 'Workflow Automation',
@@ -58,7 +58,7 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/assets/patient-app-screenshot.jpeg',
     mediaType: 'image',
     outcome: 'Keep patients close — without adding to your team\'s workload.',
-    size: 'medium' // 1x1
+    size: 'wide' // 2x1
   }
 ];
 
@@ -191,24 +191,14 @@ export const ModularPlatform: React.FC = () => {
       <style jsx>{`
         .bento-grid {
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          gap: 2rem;
-          grid-auto-rows: 320px;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.25rem;
+          grid-auto-rows: 300px;
         }
 
-        /* Bento Layout - Apple-inspired Premium Grid */
-        .bento-card.hero {
-          grid-column: span 3;
-          grid-row: span 2;
-        }
-
-        .bento-card.featured {
+        /* Bento Layout - Clean & Balanced */
+        .bento-card.large {
           grid-column: span 2;
-          grid-row: span 2;
-        }
-
-        .bento-card.tall {
-          grid-column: span 1;
           grid-row: span 2;
         }
 
@@ -222,59 +212,59 @@ export const ModularPlatform: React.FC = () => {
           grid-row: span 1;
         }
 
-        /* Specific positioning for sophisticated layout */
+        /* Specific positioning */
         .bento-card:nth-child(1) {
-          /* Patient App - Hero */
-          grid-column: 1 / span 3;
+          /* Patient App - Large */
+          grid-column: 1 / span 2;
           grid-row: 1 / span 2;
         }
 
         .bento-card:nth-child(2) {
-          /* Device Connectivity - Featured */
-          grid-column: 4 / span 2;
+          /* Device Connectivity - Large */
+          grid-column: 3 / span 2;
           grid-row: 1 / span 2;
         }
 
         .bento-card:nth-child(3) {
-          /* Execution OS - Tall */
-          grid-column: 6 / span 1;
-          grid-row: 1 / span 2;
+          /* Execution OS - Wide */
+          grid-column: 1 / span 2;
+          grid-row: 3;
         }
 
         .bento-card:nth-child(4) {
           /* AI Voice - Medium */
-          grid-column: 1 / span 1;
+          grid-column: 3 / span 1;
           grid-row: 3;
         }
 
         .bento-card:nth-child(5) {
           /* Bill Generation - Medium */
-          grid-column: 2 / span 1;
+          grid-column: 4 / span 1;
           grid-row: 3;
         }
 
         .bento-card:nth-child(6) {
           /* Time Tracking - Wide */
-          grid-column: 3 / span 2;
-          grid-row: 3;
+          grid-column: 1 / span 2;
+          grid-row: 4;
         }
 
         .bento-card:nth-child(7) {
           /* Patient Chat - Wide */
-          grid-column: 5 / span 2;
-          grid-row: 3;
+          grid-column: 3 / span 2;
+          grid-row: 4;
         }
 
         .bento-card {
           position: relative;
-          border-radius: 28px;
+          border-radius: 20px;
           overflow: hidden;
           opacity: 0;
           transform: translateY(20px);
           transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
           box-shadow:
-            0 2px 8px rgba(0, 0, 0, 0.04),
-            0 12px 40px -10px rgba(59, 20, 201, 0.08);
+            0 1px 3px rgba(0, 0, 0, 0.05),
+            0 8px 24px -8px rgba(59, 20, 201, 0.1);
         }
 
         .bento-card.visible {
@@ -283,11 +273,11 @@ export const ModularPlatform: React.FC = () => {
         }
 
         .bento-card:hover {
-          transform: translateY(-4px);
+          transform: translateY(-3px);
           box-shadow:
-            0 4px 12px rgba(0, 0, 0, 0.06),
-            0 20px 60px -10px rgba(59, 20, 201, 0.15);
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            0 2px 6px rgba(0, 0, 0, 0.06),
+            0 16px 48px -12px rgba(59, 20, 201, 0.18);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card-image {
@@ -348,117 +338,77 @@ export const ModularPlatform: React.FC = () => {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 2.5rem;
+          padding: 2rem;
         }
 
-        .hero .card-content,
-        .featured .card-content {
-          padding: 3.5rem;
+        .large .card-content {
+          padding: 2.5rem;
         }
 
         .chip {
           display: inline-block;
           align-self: flex-start;
-          font-size: 0.75rem;
+          font-size: 0.6875rem;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          background: rgba(59, 20, 201, 0.12);
+          background: rgba(59, 20, 201, 0.1);
           color: #1A0F6B;
-          padding: 0.625rem 1.25rem;
+          padding: 0.5rem 1rem;
           border-radius: 100px;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(59, 20, 201, 0.25);
+          border: 1px solid rgba(59, 20, 201, 0.2);
         }
 
         .card-title {
-          font-size: 1.625rem;
+          font-size: 1.5rem;
           font-weight: 700;
           color: #1A0F6B;
-          line-height: 1.2;
-          letter-spacing: -0.02em;
+          line-height: 1.25;
+          letter-spacing: -0.01em;
           margin-bottom: 0.5rem;
-          text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
         }
 
-        .hero .card-title {
-          font-size: 3rem;
-          margin-bottom: 1rem;
-          letter-spacing: -0.03em;
-        }
-
-        .featured .card-title {
-          font-size: 2.25rem;
-          margin-bottom: 0.875rem;
-        }
-
-        .tall .card-title {
-          font-size: 1.875rem;
+        .large .card-title {
+          font-size: 2rem;
+          margin-bottom: 0.75rem;
         }
 
         .card-outcome {
-          font-size: 1.0625rem;
+          font-size: 0.9375rem;
           font-weight: 400;
           font-style: italic;
           color: #1A1A2E;
-          line-height: 1.6;
-          max-width: 90%;
-          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
-        }
-
-        .hero .card-outcome {
-          font-size: 1.375rem;
-          max-width: 85%;
           line-height: 1.5;
+          max-width: 90%;
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
         }
 
-        .featured .card-outcome {
-          font-size: 1.25rem;
+        .large .card-outcome {
+          font-size: 1.0625rem;
           max-width: 88%;
         }
 
-        .tall .card-outcome {
-          font-size: 1.125rem;
-        }
-
         /* Tablet */
-        @media (max-width: 1280px) {
+        @media (max-width: 1024px) {
           .bento-grid {
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 300px;
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 280px;
+            gap: 1rem;
           }
 
-          .bento-card:nth-child(1) {
-            /* Patient App - Hero becomes 2x2 */
-            grid-column: 1 / span 2;
-            grid-row: 1 / span 2;
+          .bento-card {
+            grid-column: span 1 !important;
+            grid-row: span 1 !important;
           }
 
-          .bento-card:nth-child(2) {
-            /* Device Connectivity - Featured stays 2x2 */
-            grid-column: 3 / span 2;
-            grid-row: 1 / span 2;
-          }
-
-          .bento-card:nth-child(3) {
-            /* Execution OS - Tall becomes wide */
-            grid-column: 1 / span 2;
-            grid-row: 3;
-          }
-
-          .bento-card:nth-child(4),
-          .bento-card:nth-child(5) {
-            /* AI Voice, Bill Gen - Medium */
-            grid-column: span 1;
-            grid-row: 3;
-          }
-
+          .bento-card:nth-child(1),
+          .bento-card:nth-child(3),
           .bento-card:nth-child(6),
           .bento-card:nth-child(7) {
-            /* Time Track, Patient Chat - Wide */
-            grid-column: span 2;
-            grid-row: 4;
+            /* Wide cards on tablet */
+            grid-column: span 2 !important;
           }
         }
 
@@ -466,8 +416,8 @@ export const ModularPlatform: React.FC = () => {
         @media (max-width: 640px) {
           .bento-grid {
             grid-template-columns: 1fr;
-            grid-auto-rows: 340px;
-            gap: 1.25rem;
+            grid-auto-rows: 320px;
+            gap: 1rem;
           }
 
           .bento-card {
@@ -476,21 +426,19 @@ export const ModularPlatform: React.FC = () => {
           }
 
           .card-title {
-            font-size: 1.5rem;
+            font-size: 1.375rem;
           }
 
-          .hero .card-title,
-          .featured .card-title {
-            font-size: 2rem;
+          .large .card-title {
+            font-size: 1.625rem;
           }
 
           .card-content {
-            padding: 2rem;
+            padding: 1.75rem;
           }
 
-          .hero .card-content,
-          .featured .card-content {
-            padding: 2.5rem;
+          .large .card-content {
+            padding: 2rem;
           }
         }
       `}</style>
