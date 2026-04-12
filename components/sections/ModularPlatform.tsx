@@ -10,31 +10,23 @@ const modules = [
     media: '/Lillia-Landing-Page-Concept/patient-agentic-app.mp4',
     mediaType: 'video',
     outcome: 'Keep patients activated between visits.',
-    size: 'large' // 2x2
+    size: 'hero' // 3x2 - Hero card
   },
   {
-    chip: 'Care Documentation',
-    name: 'Time Tracking',
-    media: '/Lillia-Landing-Page-Concept/time-tracking.png',
-    mediaType: 'image-pan',
-    outcome: 'Every minute of care — captured automatically.',
-    size: 'medium' // 1x1
-  },
-  {
-    chip: 'Revenue Operations',
-    name: 'Bill Generation',
-    media: '/Lillia-Landing-Page-Concept/assets/dashboard-screenshot.png',
-    mediaType: 'image',
-    outcome: 'From care activity to clean claims, without manual work.',
-    size: 'medium' // 1x1
+    chip: 'Remote Monitoring',
+    name: 'Device Connectivity',
+    media: '/Lillia-Landing-Page-Concept/device-connectivity.mp4',
+    mediaType: 'video',
+    outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.',
+    size: 'featured' // 2x2 - Featured card
   },
   {
     chip: 'Care Operations',
     name: 'Execution OS',
-    media: '/Lillia-Landing-Page-Concept/execution-os.png',
-    mediaType: 'image-pan',
+    media: '/Lillia-Landing-Page-Concept/execution-os.mp4',
+    mediaType: 'video',
     outcome: 'Run your entire chronic care program from one console.',
-    size: 'medium' // 1x1
+    size: 'tall' // 1x2 - Tall card
   },
   {
     chip: 'Workflow Automation',
@@ -45,11 +37,19 @@ const modules = [
     size: 'medium' // 1x1
   },
   {
-    chip: 'Remote Monitoring',
-    name: 'Device Connectivity',
-    media: '/Lillia-Landing-Page-Concept/device-connectivity.mp4',
+    chip: 'Revenue Operations',
+    name: 'Bill Generation',
+    media: '/Lillia-Landing-Page-Concept/bill-generation.mp4',
     mediaType: 'video',
-    outcome: 'FDA-approved devices. Real-time data. Zero logistics burden.',
+    outcome: 'From care activity to clean claims, without manual work.',
+    size: 'medium' // 1x1
+  },
+  {
+    chip: 'Care Documentation',
+    name: 'Time Tracking',
+    media: '/Lillia-Landing-Page-Concept/time-tracking.png',
+    mediaType: 'image-pan',
+    outcome: 'Every minute of care — captured automatically.',
     size: 'wide' // 2x1
   },
   {
@@ -191,14 +191,24 @@ export const ModularPlatform: React.FC = () => {
       <style jsx>{`
         .bento-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1.5rem;
-          grid-auto-rows: 280px;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 2rem;
+          grid-auto-rows: 320px;
         }
 
-        /* Bento Layout - Asymmetric Grid */
-        .bento-card.large {
+        /* Bento Layout - Apple-inspired Premium Grid */
+        .bento-card.hero {
+          grid-column: span 3;
+          grid-row: span 2;
+        }
+
+        .bento-card.featured {
           grid-column: span 2;
+          grid-row: span 2;
+        }
+
+        .bento-card.tall {
+          grid-column: span 1;
           grid-row: span 2;
         }
 
@@ -212,52 +222,59 @@ export const ModularPlatform: React.FC = () => {
           grid-row: span 1;
         }
 
-        /* Specific positioning */
+        /* Specific positioning for sophisticated layout */
         .bento-card:nth-child(1) {
-          grid-column: 1 / span 2;
+          /* Patient App - Hero */
+          grid-column: 1 / span 3;
           grid-row: 1 / span 2;
         }
 
         .bento-card:nth-child(2) {
-          grid-column: 3 / span 1;
-          grid-row: 1;
+          /* Device Connectivity - Featured */
+          grid-column: 4 / span 2;
+          grid-row: 1 / span 2;
         }
 
         .bento-card:nth-child(3) {
-          grid-column: 4 / span 1;
-          grid-row: 1;
+          /* Execution OS - Tall */
+          grid-column: 6 / span 1;
+          grid-row: 1 / span 2;
         }
 
         .bento-card:nth-child(4) {
-          grid-column: 3 / span 1;
-          grid-row: 2;
+          /* AI Voice - Medium */
+          grid-column: 1 / span 1;
+          grid-row: 3;
         }
 
         .bento-card:nth-child(5) {
-          grid-column: 4 / span 1;
-          grid-row: 2;
+          /* Bill Generation - Medium */
+          grid-column: 2 / span 1;
+          grid-row: 3;
         }
 
         .bento-card:nth-child(6) {
-          grid-column: 1 / span 2;
+          /* Time Tracking - Wide */
+          grid-column: 3 / span 2;
           grid-row: 3;
         }
 
         .bento-card:nth-child(7) {
-          grid-column: 3 / span 2;
+          /* Patient Chat - Wide */
+          grid-column: 5 / span 2;
           grid-row: 3;
         }
 
         .bento-card {
           position: relative;
-          border-radius: 24px;
+          border-radius: 28px;
           overflow: hidden;
           opacity: 0;
           transform: translateY(20px);
           transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
           box-shadow:
-            0 1px 3px rgba(0, 0, 0, 0.05),
-            0 10px 40px -15px rgba(139, 92, 246, 0.15);
+            0 2px 8px rgba(0, 0, 0, 0.04),
+            0 12px 40px -10px rgba(59, 20, 201, 0.08);
         }
 
         .bento-card.visible {
@@ -266,11 +283,11 @@ export const ModularPlatform: React.FC = () => {
         }
 
         .bento-card:hover {
-          transform: translateY(-6px);
+          transform: translateY(-4px);
           box-shadow:
-            0 1px 3px rgba(0, 0, 0, 0.05),
-            0 20px 60px -15px rgba(139, 92, 246, 0.35);
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            0 20px 60px -10px rgba(59, 20, 201, 0.15);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card-image {
@@ -334,8 +351,9 @@ export const ModularPlatform: React.FC = () => {
           padding: 2.5rem;
         }
 
-        .large .card-content {
-          padding: 3rem;
+        .hero .card-content,
+        .featured .card-content {
+          padding: 3.5rem;
         }
 
         .chip {
@@ -344,59 +362,103 @@ export const ModularPlatform: React.FC = () => {
           font-size: 0.75rem;
           font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 0.05em;
-          background: rgba(59, 20, 201, 0.15);
+          letter-spacing: 0.08em;
+          background: rgba(59, 20, 201, 0.12);
           color: #1A0F6B;
-          padding: 0.5rem 1rem;
+          padding: 0.625rem 1.25rem;
           border-radius: 100px;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(59, 20, 201, 0.3);
+          border: 1px solid rgba(59, 20, 201, 0.25);
         }
 
         .card-title {
-          font-size: 1.75rem;
+          font-size: 1.625rem;
           font-weight: 700;
           color: #1A0F6B;
           line-height: 1.2;
-          letter-spacing: -0.01em;
+          letter-spacing: -0.02em;
           margin-bottom: 0.5rem;
-          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+          text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
         }
 
-        .large .card-title {
-          font-size: 2.5rem;
-          margin-bottom: 0.75rem;
+        .hero .card-title {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          letter-spacing: -0.03em;
+        }
+
+        .featured .card-title {
+          font-size: 2.25rem;
+          margin-bottom: 0.875rem;
+        }
+
+        .tall .card-title {
+          font-size: 1.875rem;
         }
 
         .card-outcome {
-          font-size: 1.125rem;
+          font-size: 1.0625rem;
           font-weight: 400;
           font-style: italic;
           color: #1A1A2E;
-          line-height: 1.5;
+          line-height: 1.6;
           max-width: 90%;
-          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
         }
 
-        .large .card-outcome {
-          font-size: 1.25rem;
+        .hero .card-outcome {
+          font-size: 1.375rem;
           max-width: 85%;
+          line-height: 1.5;
+        }
+
+        .featured .card-outcome {
+          font-size: 1.25rem;
+          max-width: 88%;
+        }
+
+        .tall .card-outcome {
+          font-size: 1.125rem;
         }
 
         /* Tablet */
-        @media (max-width: 1024px) {
+        @media (max-width: 1280px) {
           .bento-grid {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 280px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 300px;
+            gap: 1.5rem;
           }
 
-          .bento-card {
-            grid-column: span 1 !important;
-            grid-row: span 1 !important;
+          .bento-card:nth-child(1) {
+            /* Patient App - Hero becomes 2x2 */
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
           }
 
-          .bento-card:nth-child(6) {
-            grid-column: span 2 !important;
+          .bento-card:nth-child(2) {
+            /* Device Connectivity - Featured stays 2x2 */
+            grid-column: 3 / span 2;
+            grid-row: 1 / span 2;
+          }
+
+          .bento-card:nth-child(3) {
+            /* Execution OS - Tall becomes wide */
+            grid-column: 1 / span 2;
+            grid-row: 3;
+          }
+
+          .bento-card:nth-child(4),
+          .bento-card:nth-child(5) {
+            /* AI Voice, Bill Gen - Medium */
+            grid-column: span 1;
+            grid-row: 3;
+          }
+
+          .bento-card:nth-child(6),
+          .bento-card:nth-child(7) {
+            /* Time Track, Patient Chat - Wide */
+            grid-column: span 2;
+            grid-row: 4;
           }
         }
 
@@ -404,8 +466,8 @@ export const ModularPlatform: React.FC = () => {
         @media (max-width: 640px) {
           .bento-grid {
             grid-template-columns: 1fr;
-            grid-auto-rows: 320px;
-            gap: 1rem;
+            grid-auto-rows: 340px;
+            gap: 1.25rem;
           }
 
           .bento-card {
@@ -417,16 +479,18 @@ export const ModularPlatform: React.FC = () => {
             font-size: 1.5rem;
           }
 
-          .large .card-title {
-            font-size: 1.75rem;
+          .hero .card-title,
+          .featured .card-title {
+            font-size: 2rem;
           }
 
           .card-content {
             padding: 2rem;
           }
 
-          .large .card-content {
-            padding: 2rem;
+          .hero .card-content,
+          .featured .card-content {
+            padding: 2.5rem;
           }
         }
       `}</style>
