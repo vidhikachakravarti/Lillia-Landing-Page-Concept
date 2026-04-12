@@ -48,23 +48,34 @@ export const ProblemSection: React.FC = () => {
             return (
               <div
                 key={index}
-                className="bg-white/80 backdrop-blur-sm border-l-4 border-lillia-primary rounded-xl p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up overflow-hidden border border-gray-100"
                 style={{
                   animationDelay: `${index * 150}ms`
                 }}
               >
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-lg flex-shrink-0">
-                    <IconComponent className="w-7 h-7 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-3xl font-bold text-lillia-primary mb-2">
-                      {problem.stat}
+                {/* Gradient accent at the top */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-lillia-primary via-lillia-medium to-lillia-deep" />
+
+                {/* Background decoration */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-lillia-lighter/40 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+
+                <div className="relative">
+                  {/* Icon with enhanced styling */}
+                  <div className="mb-6 inline-flex">
+                    <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {problem.description}
-                    </p>
                   </div>
+
+                  {/* Stat */}
+                  <div className="text-4xl font-bold bg-gradient-to-r from-lillia-primary to-lillia-deep bg-clip-text text-transparent mb-3">
+                    {problem.stat}
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    {problem.description}
+                  </p>
                 </div>
               </div>
             );
