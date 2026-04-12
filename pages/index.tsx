@@ -1,26 +1,20 @@
 import React from 'react';
 import { AnimatedBackground } from '../components/AnimatedBackground';
-import { Navigation } from '../components/layout/Navigation';
 import { Hero } from '../components/sections/Hero';
 import { TrustBar } from '../components/sections/TrustBar';
 import { LogoMarquee } from '../components/sections/LogoMarquee';
 import { ProblemSection } from '../components/sections/ProblemSection';
-import { BannerCallout } from '../components/sections/BannerCallout';
 import { ModularPlatform } from '../components/sections/ModularPlatform';
 import { WhoItsFor } from '../components/sections/WhoItsFor';
 import { Differentiators } from '../components/sections/Differentiators';
 import { ComplianceScope } from '../components/sections/ComplianceScope';
 import { FinalCTA } from '../components/sections/FinalCTA';
-import { Footer } from '../components/layout/Footer';
 
 export default function Home() {
   return (
     <div className="min-h-screen relative">
       {/* Animated Background */}
       <AnimatedBackground />
-
-      {/* Navigation */}
-      <Navigation />
 
       {/* Main Content */}
       <main className="relative">
@@ -36,10 +30,7 @@ export default function Home() {
         {/* 3. Problem Section */}
         <ProblemSection />
 
-        {/* 4. Banner Callout */}
-        <BannerCallout />
-
-        {/* 5. Modular Platform — 7 Puzzle Pieces */}
+        {/* 5. Modular Platform — 7 Puzzle Pieces (includes merged banner callout) */}
         <ModularPlatform />
 
         {/* 7. Built for Your Practice Model */}
@@ -54,9 +45,6 @@ export default function Home() {
         {/* 12. Final CTA */}
         <FinalCTA />
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

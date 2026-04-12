@@ -105,6 +105,18 @@ export const ModularPlatform: React.FC = () => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-lillia-primary via-lillia-deep to-lillia-medium"></div>
 
       <Container>
+        {/* Merged Banner Callout Content */}
+        <div className="text-center mb-12 max-w-4xl mx-auto">
+          <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight mb-4">
+            Without a structured between-visit workflow,
+            engagement drops, care goes undocumented,
+            and your team burns out.
+          </h3>
+          <p className="text-lg text-white/80">
+            Lillia closes the gap, with or without additional clinic headcount.
+          </p>
+        </div>
+
         {/* Heading */}
         <div className="text-center mb-16 max-w-5xl mx-auto">
           <h2 className="text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">

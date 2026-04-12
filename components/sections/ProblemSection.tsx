@@ -1,27 +1,27 @@
 import React from 'react';
 import { Container } from '../ui/Container';
-import { HeartCrack, FileX, UsersRound, TrendingDown } from 'lucide-react';
+import { Heart, Clock, Users, DollarSign } from 'lucide-react';
 
 const problems = [
   {
     stat: '65%',
     description: 'of practices struggle to sustain consistent patient engagement between visits',
-    icon: HeartCrack
+    icon: Heart
   },
   {
     stat: '3+ hrs',
     description: 'per week lost to manual documentation and care tracking',
-    icon: FileX
+    icon: Clock
   },
   {
     stat: '40%',
     description: 'of care team time consumed by administrative work',
-    icon: UsersRound
+    icon: Users
   },
   {
     stat: 'Missed opportunities',
     description: 'in chronic care reimbursement quietly add up across patient panels',
-    icon: TrendingDown
+    icon: DollarSign
   }
 ];
 
@@ -42,40 +42,39 @@ export const ProblemSection: React.FC = () => {
         </div>
 
         {/* Problem Cards - 2x2 Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {problems.map((problem, index) => {
             const IconComponent = problem.icon;
             return (
               <div
                 key={index}
-                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up overflow-hidden border border-gray-100"
+                className="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up overflow-hidden"
                 style={{
                   animationDelay: `${index * 150}ms`
                 }}
               >
-                {/* Gradient accent at the top */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-lillia-primary via-lillia-medium to-lillia-deep" />
-
                 {/* Background decoration */}
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-lillia-lighter/40 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+                <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-lillia-lighter/30 to-transparent rounded-full blur-xl group-hover:scale-125 transition-transform duration-500" />
 
-                <div className="relative">
+                <div className="relative flex items-start gap-4">
                   {/* Icon with enhanced styling */}
-                  <div className="mb-6 inline-flex">
-                    <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <IconComponent className="w-8 h-8 text-white" />
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-lg shadow-md transform group-hover:scale-110 transition-all duration-300">
+                      <IconComponent className="w-6 h-6 text-white" />
                     </div>
                   </div>
 
-                  {/* Stat */}
-                  <div className="text-4xl font-bold bg-gradient-to-r from-lillia-primary to-lillia-deep bg-clip-text text-transparent mb-3">
-                    {problem.stat}
-                  </div>
+                  <div className="flex-1 min-w-0">
+                    {/* Stat */}
+                    <div className="text-2xl font-bold bg-gradient-to-r from-lillia-primary to-lillia-deep bg-clip-text text-transparent mb-2">
+                      {problem.stat}
+                    </div>
 
-                  {/* Description */}
-                  <p className="text-base text-gray-600 leading-relaxed">
-                    {problem.description}
-                  </p>
+                    {/* Description */}
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {problem.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             );

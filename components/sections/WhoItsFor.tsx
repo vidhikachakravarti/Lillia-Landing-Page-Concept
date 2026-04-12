@@ -93,13 +93,6 @@ export const WhoItsFor: React.FC = () => {
                     </div>
                   ))}
                 </div>
-
-                {/* Learn More Link */}
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <a href="#contact" className="text-sm font-semibold text-lillia-primary hover:text-lillia-deep transition-colors">
-                    Learn more →
-                  </a>
-                </div>
               </div>
             );
           })}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from '../ui/Container';
 import { Blocks, Workflow, Sparkles } from 'lucide-react';
 import { useParallax } from '../../hooks/useParallax';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const differentiators = [
   {
@@ -23,6 +24,7 @@ const differentiators = [
 
 export const Differentiators: React.FC = () => {
   const { elementRef, offset } = useParallax(0.15);
+  const { elementRef: tableRef, isVisible: tableVisible } = useScrollAnimation({ threshold: 0.3 });
 
   return (
     <section ref={elementRef} id="differentiators" className="py-24 lg:py-32 relative overflow-hidden">
@@ -80,68 +82,68 @@ export const Differentiators: React.FC = () => {
         </div>
 
         {/* Comparison Table */}
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl border-2 border-lillia-light shadow-soft-lg overflow-hidden">
+        <div ref={tableRef} className={`max-w-4xl mx-auto bg-white rounded-2xl border-2 border-lillia-light shadow-soft-lg overflow-hidden transition-all duration-1000 ${tableVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <table className="w-full">
             <thead>
               <tr className="bg-lillia-lighter/50">
                 <th className="px-6 py-4 text-left text-sm font-bold text-gray-900"></th>
-                <th className="px-6 py-4 text-center text-sm font-bold text-gray-700">Point Solutions</th>
-                <th className="px-6 py-4 text-center text-sm font-bold text-lillia-primary">Lillia</th>
+                <th className={`px-6 py-4 text-center text-sm font-bold text-gray-700 transition-all duration-700 ${tableVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`} style={{ transitionDelay: '200ms' }}>Point Solutions</th>
+                <th className={`px-6 py-4 text-center text-sm font-bold text-lillia-primary transition-all duration-700 ${tableVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`} style={{ transitionDelay: '300ms' }}>Lillia</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              <tr className="animate-table-row">
+              <tr className={`transition-all duration-700 hover:bg-lillia-lighter/30 ${tableVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`} style={{ transitionDelay: '400ms' }}>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">End-to-end chronic care workflow</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
+                  <span className={`text-red-500 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} style={{ transitionDelay: '600ms' }}>✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Partial</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
+                  <span className={`text-green-600 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-180'}`} style={{ transitionDelay: '700ms' }}>✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Full</span>
                 </td>
               </tr>
-              <tr className="animate-table-row">
+              <tr className={`transition-all duration-700 hover:bg-lillia-lighter/30 ${tableVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`} style={{ transitionDelay: '500ms' }}>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Modular - buy only what you need</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
+                  <span className={`text-red-500 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} style={{ transitionDelay: '700ms' }}>✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Bundle only</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
+                  <span className={`text-green-600 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-180'}`} style={{ transitionDelay: '800ms' }}>✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Yes</span>
                 </td>
               </tr>
-              <tr className="animate-table-row">
+              <tr className={`transition-all duration-700 hover:bg-lillia-lighter/30 ${tableVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`} style={{ transitionDelay: '600ms' }}>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">EHR + Device Interoperability</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
+                  <span className={`text-red-500 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} style={{ transitionDelay: '800ms' }}>✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Limited</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
+                  <span className={`text-green-600 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-180'}`} style={{ transitionDelay: '900ms' }}>✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Native</span>
                 </td>
               </tr>
-              <tr className="animate-table-row">
+              <tr className={`transition-all duration-700 hover:bg-lillia-lighter/30 ${tableVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`} style={{ transitionDelay: '700ms' }}>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Agentic AI throughout</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
+                  <span className={`text-red-500 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} style={{ transitionDelay: '900ms' }}>✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Rule-based</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
+                  <span className={`text-green-600 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-180'}`} style={{ transitionDelay: '1000ms' }}>✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Yes</span>
                 </td>
               </tr>
-              <tr className="animate-table-row">
+              <tr className={`transition-all duration-700 hover:bg-lillia-lighter/30 ${tableVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`} style={{ transitionDelay: '800ms' }}>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Audit-ready billing by design</td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-red-500 font-bold text-xl animate-table-mark">✗</span>
+                  <span className={`text-red-500 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} style={{ transitionDelay: '1000ms' }}>✗</span>
                   <span className="text-xs text-gray-600 block mt-1">Manual</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 font-bold text-xl animate-table-mark">✓</span>
+                  <span className={`text-green-600 font-bold text-xl transition-all duration-500 inline-block ${tableVisible ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-180'}`} style={{ transitionDelay: '1100ms' }}>✓</span>
                   <span className="text-xs text-gray-600 block mt-1">Automated</span>
                 </td>
               </tr>
