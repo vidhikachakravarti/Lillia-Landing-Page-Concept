@@ -57,17 +57,19 @@
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium rounded-lg;
     @apply bg-lillia-primary text-white;
-    @apply transition-all duration-200;
-    @apply hover:bg-lillia-deep hover:shadow-lg;
+    @apply transition-all duration-300;
+    @apply hover:bg-lillia-deep hover:shadow-xl hover:scale-105 hover:-translate-y-0.5;
     @apply focus:outline-none focus:ring-2 focus:ring-lillia-primary focus:ring-offset-2;
+    @apply active:scale-100 active:translate-y-0;
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium rounded-lg;
     @apply bg-white text-lillia-primary border-2 border-lillia-light;
-    @apply transition-all duration-200;
-    @apply hover:bg-lillia-lighter hover:border-lillia-primary;
+    @apply transition-all duration-300;
+    @apply hover:bg-lillia-lighter hover:border-lillia-primary hover:shadow-lg hover:scale-105 hover:-translate-y-0.5;
     @apply focus:outline-none focus:ring-2 focus:ring-lillia-primary focus:ring-offset-2;
+    @apply active:scale-100 active:translate-y-0;
   }
 
   /* Card patterns - Updated for US Landing Page Brief */
@@ -121,5 +123,115 @@
 
   .bg-gradient-subtle {
     @apply bg-gradient-to-br from-white via-lillia-lighter/20 to-white;
+  }
+
+  /* Animation utilities */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-10 transition-all duration-1000;
+  }
+
+  .animate-on-scroll.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-2xl hover:shadow-lillia-primary/20;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .smooth-transition {
+    @apply transition-all duration-300 ease-out;
+  }
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

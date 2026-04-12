@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const audiences = [
   {
@@ -33,11 +34,13 @@ const audiences = [
 ];
 
 export const WhoWeServe: React.FC = () => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section id="platform" className="section-padding bg-white">
+    <section ref={elementRef} id="platform" className="section-padding bg-white">
       <Container>
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-display-sm lg:text-display-md font-bold text-gray-900 mb-6">
             Built for Healthcare Systems Ready to Lead in Value-Based Care
           </h2>
@@ -46,27 +49,33 @@ export const WhoWeServe: React.FC = () => {
         {/* Audience Cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {audiences.map((audience, index) => (
-            <Card key={index} variant="feature">
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-lillia-lighter flex items-center justify-center mb-6">
-                <div className="text-lillia-primary">
-                  {audience.icon}
+            <div
+              key={index}
+              className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <Card variant="feature" className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-xl bg-lillia-lighter flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <div className="text-lillia-primary">
+                    {audience.icon}
+                  </div>
                 </div>
-              </div>
 
-              {/* Content */}
-              <h3 className="text-heading-md font-semibold text-gray-900 mb-4">
-                {audience.title}
-              </h3>
-              <p className="text-body-lg text-gray-700 leading-relaxed">
-                {audience.description}
-              </p>
-            </Card>
+                {/* Content */}
+                <h3 className="text-heading-md font-semibold text-gray-900 mb-4">
+                  {audience.title}
+                </h3>
+                <p className="text-body-lg text-gray-700 leading-relaxed">
+                  {audience.description}
+                </p>
+              </Card>
+            </div>
           ))}
         </div>
 
         {/* Secondary Message */}
-        <div className="text-center mt-12">
+        <div className={`text-center mt-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '600ms' }}>
           <p className="text-body-xl text-gray-600 font-medium">
             Whether you're at 100 or 100,000 patients, Lillia adapts to your scale.
           </p>

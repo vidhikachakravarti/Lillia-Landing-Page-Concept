@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { CheckCircle, XCircle } from 'lucide-react';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const provides = [
   'Structured patient engagement between visits',
@@ -21,11 +22,13 @@ const doesNot = [
 ];
 
 export const ComplianceScope: React.FC = () => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section id="compliance" className="py-24 lg:py-32 bg-lillia-lighter/50">
+    <section ref={elementRef} id="compliance" className="py-24 lg:py-32 bg-lillia-lighter/50">
       <Container>
         {/* Heading */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className={`text-center mb-16 max-w-3xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             What Lillia does - and what it doesn't.
           </h2>
@@ -34,9 +37,9 @@ export const ComplianceScope: React.FC = () => {
         {/* Two Columns */}
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Left: What Lillia Provides */}
-          <div className="bg-white rounded-2xl border-2 border-green-500/30 shadow-soft-lg p-8">
+          <div className={`bg-white rounded-2xl border-2 border-green-500/30 shadow-soft-lg p-8 hover:shadow-2xl hover:scale-105 transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '200ms' }}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300">
                 <CheckCircle className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">What Lillia Provides</h3>
@@ -44,7 +47,7 @@ export const ComplianceScope: React.FC = () => {
 
             <div className="space-y-3">
               {provides.map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
+                <div key={index} className={`flex items-start gap-3 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`} style={{ transitionDelay: `${400 + index * 100}ms` }}>
                   <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span className="text-base text-gray-700">{item}</span>
                 </div>
@@ -53,9 +56,9 @@ export const ComplianceScope: React.FC = () => {
           </div>
 
           {/* Right: What Lillia Does Not Do */}
-          <div className="bg-white rounded-2xl border-2 border-gray-300 shadow-soft-lg p-8">
+          <div className={`bg-white rounded-2xl border-2 border-gray-300 shadow-soft-lg p-8 hover:shadow-2xl hover:scale-105 transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '300ms' }}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gray-600 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-gray-600 rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300">
                 <XCircle className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">What Lillia Does Not Do</h3>
@@ -63,7 +66,7 @@ export const ComplianceScope: React.FC = () => {
 
             <div className="space-y-3">
               {doesNot.map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
+                <div key={index} className={`flex items-start gap-3 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'}`} style={{ transitionDelay: `${400 + index * 100}ms` }}>
                   <XCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                   <span className="text-base text-gray-700">{item}</span>
                 </div>
@@ -73,7 +76,7 @@ export const ComplianceScope: React.FC = () => {
         </div>
 
         {/* Bottom Note */}
-        <div className="text-center mt-12 max-w-3xl mx-auto">
+        <div className={`text-center mt-12 max-w-3xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '1000ms' }}>
           <p className="text-sm text-gray-600 italic">
             Clinical authority remains with the provider at all times.
             Lillia is a care management and coordination platform — not a clinical services company.

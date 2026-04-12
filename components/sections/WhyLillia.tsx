@@ -1,16 +1,19 @@
 import React from 'react';
 import { Container } from '../ui/Container';
 import { Building2, Building, Monitor, Check } from 'lucide-react';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 export const WhyLillia: React.FC = () => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.15 });
+
   return (
-    <section id="why-lillia" className="relative py-32">
+    <section ref={elementRef} id="why-lillia" className="relative py-32">
       {/* Light overlay */}
       <div className="absolute inset-0 bg-white/95 -z-10" />
 
       <Container>
         {/* Header */}
-        <div className="relative z-10 text-center mb-16">
+        <div className={`relative z-10 text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-5xl font-bold text-gray-900 mb-4 max-w-3xl mx-auto">
             Revenue Today.<br />
             <span className="text-gradient-purple">Ready for Evolving Models.</span>
@@ -18,9 +21,9 @@ export const WhyLillia: React.FC = () => {
         </div>
 
         {/* Supports Pills */}
-        <div className="flex flex-wrap justify-center gap-4 mb-20">
+        <div className={`flex flex-wrap justify-center gap-4 mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
           {['Chronic Care Management', 'Remote patient engagement', 'Transitional care', 'Advanced primary care'].map((item, i) => (
-            <div key={i} className="px-6 py-3 bg-gradient-to-r from-lillia-primary to-lillia-medium text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow">
+            <div key={i} className="px-6 py-3 bg-gradient-to-r from-lillia-primary to-lillia-medium text-white rounded-full font-medium shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
               {item}
             </div>
           ))}
