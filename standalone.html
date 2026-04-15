@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lillia - AI-Powered Chronic Care at Scale</title>
+    <meta name="description" content="Agentic AI infrastructure that helps healthcare systems manage chronic patients between visits—safely, continuously, and at scale.">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+        /* Tailwind Base + Components - Minified */
+        *,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent;scroll-behavior:smooth}body{margin:0;line-height:inherit;font-family:Lato,system-ui,sans-serif;color:rgb(17 24 39);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}hr{height:0;color:inherit;border-top-width:1px}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:600;letter-spacing:-.025em}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}
+
+        /* Container */
+        .container{max-width:80rem;margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem}@media(min-width:1024px){.container{padding-left:2rem;padding-right:2rem}}
+
+        /* Utilities - All classes from the generated CSS that are actually used */
+        .fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.-z-10{z-index:-10}.z-10{z-index:10}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-24{margin-bottom:6rem}.mt-3{margin-top:.75rem}.mt-12{margin-top:3rem}.mt-16{margin-top:4rem}.mt-24{margin-top:6rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.min-h-screen{min-height:100vh}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-20{width:5rem}.w-32{width:8rem}.w-48{width:12rem}.w-96{width:24rem}.w-full{width:100%}.w-fit{width:fit-content}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-0{--tw-translate-y:0px;transform:translate(var(--tw-translate-x),var(--tw-translate-y))}.translate-y-10{--tw-translate-y:2.5rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))}.translate-x-0{--tw-translate-x:0px;transform:translate(var(--tw-translate-x),var(--tw-translate-y))}.-translate-x-10{--tw-translate-x:-2.5rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))}.translate-x-10{--tw-translate-x:2.5rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-t-4{border-top-width:4px}.border-lillia-primary{border-color:rgb(59 20 201)}.border-lillia-light{border-color:rgb(201 184 245)}.border-white\/20{border-color:rgba(255,255,255,.2)}.bg-white{background-color:rgb(255 255 255)}.bg-lillia-primary{background-color:rgb(59 20 201)}.bg-lillia-deep{background-color:rgb(26 15 107)}.bg-lillia-light{background-color:rgb(201 184 245)}.bg-lillia-lighter{background-color:rgb(243 240 255)}.bg-lillia-lighter\/50{background-color:rgba(243,240,255,.5)}.bg-lillia-deep\/85{background-color:rgba(26,15,107,.85)}.bg-white\/10{background-color:rgba(255,255,255,.1)}.bg-white\/20{background-color:rgba(255,255,255,.2)}.bg-green-50{background-color:rgb(240 253 244)}.bg-green-100{background-color:rgb(220 252 231)}.bg-gray-50{background-color:rgb(249 250 251)}.bg-gray-100{background-color:rgb(243 244 246)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-neutral-50{--tw-gradient-from:#fafafa;--tw-gradient-stops:var(--tw-gradient-from),rgba(250,250,250,0)}.from-lillia-primary{--tw-gradient-from:#3b14c9;--tw-gradient-stops:var(--tw-gradient-from),rgba(59,20,201,0)}.from-lillia-deep{--tw-gradient-from:#1a0f6b;--tw-gradient-stops:var(--tw-gradient-from),rgba(26,15,107,0)}.from-lillia-deep\/95{--tw-gradient-from:rgba(26,15,107,.95);--tw-gradient-stops:var(--tw-gradient-from),rgba(26,15,107,0)}.from-lillia-lighter{--tw-gradient-from:#f3f0ff;--tw-gradient-stops:var(--tw-gradient-from),rgba(243,240,255,0)}.from-green-50{--tw-gradient-from:#f0fdf4;--tw-gradient-stops:var(--tw-gradient-from),rgba(240,253,244,0)}.from-green-500{--tw-gradient-from:#22c55e;--tw-gradient-stops:var(--tw-gradient-from),rgba(34,197,94,0)}.from-gray-600{--tw-gradient-from:#4b5563;--tw-gradient-stops:var(--tw-gradient-from),rgba(75,85,99,0)}.via-white{--tw-gradient-stops:var(--tw-gradient-from),#fff,rgba(255,255,255,0)}.via-lillia-deep{--tw-gradient-stops:var(--tw-gradient-from),#1a0f6b,rgba(26,15,107,0)}.via-lillia-primary{--tw-gradient-stops:var(--tw-gradient-from),#3b14c9,rgba(59,20,201,0)}.via-lillia-primary\/90{--tw-gradient-stops:var(--tw-gradient-from),rgba(59,20,201,.9),rgba(59,20,201,0)}.to-white{--tw-gradient-to:#fff}.to-lillia-lighter\/10{--tw-gradient-to:rgba(243,240,255,.1)}.to-lillia-peach\/20{--tw-gradient-to:rgba(255,210,187,.2)}.to-lillia-medium{--tw-gradient-to:#9f7bff}.to-lillia-medium\/95{--tw-gradient-to:rgba(159,123,255,.95)}.to-lillia-deep{--tw-gradient-to:#1a0f6b}.to-green-600{--tw-gradient-to:#16a34a}.to-gray-700{--tw-gradient-to:#374151}.to-transparent{--tw-gradient-to:transparent}.p-3{padding:.75rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-10{padding:2.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-32{padding-top:8rem;padding-bottom:8rem}.pt-32{padding-top:8rem}.text-center{text-align:center}.text-sm{font-size:.875rem;line-height:1.25rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-7xl{font-size:4.5rem;line-height:1}.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-tight{line-height:1.25}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-white{color:rgb(255 255 255)}.text-white\/50{color:rgba(255,255,255,.5)}.text-white\/80{color:rgba(255,255,255,.8)}.text-white\/90{color:rgba(255,255,255,.9)}.text-gray-600{color:rgb(75 85 99)}.text-gray-700{color:rgb(55 65 81)}.text-gray-900{color:rgb(17 24 39)}.text-green-600{color:rgb(22 163 74)}.text-red-500{color:rgb(239 68 68)}.text-lillia-primary{color:rgb(59 20 201)}.text-lillia-light{color:rgb(201 184 245)}.text-lillia-deep{color:rgb(26 15 107)}.text-text-dark{color:rgb(26 26 46)}.text-transparent{color:transparent}.underline{text-decoration-line:underline}.opacity-0{opacity:0}.opacity-15{opacity:.15}.opacity-20{opacity:.2}.opacity-60{opacity:.6}.opacity-100{opacity:1}.shadow-soft{box-shadow:0 1px 3px rgba(0,0,0,.05)}.shadow-soft-lg{box-shadow:0 4px 12px rgba(0,0,0,.08)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}.blur-3xl{filter:blur(64px)}.backdrop-blur-md{backdrop-filter:blur(12px)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-duration:.15s}.transition-all{transition-property:all;transition-duration:.15s}.transition-transform{transition-property:transform;transition-duration:.15s}.duration-75{transition-duration:75ms}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.duration-700{transition-duration:.7s}.duration-1000{transition-duration:1s}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-12{gap:3rem}.space-y-3>:not([hidden])~:not([hidden]){margin-top:.75rem}.space-y-4>:not([hidden])~:not([hidden]){margin-top:1rem}.flex-col{flex-direction:column}.divide-y>:not([hidden])~:not([hidden]){border-top-width:1px}.divide-gray-200>:not([hidden])~:not([hidden]){border-color:rgb(229 231 235)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{object-fit:cover}
+
+        /* Button Components */
+        .btn-primary{display:inline-flex;align-items:center;justify-content:center;border-radius:.5rem;padding:.875rem 2rem;font-size:.875rem;line-height:1.25rem;font-weight:500;background-color:rgb(59 20 201);color:rgb(255 255 255);transition:all .3s;text-decoration:none}.btn-primary:hover{transform:translateY(-2px) scale(1.05);background-color:rgb(26 15 107);box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}.btn-secondary{display:inline-flex;align-items:center;justify-content:center;border-radius:.5rem;padding:.875rem 2rem;font-size:.875rem;line-height:1.25rem;font-weight:500;border:2px solid rgb(201 184 245);background-color:rgb(255 255 255);color:rgb(59 20 201);transition:all .3s;text-decoration:none}.btn-secondary:hover{transform:translateY(-2px) scale(1.05);border-color:rgb(59 20 201);background-color:rgb(243 240 255);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
+
+        /* Animations */
+        @keyframes float-slow{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.05)}66%{transform:translate(-20px,20px) scale(.95)}}@keyframes float-medium{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,40px) scale(1.1)}}@keyframes float-fast{0%,100%{transform:translate(-50%,0) scale(1)}33%{transform:translate(calc(-50% + 25px),-25px) scale(1.08)}66%{transform:translate(calc(-50% - 25px),25px) scale(.92)}}@keyframes float-reverse{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(35px,-35px) scale(1.1)}}@keyframes float-slow-reverse{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-25px,25px) scale(1.05)}66%{transform:translate(25px,-25px) scale(.95)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes slideInLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}@keyframes slideInRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        .animate-float-slow{animation:float-slow 20s ease-in-out infinite}.animate-float-medium{animation:float-medium 15s ease-in-out infinite}.animate-float-fast{animation:float-fast 12s ease-in-out infinite}.animate-float-reverse{animation:float-reverse 18s ease-in-out infinite}.animate-float-slow-reverse{animation:float-slow-reverse 22s ease-in-out infinite}.animate-fadeIn{animation:fadeIn .8s ease-out forwards;opacity:0}.animate-fadeInUp{animation:fadeInUp .8s ease-out forwards;opacity:0}.animate-slideInLeft{animation:slideInLeft 1s ease-out forwards}.animate-slideInRight{animation:slideInRight 1s ease-out forwards}.animate-scroll{animation:scroll 30s linear infinite}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+        /* Logo scroll mask */
+        .logo-scroll-wrapper{-webkit-mask-image:linear-gradient(to right,transparent 0%,black 15%,black 85%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 15%,black 85%,transparent 100%)}
+
+        /* Responsive */
+        @media(min-width:640px){.sm\\:flex-row{flex-direction:row}}@media(min-width:768px){.md\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(min-width:1024px){.lg\\:block{display:block}.lg\\:hidden{display:none}.lg\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\\:text-3xl{font-size:1.875rem;line-height:2.25rem}.lg\\:text-4xl{font-size:2.25rem;line-height:2.5rem}.lg\\:text-5xl{font-size:3rem;line-height:1}.lg\\:text-6xl{font-size:3.75rem;line-height:1}.lg\\:text-7xl{font-size:4.5rem;line-height:1}.lg\\:py-32{padding-top:8rem;padding-bottom:8rem}.lg\\:gap-12{gap:3rem}}
+
+        /* Custom styles for video cards */
+        .bento-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.25rem;grid-auto-rows:320px;max-width:80rem;margin:0 auto}.bento-card{position:relative;border-radius:20px;overflow:hidden;opacity:0;transform:translateY(20px);transition:all .6s cubic-bezier(.16,1,.3,1);box-shadow:0 1px 3px rgba(0,0,0,.05),0 8px 24px -8px rgba(59,20,201,.1)}.bento-card.visible{opacity:1;transform:translateY(0)}.bento-card:hover{transform:translateY(-3px);box-shadow:0 2px 6px rgba(0,0,0,.06),0 16px 48px -12px rgba(59,20,201,.18)}.bento-card:nth-child(1){grid-column:1/span 3;grid-row:1}.bento-card:nth-child(2){grid-column:4/span 3;grid-row:1}.bento-card:nth-child(3){grid-column:1/span 2;grid-row:2}.bento-card:nth-child(4){grid-column:3/span 2;grid-row:2}.bento-card:nth-child(5){grid-column:5/span 2;grid-row:2}.bento-card:nth-child(6){grid-column:1/span 3;grid-row:3}.bento-card:nth-child(7){grid-column:4/span 3;grid-row:3}.card-image{position:absolute;inset:0;z-index:0}.card-image video,.card-image img{width:100%;height:100%;object-fit:cover}.image-gradient{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.7) 0%,rgba(255,255,255,.5) 50%,rgba(0,0,0,.4) 100%);z-index:1;transition:opacity .3s}.bento-card:hover .image-gradient{background:linear-gradient(to bottom,rgba(255,255,255,.75) 0%,rgba(255,255,255,.55) 50%,rgba(0,0,0,.45) 100%)}.card-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:2.25rem}.chip{display:inline-block;align-self:flex-start;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.95);color:#7848FE;padding:.5rem 1rem;border-radius:100px;backdrop-filter:blur(12px);border:1px solid rgba(120,72,254,.3);box-shadow:0 2px 8px rgba(0,0,0,.1)}.card-title{font-family:'Lato',sans-serif;font-size:1.625rem;font-weight:700;color:#280470;line-height:1.25;letter-spacing:-.01em;margin-bottom:.5rem}.card-outcome{font-size:1rem;font-weight:500;font-style:italic;color:#1A1A2E;line-height:1.5;max-width:90%;text-shadow:0 1px 2px rgba(255,255,255,.95),0 2px 4px rgba(255,255,255,.8),0 0 1px rgba(255,255,255,1);background-color:rgba(255,255,255,.6);padding:.5rem .75rem;border-radius:8px;backdrop-filter:blur(8px)}@media(max-width:1024px){.bento-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:300px;gap:1rem}.bento-card{grid-column:span 1!important;grid-row:auto!important}.bento-card:nth-child(5){grid-column:span 2!important}}@media(max-width:640px){.bento-grid{grid-template-columns:1fr;grid-auto-rows:320px;gap:1rem}.bento-card{grid-column:span 1!important;grid-row:span 1!important}.card-title{font-size:1.375rem}.card-content{padding:1.75rem}}
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="fixed inset-0 -z-10 bg-gradient-to-br from-neutral-50 via-white to-lillia-lighter/10"></div>
+    <div class="fixed inset-0 -z-10 opacity-15" style="background-image:radial-gradient(circle,#7848FE 1px,transparent 1px);background-size:40px 40px"></div>
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-20 blur-3xl animate-float-slow" style="background:radial-gradient(circle at center,rgba(120,72,254,0.4) 0%,rgba(120,72,254,0.1) 50%,transparent 100%)"></div>
+        <div class="absolute top-1/3 -left-32 w-96 h-96 rounded-full opacity-20 blur-3xl animate-float-medium" style="background:radial-gradient(circle at center,rgba(159,123,255,0.35) 0%,rgba(159,123,255,0.1) 50%,transparent 100%)"></div>
+        <div class="absolute bottom-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full opacity-15 blur-3xl animate-float-fast" style="background:radial-gradient(circle at center,rgba(255,210,187,0.5) 0%,rgba(255,210,187,0.15) 50%,transparent 100%)"></div>
+        <div class="absolute top-2/3 right-1/4 w-96 h-96 rounded-full opacity-15 blur-3xl animate-float-reverse" style="background:radial-gradient(circle at center,rgba(211,185,249,0.4) 0%,rgba(211,185,249,0.1) 50%,transparent 100%)"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl animate-float-slow-reverse" style="background:radial-gradient(circle at center,rgba(120,72,254,0.3) 0%,transparent 70%)"></div>
+    </div>
+
+    <main class="relative">
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center overflow-hidden animate-fadeIn">
+            <div class="absolute inset-0 -z-10">
+                <div class="absolute inset-0 opacity-60" style="background-image:url(assets/hero-background.svg);background-size:cover;background-position:center;background-repeat:no-repeat"></div>
+            </div>
+
+            <div class="container">
+                <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center py-20 pt-32">
+                    <div class="animate-slideInLeft">
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-lillia-deep animate-fadeInUp" style="animation-delay:0.1s">
+                            Turn Remote Chronic Care Into Predictable Revenue.
+                        </h1>
+
+                        <p class="text-xl text-text-dark mb-8 leading-relaxed animate-fadeInUp" style="animation-delay:0.2s">
+                            Your chronic care patients need consistent support between visits.<br>
+                            Lillia makes it structured, documented, and reimbursable.<br>
+                            Without adding to your team's workload.
+                        </p>
+
+                        <div class="flex flex-col gap-3 mb-10">
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-lighter border border-lillia-light text-lillia-primary text-sm font-medium w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeInUp" style="animation-delay:0.3s">
+                                <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Improve Patient Outcomes
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-lighter border border-lillia-light text-lillia-primary text-sm font-medium w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeInUp" style="animation-delay:0.4s">
+                                <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Automate Documentation
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lillia-lighter border border-lillia-light text-lillia-primary text-sm font-medium w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeInUp" style="animation-delay:0.5s">
+                                <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Capture Reimbursable Care
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 animate-fadeInUp" style="animation-delay:0.6s">
+                            <a href="https://www.lilliacare.ai/contact" class="btn-primary text-base px-8 py-4">Book a Demo</a>
+                            <a href="#platform" class="btn-secondary text-base px-8 py-4">See How It Works →</a>
+                        </div>
+                    </div>
+
+                    <div class="relative hidden lg:block animate-slideInRight">
+                        <div class="relative">
+                            <div class="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-2 shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-3xl animate-fadeIn" style="animation-delay:0.4s">
+                                <div class="bg-white rounded-lg overflow-hidden">
+                                    <img src="assets/dashboard-screenshot.png" alt="Lillia Dashboard" class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div class="absolute -bottom-12 -right-8 w-48 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-2 shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-3xl animate-fadeIn" style="animation-delay:0.7s">
+                                <div style="aspect-ratio:9/19" class="bg-white rounded-2xl overflow-hidden">
+                                    <img src="assets/patient-app-screenshot.jpeg" alt="Lillia Patient App" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section class="relative py-24 overflow-hidden">
+            <div class="absolute inset-0 -z-10">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                    <source src="assets/trust-background.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-lillia-deep/85"></div>
+            </div>
+
+            <div class="container">
+                <div class="relative z-10">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-2">Trusted. Proven. Next-gen.</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        <div class="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white\/15 transition-all text-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm leading-relaxed">Two comprehensive ADA-published studies demonstrated meaningful impact on A1c, weight, and adherence.</p>
+                                <div class="flex gap-3 mt-3 justify-center">
+                                    <a href="https://diabetesjournals.org/diabetes/article/71/Supplement_1/71-LB/146190/71-LB-Real-World-Evidence-of-Arabic-Digital" target="_blank" rel="noopener noreferrer" class="text-lillia-light hover:text-white text-xs font-semibold underline">Study 1</a>
+                                    <span class="text-white/50 text-xs">·</span>
+                                    <a href="https://diabetesjournals.org/diabetes/article/73/Supplement_1/1935-LB/156226/1935-LB-Integrated-Model-of-Digital-Health-and" target="_blank" rel="noopener noreferrer" class="text-lillia-light hover:text-white text-xs font-semibold underline">Study 2</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all text-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm leading-relaxed">Recognized by TIME and Statista among the <a href="https://time.com/7318020/worlds-top-healthtech-companies-2025/" target="_blank" rel="noopener noreferrer" class="text-lillia-light hover:text-white font-semibold underline">World's Top HealthTech Companies 2025</a> in AI & Data Analytics, with a 'Very High' performance rating.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all text-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm leading-relaxed"><a href="https://www.lilliacare.ai/clients#anchors-mg9hvw3a3" target="_blank" rel="noopener noreferrer" class="text-lillia-light hover:text-white font-semibold underline">Globally trusted by providers and payers</a> as a next-generation population health engine for value-based care.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-16">
+                        <p class="text-xl text-white font-medium">With 50,000+ patients served across 500+ clinics, the results are consistent.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logo Marquee -->
+        <section class="py-12 bg-white overflow-hidden">
+            <div class="container">
+                <div class="relative">
+                    <div class="flex items-center logo-scroll-wrapper">
+                        <div class="flex animate-scroll">
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-qlm.png" alt="QLM" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-drbatras.png" alt="Dr Batra's" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-jiva.png" alt="Jiva Ayurveda" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-shuddhi.png" alt="Shuddhi" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-apollo.png" alt="Apollo" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-globant.png" alt="Globant" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-phc.png" alt="PHC" class="max-w-full max-h-full object-contain"></div></div>
+                            <!-- Duplicate for seamless loop -->
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-qlm.png" alt="QLM" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-drbatras.png" alt="Dr Batra's" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-jiva.png" alt="Jiva Ayurveda" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-shuddhi.png" alt="Shuddhi" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-apollo.png" alt="Apollo" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-globant.png" alt="Globant" class="max-w-full max-h-full object-contain"></div></div>
+                            <div class="flex-shrink-0 mx-8"><div class="relative h-16 w-32 flex items-center justify-center"><img src="assets/logo-phc.png" alt="PHC" class="max-w-full max-h-full object-contain"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="py-24 lg:py-32 relative bg-gradient-to-br from-lillia-lighter via-white to-lillia-peach/20">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">You're delivering chronic care.<br>But what happens between visits?</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed">Care is continuous but without structured support between appointments, documentation, engagement, and reimbursable time fall through the cracks.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <div class="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-lillia-lighter/30 to-transparent rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+                        <div class="relative flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-lg shadow-md transform group-hover:scale-110 transition-all duration-300">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-2xl font-bold bg-gradient-to-r from-lillia-primary to-lillia-deep bg-clip-text text-transparent mb-2">65%</div>
+                                <p class="text-sm text-gray-600 leading-relaxed">of practices struggle to sustain consistent patient engagement between visits</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-lillia-lighter/30 to-transparent rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+                        <div class="relative flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-lg shadow-md transform group-hover:scale-110 transition-all duration-300">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-2xl font-bold bg-gradient-to-r from-lillia-primary to-lillia-deep bg-clip-text text-transparent mb-2">3+ hrs</div>
+                                <p class="text-sm text-gray-600 leading-relaxed">per week lost to manual documentation and care tracking</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-lillia-lighter/30 to-transparent rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+                        <div class="relative flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-lg shadow-md transform group-hover:scale-110 transition-all duration-300">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-2xl font-bold bg-gradient-to-r from-lillia-primary to-lillia-deep bg-clip-text text-transparent mb-2">40%</div>
+                                <p class="text-sm text-gray-600 leading-relaxed">of care team time consumed by administrative work</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-lillia-lighter/30 to-transparent rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+                        <div class="relative flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-lg shadow-md transform group-hover:scale-110 transition-all duration-300">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="text-2xl font-bold bg-gradient-to-r from-lillia-primary to-lillia-deep bg-clip-text text-transparent mb-2">Missed opportunities</div>
+                                <p class="text-sm text-gray-600 leading-relaxed">in chronic care reimbursement quietly add up across patient panels</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modular Platform -->
+        <section id="platform" class="py-24 lg:py-32 relative overflow-hidden">
+            <div class="absolute inset-0 -z-10 bg-gradient-to-br from-lillia-primary via-lillia-deep to-lillia-medium"></div>
+
+            <div class="container">
+                <div class="text-center mb-12 max-w-4xl mx-auto">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-white leading-tight mb-4">Without a structured between-visit workflow, engagement drops, care goes undocumented, and your team burns out.</h3>
+                    <p class="text-lg text-white/80">Lillia closes the gap, with or without additional clinic headcount.</p>
+                </div>
+
+                <div class="text-center mb-16 max-w-5xl mx-auto">
+                    <h2 class="text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6">One platform.</h2>
+                    <h2 class="text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6">End-to-end chronic care.</h2>
+                    <h2 class="text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-8">Built to fit the way your practice works.</h2>
+                    <p class="text-xl text-white/90 leading-relaxed font-light">Choose the pieces that fit your practice. Or take the full picture. Lillia is designed in modular components, so you can start with what you need and expand as your chronic care program grows. Each piece works independently. All seven work together seamlessly.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-card" data-index="0">
+                        <div class="card-image">
+                            <video autoplay loop muted playsinline><source src="patient-agentic-app.mp4" type="video/mp4"></video>
+                            <div class="image-gradient"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="chip">Patient-Facing</div>
+                            <h3 class="card-title">Patient Agentic App</h3>
+                            <p class="card-outcome">Keep patients activated between visits.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-index="1">
+                        <div class="card-image">
+                            <video autoplay loop muted playsinline><source src="automated-call.mp4" type="video/mp4"></video>
+                            <div class="image-gradient"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="chip">Workflow Automation</div>
+                            <h3 class="card-title">AI Voice Calling</h3>
+                            <p class="card-outcome">Automated outreach that frees your staff for what matters.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-index="2">
+                        <div class="card-image">
+                            <video autoplay loop muted playsinline><source src="timetracking.mp4" type="video/mp4"></video>
+                            <div class="image-gradient"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="chip">Care Documentation</div>
+                            <h3 class="card-title">Time Tracking</h3>
+                            <p class="card-outcome">Every minute of care — captured automatically.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-index="3">
+                        <div class="card-image">
+                            <video autoplay loop muted playsinline><source src="execution-os.mp4" type="video/mp4"></video>
+                            <div class="image-gradient"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="chip">Care Operations</div>
+                            <h3 class="card-title">Execution OS</h3>
+                            <p class="card-outcome">Run your entire chronic care program from one console.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-index="4">
+                        <div class="card-image">
+                            <video autoplay loop muted playsinline><source src="bill-generation.mp4" type="video/mp4"></video>
+                            <div class="image-gradient"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="chip">Revenue Operations</div>
+                            <h3 class="card-title">Bill Generation</h3>
+                            <p class="card-outcome">From care activity to clean claims, without manual work.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-index="5">
+                        <div class="card-image">
+                            <video autoplay loop muted playsinline><source src="device-connectivity.mp4" type="video/mp4"></video>
+                            <div class="image-gradient"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="chip">Remote Monitoring</div>
+                            <h3 class="card-title">Device Connectivity</h3>
+                            <p class="card-outcome">FDA-approved devices. Real-time data. Zero logistics burden.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card" data-index="6">
+                        <div class="card-image">
+                            <video autoplay loop muted playsinline><source src="patient-chat.mp4" type="video/mp4"></video>
+                            <div class="image-gradient"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="chip">Patient Engagement</div>
+                            <h3 class="card-title">Patient Connect via Chat</h3>
+                            <p class="card-outcome">Keep patients close — without adding to your team's workload.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-24">
+                    <p class="text-2xl font-medium text-white">Pick one piece. Pick three. Or take the whole puzzle.<br>It all fits together.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who It's For -->
+        <section class="py-24 lg:py-32 bg-white">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <span class="text-xs font-bold tracking-wider text-lillia-primary uppercase">Who It's Built For</span>
+                </div>
+
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">Lillia fits the way your practice is structured.</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white border-t-4 border-lillia-primary rounded-xl p-8 shadow-soft hover:shadow-soft-lg transition-all group">
+                        <div class="inline-block mb-4">
+                            <span class="text-xs font-bold tracking-wider text-lillia-primary bg-lillia-lighter px-3 py-1 rounded-full uppercase">Independent Practice</span>
+                        </div>
+                        <div class="w-12 h-12 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-6 leading-tight">Run a chronic care program without running your team ragged</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Capture CCM and RPM reimbursement without hiring new staff</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Enroll patients with minimal physician time (~15 min per cohort)</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Lillia handles enrollment, devices, documentation, and billing prep</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Start with as few as 25 patients. See results in 60 days.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border-t-4 border-lillia-primary rounded-xl p-8 shadow-soft hover:shadow-soft-lg transition-all group">
+                        <div class="inline-block mb-4">
+                            <span class="text-xs font-bold tracking-wider text-lillia-primary bg-lillia-lighter px-3 py-1 rounded-full uppercase">Health Systems</span>
+                        </div>
+                        <div class="w-12 h-12 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-6 leading-tight">Standardize chronic care across every site — at scale</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Consistent care protocols and documentation across all locations</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Panel-level visibility and performance tracking</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Interoperable with Athena, Epic, Cerner, and eClinicalWorks</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Configurable per specialty or site — not one-size-fits-all</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border-t-4 border-lillia-primary rounded-xl p-8 shadow-soft hover:shadow-soft-lg transition-all group">
+                        <div class="inline-block mb-4">
+                            <span class="text-xs font-bold tracking-wider text-lillia-primary bg-lillia-lighter px-3 py-1 rounded-full uppercase">Digital Health Partners</span>
+                        </div>
+                        <div class="w-12 h-12 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-6 leading-tight">Embed a chronic care infrastructure into your platform</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Modular APIs and white-label options for embedded deployment</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">AI Voice, Device Connectivity, and Billing modules available independently</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Built for interoperability — plug into existing clinical and data stacks</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-lillia-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span class="text-sm text-gray-700">Co-branded patient experience available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Differentiators -->
+        <section class="py-24 lg:py-32 relative overflow-hidden">
+            <div class="absolute inset-0 -z-10" style="background:linear-gradient(-45deg,#FFF5F7,#FFE5EC,#F3E8FF,#E9D5FF,#FFE5EC,#FFF5F7);background-size:400% 400%;animation:gradientShift 15s ease infinite"></div>
+
+            <div class="container">
+                <div class="text-center mb-4">
+                    <span class="text-xs font-bold tracking-wider text-lillia-primary uppercase">What Sets Lillia Apart</span>
+                </div>
+
+                <div class="text-center mb-6 max-w-4xl mx-auto">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">Not just another chronic care point solution.</h2>
+                    <p class="text-xl text-gray-600 leading-relaxed">Most platforms solve one part of chronic care. Lillia is built to run all of it, end-to-end, modularly, and AI-first from the ground up.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mt-16 mb-20">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Modular</h3>
+                        <p class="text-base text-gray-700 leading-relaxed">Choose one module or all six. Lillia is designed to grow with your program, not lock you into a fixed configuration from day one.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Interoperable</h3>
+                        <p class="text-base text-gray-700 leading-relaxed">Lillia integrates with the systems you already run. No rip-and-replace. No siloed data. One connected chronic care layer.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-lillia-primary to-lillia-deep rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">AI-First</h3>
+                        <p class="text-base text-gray-700 leading-relaxed">Agentic AI runs the enrollment, drives the coaching, and powers the clinical triage, while keeping human providers in authority over every clinical decision.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-white rounded-2xl border-2 border-lillia-light shadow-soft-lg overflow-hidden transition-all duration-1000 scroll-animate">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-lillia-lighter/50">
+                                <th class="px-6 py-4 text-left text-sm font-bold text-gray-900"></th>
+                                <th class="px-6 py-4 text-center text-sm font-bold text-gray-700">Point Solutions</th>
+                                <th class="px-6 py-4 text-center text-sm font-bold text-lillia-primary">Lillia</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-lillia-lighter/30">
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">End-to-end chronic care workflow</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-red-500 font-bold text-xl">✗</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Partial</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 font-bold text-xl">✓</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Full</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-lillia-lighter/30">
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">Modular - buy only what you need</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-red-500 font-bold text-xl">✗</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Bundle only</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 font-bold text-xl">✓</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Yes</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-lillia-lighter/30">
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">EHR + Device Interoperability</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-red-500 font-bold text-xl">✗</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Limited</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 font-bold text-xl">✓</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Native</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-lillia-lighter/30">
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">Agentic AI throughout</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-red-500 font-bold text-xl">✗</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Rule-based</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 font-bold text-xl">✓</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Yes</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-lillia-lighter/30">
+                                <td class="px-6 py-4 text-sm font-medium text-gray-900">Audit-ready billing by design</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-red-500 font-bold text-xl">✗</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Manual</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 font-bold text-xl">✓</span>
+                                    <span class="text-xs text-gray-600 block mt-1">Automated</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance Scope -->
+        <section class="py-24 lg:py-32 bg-lillia-lighter/50">
+            <div class="container">
+                <div class="text-center mb-16 max-w-3xl mx-auto scroll-animate">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">What Lillia does - and what it doesn't.</h2>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <div class="relative bg-gradient-to-br from-green-50 to-white rounded-3xl shadow-lg p-10 hover:shadow-2xl transition-all duration-500 overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/20 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
+
+                        <div class="relative">
+                            <div class="mb-8">
+                                <div class="inline-flex items-center gap-4 mb-4">
+                                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-900">What Lillia Provides</h3>
+                                </div>
+                                <div class="h-1 w-20 bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Structured patient engagement between visits</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Automated documentation and time tracking</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">CMS-compliant billing and claims preparation</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Remote device monitoring and data capture</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">AI-powered coaching and lifestyle support</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Modular deployment - configure to your workflow</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">HIPAA-compliant infrastructure, end to end</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-lg p-10 hover:shadow-2xl transition-all duration-500 overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-400/20 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
+
+                        <div class="relative">
+                            <div class="mb-8">
+                                <div class="inline-flex items-center gap-4 mb-4">
+                                    <div class="w-14 h-14 bg-gradient-to-br from-gray-600 to-gray-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-900">What Lillia Does Not Do</h3>
+                                </div>
+                                <div class="h-1 w-20 bg-gradient-to-r from-gray-500 to-gray-400 rounded-full"></div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Diagnose or treat patients</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Prescribe medications or recommend drug changes</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Provide clinical decision support</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Replace the ordering or supervising clinician</span>
+                                </div>
+                                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/50 transition-all duration-300">
+                                    <div class="w-6 h-6 flex-shrink-0 mt-0.5">
+                                        <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-base text-gray-700 leading-relaxed">Intervene without provider oversight</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 max-w-3xl mx-auto scroll-animate">
+                    <p class="text-sm text-gray-600 italic">Clinical authority remains with the provider at all times. Lillia is a care management and coordination platform - not a clinical services company.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="relative py-32 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-lillia-deep/95 via-lillia-primary/90 to-lillia-medium/95 -z-10"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent -z-10"></div>
+
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-lillia-light/20 rounded-full blur-3xl animate-pulse -z-10"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-lillia-peach/20 rounded-full blur-3xl animate-pulse -z-10" style="animation-delay:1.5s;animation-duration:4s"></div>
+
+            <div class="container">
+                <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">Ready to see how it fits your practice?</h2>
+
+                    <p class="text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">Book a demo to understand which modules match your patient panel, your practice model, and your current workflow.</p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+                        <a href="https://www.lilliacare.ai/contact" class="btn-primary bg-white text-lillia-primary hover:bg-lillia-lighter hover:shadow-2xl text-lg px-10 py-4 flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            Book a Demo
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-white/80">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            <span>HIPAA Compliant</span>
+                        </div>
+                        <div class="w-px h-4 bg-white/30"></div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span>Serving 500+ Clinics Globally</span>
+                        </div>
+                        <div class="w-px h-4 bg-white/30"></div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span>Recognized by TIME as World's Top HealthTech Companies 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Bento card visibility on scroll
+        const bentoObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('.bento-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const platformSection = document.querySelector('#platform');
+        if (platformSection) {
+            bentoObserver.observe(platformSection);
+        }
+
+        // Scroll animations
+        const scrollAnimateObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.scroll-animate').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'opacity 1s, transform 1s';
+            scrollAnimateObserver.observe(el);
+        });
+
+        // Gradient animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes gradientShift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
